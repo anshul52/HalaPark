@@ -5,7 +5,8 @@ import { AppProvider } from "@/context/AppContext";
 
 export const metadata = {
   title: "HalaPark - Production Ready Next.js App",
-  description: "A production-ready Next.js application built with modern best practices",
+  description:
+    "A production-ready Next.js application built with modern best practices",
 };
 
 export default function RootLayout({ children }) {
@@ -17,9 +18,7 @@ export default function RootLayout({ children }) {
       >
         <AppProvider>
           <Navbar />
-          <main className="grow">
-            {children}
-          </main>
+          <main className="grow">{children}</main>
           <Footer />
         </AppProvider>
       </body>

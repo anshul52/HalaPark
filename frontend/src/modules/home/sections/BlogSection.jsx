@@ -2,24 +2,27 @@ export default function BlogSection() {
   const blogPosts = [
     {
       id: 1,
-      category: 'CRM',
-      title: 'How Customer Relationships Will Evolve in 2024',
-      description: 'Not all CRMs are built the same. Learn what really based on your business size & needs.',
-      image: '📊',
+      category: "CRM",
+      title: "How Customer Relationships Will Evolve in 2024",
+      description:
+        "Not all CRMs are built the same. Learn what really based on your business size & needs.",
+      image: "/imgi_180_1kzCxED38jsjIKuhRBA6i4NjDGw.png",
     },
     {
       id: 2,
-      category: 'Productivity',
-      title: '7 Sales Tasks You Should Automate Today',
-      description: 'Stop wasting hours on manual follow-ups. Learn the workflows that top teams run on autopilot.',
-      image: '⚙️',
+      category: "Productivity",
+      title: "7 Sales Tasks You Should Automate Today",
+      description:
+        "Stop wasting hours on manual follow-ups. Learn the workflows that top teams run on autopilot.",
+      image: "/imgi_183_duJmg8i6Rpv49UWkPseSAewzew.png",
     },
     {
       id: 3,
-      category: 'Growth',
-      title: 'How to Scale from 10 to 10,000 Contacts',
-      description: 'A playbook for turning early traction into long-term customer relationships without chaos.',
-      image: '📈',
+      category: "Growth",
+      title: "How to Scale from 10 to 10,000 Contacts",
+      description:
+        "A playbook for turning early traction into long-term customer relationships without chaos.",
+      image: "/imgi_188_WnsbD4yww7gkGwGcZ8z0c6oSc9U.png",
     },
   ];
 
@@ -27,8 +30,12 @@ export default function BlogSection() {
     <section id="blog" className="py-16 md:py-24 bg-white font-sans">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
-          <div className="flex items-center justify-center w-fit mx-auto gap-2 rounded-full px-4 py-2"> 
-            <img src="/download(1).svg" alt="BLOG AND INSIGHTS" className="w-5 h-5 text-white shrink-0" />
+          <div className="flex items-center justify-center w-fit mx-auto gap-2 rounded-full px-4 py-2">
+            <img
+              src="/download(1).svg"
+              alt="BLOG AND INSIGHTS"
+              className="w-5 h-5 text-white shrink-0"
+            />
             <p className="text-[14px] text-black max-w-2xl mx-auto">
               BLOG AND INSIGHTS
             </p>
@@ -48,15 +55,23 @@ export default function BlogSection() {
               className="bg-[#F5F6F8] p-2 rounded-lg overflow-hidden transition-shadow"
             >
               <div className="h-68 rounded-xl overflow-hidden">
-                <img 
-                  src="/imgi_69_1kzCxED38jsjIKuhRBA6i4NjDGw.png" 
+                <img
+                  src={post.image}
                   alt={post.title}
                   className="w-full h-full object-cover hover:scale-125 transition-transform duration-300"
                 />
               </div>
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className={`inline-block text-[16px] font-medium px-2.5 py-1 rounded-3xl ${post.id === 3 ? 'text-[#805CFF] bg-[#EBF1FF]' : post.id === 2 ? 'text-[#0454FF] bg-[#EBF1FF]' : 'bg-[#FFF2F2] text-[#FF6262]'}`}>
+                  <span
+                    className={`inline-block text-[16px] font-medium px-2.5 py-1 rounded-3xl ${
+                      post.id === 3
+                        ? "text-[#805CFF] bg-[#EBF1FF]"
+                        : post.id === 2
+                        ? "text-[#0454FF] bg-[#EBF1FF]"
+                        : "bg-[#FFF2F2] text-[#FF6262]"
+                    }`}
+                  >
                     {post.category}
                   </span>
                   <span className="w-1 h-1 bg-black rounded-full"></span>
