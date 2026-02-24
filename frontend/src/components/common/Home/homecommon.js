@@ -112,7 +112,7 @@ export function GradientOrb({
 }
 
 export function PulseLogo({
-    size = 160,
+    size = 240,
     pulseColor = "#2D8CFF",
     coreColor = "#1E6FE8",
     glowColor = "#2D8CFF",
@@ -140,7 +140,7 @@ export function PulseLogo({
                     background: pulseColor,
                 }}
                 animate={{
-                    scale: [1, 1.6, 1.6],
+                    scale: [1, 2.2, 2.2],
                     opacity: [0.6, 0.2, 0],
                 }}
                 transition={{
@@ -161,7 +161,7 @@ export function PulseLogo({
                     filter: "blur(20px)",
                 }}
                 animate={{
-                    scale: [1, 1.3, 1.3],
+                    scale: [1, 1.8, 1.8],
                     opacity: [0.5, 0.2, 0],
                 }}
                 transition={{

@@ -1,37 +1,37 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function Footer() {
   const quickLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Services', href: '#what-we-do' },
-    { name: 'Blog', href: '#blog' },
-    { name: 'Contact Us', href: '#contact' },
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "#about" },
+    { name: "Services", href: "#what-we-do" },
+    { name: "Blog", href: "#blog" },
+    { name: "Contact Us", href: "#contact" },
   ];
 
   const supportLinks = [
-    { name: 'Help Center', href: '#' },
-    { name: 'FAQs', href: '#' },
-    { name: 'Documentation', href: '#' },
-    { name: 'Privacy Policy', href: '#' },
-    { name: 'Terms of Service', href: '#' },
+    { name: "Help Center", href: "#" },
+    { name: "FAQs", href: "#" },
+    { name: "Documentation", href: "#" },
+    { name: "Privacy Policy", href: "#" },
+    { name: "Terms of Service", href: "#" },
   ];
 
   const resourcesLinks = [
-    { name: 'Case Studies', href: '#' },
-    { name: 'Whitepapers', href: '#' },
-    { name: 'Webinars', href: '#' },
-    { name: 'Partners', href: '#' },
-    { name: 'Careers', href: '#' },
+    { name: "Case Studies", href: "#" },
+    { name: "Whitepapers", href: "#" },
+    { name: "Webinars", href: "#" },
+    { name: "Partners", href: "#" },
+    { name: "Careers", href: "#" },
   ];
 
   const socialLinks = [
-    { name: 'Facebook', icon: '📘', href: '#' },
-    { name: 'Twitter', icon: '🐦', href: '#' },
-    { name: 'LinkedIn', icon: '💼', href: '#' },
-    { name: 'Instagram', icon: '📷', href: '#' },
+    { name: "Facebook", icon: "📘", href: "#" },
+    { name: "Twitter", icon: "🐦", href: "#" },
+    { name: "LinkedIn", icon: "💼", href: "#" },
+    { name: "Instagram", icon: "📷", href: "#" },
   ];
 
   return (
@@ -42,7 +42,7 @@ export default function Footer() {
           <div className="md:col-span-1">
             <h3 className="text-2xl font-bold mb-4">HalaPark</h3>
             <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-              All-in-one parking management solution for modern businesses. 
+              All-in-one parking management solution for modern businesses.
               Transform your parking experience with innovative technology.
             </p>
             <div className="flex space-x-4">
@@ -121,12 +121,22 @@ export default function Footer() {
 
       {/* Scroll to Top Button */}
       <button
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         className="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg flex items-center justify-center transition-colors z-50"
         aria-label="Scroll to top"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M5 10l7-7m0 0l7 7m-7-7v18"
+          />
         </svg>
       </button>
     </footer>

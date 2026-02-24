@@ -58,7 +58,7 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-4 z-50 font-sans px-4 py-0 h-0">
-      <div className="max-w-7xl md:max-w-4xl mx-auto bg-transparent">
+      <div className="max-w-7xl md:max-w-[830px] mx-auto bg-transparent">
         {/* Rounded Navigation Bar */}
         <div className="bg-black rounded-full shadow-lg flex flex-row justify-between h-full items-center relative">
           {/* Logo Section */}
@@ -113,7 +113,7 @@ export default function Navbar() {
           {/* Contact Us Button */}
           <div className="bg-cyan-900 h-full flex flex-row items-center relative">
             <Link
-              href="#contact"
+              href="/contact"
               className="bg-blue-500 hover:bg-blue-600 text-white absolute h-full flex flex-row items-center text-center text-nowrap right-1.5 px-6 py-5 rounded-full font-medium text-sm md:text-[14px] transition-colors shadow-md"
             >
               Contact us
