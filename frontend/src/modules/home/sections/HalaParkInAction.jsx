@@ -5,7 +5,7 @@ export default function HalaParkInAction() {
         {/* Left Side - Content */}
         <div className="text-white w-full lg:w-[34%] px-4 sm:px-6 md:px-8 lg:px-10 mb-8 sm:mb-10 md:mb-12 lg:mb-0">
           <div className="mb-4 sm:mb-5 lg:mb-0">
-            <button className="relative bg-black text-white px-4 sm:px-5 lg:px-6 py-2.5 sm:py-3 rounded-lg flex items-center gap-2 sm:gap-3 font-medium text-sm sm:text-[15px] lg:text-[16px] transition-all hover:opacity-90 shadow-lg overflow-hidden group border border-transparent">
+            <button className="relative bg-black text-white px-4 sm:px-5 lg:px-6 py-2.5 sm:py-3 rounded-3xl flex items-center gap-2 sm:gap-3 font-medium text-sm sm:text-[15px] lg:text-[16px] transition-all duration-300 hover:opacity-95 hover:-translate-y-0.5 shadow-[0_8px_24px_rgba(0,0,0,0.45)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.6)] overflow-visible group border border-white/10 mb-6">
               {/* Subtle gradient overlay on top edge */}
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
 
