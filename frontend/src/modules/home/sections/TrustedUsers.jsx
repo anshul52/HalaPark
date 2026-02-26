@@ -119,49 +119,49 @@ export default function TrustedUsers() {
     {
       top: "8.5%",
       left: "12%",
-      size: "w-16 h-16 md:w-20 md:h-20",
+      size: "w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20",
       image: "/imgi_52_jrKxnhujFruOStY7hW7O5YxmU.jpg",
       transform: "none",
     }, // Top-left
     {
       top: "8.5%",
       left: "46.7%",
-      size: "w-16 h-16 md:w-20 md:h-20 lg:w-22 lg:h-22",
+      size: "w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-22 lg:h-22",
       image: "/imgi_27_J43YEwKdcm8Se3yO2hv6heQUr0.jpg",
       transform: "translateX(-50%)",
     }, // Top-center
     {
       top: "10%",
       right: "11%",
-      size: "w-16 h-16 md:w-20 md:h-20 lg:w-32 lg:h-32",
+      size: "w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-32 lg:h-32",
       image: "/imgi_26_kizUz1tXR7Z3c1Li33hw1dmhjk.jpg",
       transform: "none",
     }, // Top-right
     {
       top: "52%",
       left: "7%",
-      size: "w-16 h-16 md:w-20 md:h-20",
+      size: "w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20",
       image: "/imgi_28_VtGsyJs2affVK3ADnnlSoxNph30.jpg",
       transform: "translateY(-50%)",
     }, // Middle-left
     {
       top: "59%",
       right: "10%",
-      size: "w-16 h-16 md:w-20 md:h-20",
+      size: "w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20",
       image: "/imgi_30_8nsi4FFv3MDWMqrJo5thcG02qBk.jpg",
       transform: "translateY(-50%)",
     }, // Middle-right
     {
       bottom: "18.5%",
       left: "30%",
-      size: "w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24",
+      size: "w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-24 lg:h-24",
       image: "/imgi_105_cllTWXdcEdBHC7srBdSgfwmuDwE.jpg",
       transform: "translateX(-50%)",
     }, // Bottom-center
     {
       bottom: "14%",
       right: "28%",
-      size: "w-16 h-16 md:w-20 md:h-20 lg:w-28 lg:h-28",
+      size: "w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-28 lg:h-28",
       image: "/imgi_6_4VlzVCyG6C8Z7yJCDs0BHRpzck.jpg",
       transform: "translateX(-50%)",
     }, // Bottom-center
@@ -180,7 +180,7 @@ export default function TrustedUsers() {
   return (
     <section
       ref={sectionRef}
-      className="h-screen relative overflow-hidden font-sans bg-white flex items-center justify-center"
+      className="min-h-[500px] sm:min-h-[600px] md:min-h-[700px] lg:h-screen relative overflow-hidden font-sans bg-white flex items-center justify-center py-12 sm:py-16 md:py-20 lg:py-0"
     >
       {/* Scattered User Avatars - Organic Arrangement */}
       {avatarPositions.map((position, index) => {
@@ -211,15 +211,17 @@ export default function TrustedUsers() {
       })}
 
       {/* Central Text Block */}
-      <div className="relative z-20 text-center max-w-3xl mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-[64px] font-semibold tracking-tight text-[#292929] mb-6 leading-17">
+      <div className="relative z-20 text-center max-w-3xl mx-auto px-4 sm:px-6 md:px-8">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-[64px] font-semibold tracking-tight text-[#292929] mb-4 sm:mb-5 md:mb-6 leading-tight sm:leading-snug md:leading-normal lg:leading-17">
           Trusted by 50,000+
           <br />
-          <span className="inline-block ml-4 md:ml-8 lg:ml-12">Users</span>
+          <span className="inline-block ml-2 sm:ml-3 md:ml-6 lg:ml-12">
+            Users
+          </span>
         </h2>
-        <p className="text-base  text-[#828282] max-w-2xl mx-auto leading-relaxed">
-          Join the growing community of Payer trusted <br /> for its reliability
-          and security.
+        <p className="text-sm sm:text-base text-[#828282] max-w-2xl mx-auto leading-relaxed">
+          Join the growing community of Payer trusted{" "}
+          <br className="hidden sm:block" /> for its reliability and security.
         </p>
       </div>
     </section>

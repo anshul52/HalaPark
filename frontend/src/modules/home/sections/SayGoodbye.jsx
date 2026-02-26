@@ -22,6 +22,9 @@ export default function SayGoodbye() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(4); // start at the blue "manual payments"
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1024
+  );
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -31,26 +34,43 @@ export default function SayGoodbye() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+      };
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
+
+  // Calculate responsive offset based on screen size
+  const getOffset = () => {
+    if (windowWidth >= 1024) return 64; // Desktop
+    if (windowWidth >= 768) return 48; // Tablet
+    return 40; // Mobile
+  };
+
   return (
     <section
-      className="py-16 md:py-18 font-sans w-full overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_35%,black_65%,transparent)]
+      className="py-8 sm:py-12 md:py-16 lg:py-18 font-sans w-full overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_35%,black_65%,transparent)]
 [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_35%,black_65%,transparent)]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="relative flex gap-5 w-full">
+        <div className="relative flex flex-col lg:flex-row gap-4 sm:gap-5 w-full">
           {/* LEFT: primary heading */}
-          <div className=" w-[43%] text-end flex items-center justify-end relative">
+          <div className="w-full lg:w-[43%] text-center lg:text-end flex items-center justify-center lg:justify-end relative mb-4 sm:mb-6 lg:mb-0">
             <img
               src="/imgi_168_5qfWioz2YlGmZ4gVXknKz1yjY.svg"
               alt="Say goodbye to"
-              className="w-40 h-30 object-cover absolute top-3 -right-7"
+              className="w-24 h-18 sm:w-32 sm:h-24 md:w-36 md:h-27 lg:w-40 lg:h-30 object-cover absolute top-2 sm:top-2.5 md:top-3 -right-4 sm:-right-5 md:-right-6 lg:-right-7"
             />
             <img
               src="/imgi_167_8BXeBQObnslmzSi9htBC7WTLXM.svg"
               alt="Say goodbye to"
-              className="w-7 h-8 object-cover absolute top-19 left-21"
+              className="w-5 h-6 sm:w-6 sm:h-7 lg:w-7 lg:h-8 object-cover absolute top-12 sm:top-14 md:top-16 lg:top-19 left-12 sm:left-16 md:left-18 lg:left-21"
             />
-            <h2 className="relative text-4xl md:text-[52px] lg:text-[52px] font-semibold text-gray-900 leading-tight">
+            <h2 className="relative text-2xl sm:text-3xl md:text-4xl lg:text-[52px] font-semibold text-gray-900 leading-tight">
               <span className="inline-block align-middle">Say goodbye to</span>
             </h2>
           </div>
@@ -58,21 +78,26 @@ export default function SayGoodbye() {
           {/* RIGHT: stack of frustrations */}
           <div
             ref={containerRef}
-            className="relative w-[66%] h-56 md:h-48 lg:h-56 overflow-visible"
+            className="relative w-full lg:w-[66%] h-40 sm:h-44 md:h-48 lg:h-56 overflow-visible"
             aria-hidden
           >
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative w-full  h-full">
+              <div className="relative w-full h-full">
                 {frustrations.map((text, index) => {
                   // compute vertical offset so the active word sits in center
-                  const offset = (index - currentIndex) * 64; // px; gap between lines
+                  const offset = (index - currentIndex) * getOffset(); // responsive gap between lines
 
                   const isActive = index === currentIndex;
                   const className = `absolute left-0 transition-all duration-700 ease-out will-change-transform text-left font-semibold`;
 
                   // styles applied inline to allow per-item translateY and subtle blur/opacity changes
                   const style = {
-                    top: "36%",
+                    top:
+                      windowWidth >= 1024
+                        ? "36%"
+                        : windowWidth >= 768
+                        ? "38%"
+                        : "40%",
                     transform: `translateY(${offset}px) scale(${
                       isActive ? 1 : 1
                     })`,
@@ -83,7 +108,7 @@ export default function SayGoodbye() {
 
                   // size varies with viewport using responsive classes + inline fontSize fallback
                   const sizeClass =
-                    "text-3xl md:text-[50px] lg:text-[50px] text-nowrap text-left";
+                    "text-xl sm:text-2xl md:text-3xl lg:text-[50px] text-nowrap text-left";
 
                   return (
                     <div
@@ -92,7 +117,7 @@ export default function SayGoodbye() {
                       style={style}
                     >
                       <span
-                        className={`px-2 ${
+                        className={`px-1 sm:px-1.5 md:px-2 ${
                           isActive
                             ? "text-[#1E92FE] text-left text-align-left"
                             : "text-black/70"

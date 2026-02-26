@@ -3,15 +3,15 @@ export default function EasyIntegrationCard({
   imgSrc = "/mnt/data/062f1bab-ecf8-44e5-9894-b1134fd22497.png",
 }) {
   return (
-    <div className="min-w-[170px] h-[180px] bg-[#ffffff] rounded-3xl flex flex-col items-center justify-center shadow-g">
-      <div className="w-[88px] h-[88px] rounded-full mt-1 m-5 overflow-hidden flex items-center justify-center ">
+    <div className="min-w-[100px] sm:min-w-[120px] md:min-w-[150px] lg:min-w-[170px] h-[110px] sm:h-[130px] md:h-[160px] lg:h-[180px] bg-[#ffffff] rounded-2xl sm:rounded-3xl flex flex-col items-center justify-center shadow-g">
+      <div className="w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] md:w-[75px] md:h-[75px] lg:w-[88px] lg:h-[88px] rounded-full mt-0.5 sm:mt-1 m-2 sm:m-3 md:m-4 lg:m-5 overflow-hidden flex items-center justify-center">
         <img
           src={imgSrc}
           alt={title}
-          className="w-full h-full object-cover "
+          className="w-full h-full object-cover"
         />
       </div>
-      <p className="text-[16px] font-medium text-gray-800 text-center">
+      <p className="text-[10px] sm:text-xs md:text-sm lg:text-[16px] font-medium text-gray-800 text-center px-1 sm:px-2">
         {title}
       </p>
     </div>

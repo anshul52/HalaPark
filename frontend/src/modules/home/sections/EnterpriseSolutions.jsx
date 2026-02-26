@@ -137,30 +137,36 @@ export default function EnterpriseSolutions() {
   ];
 
   return (
-    <section id="what-we-do" className="py-16 md:py-24 bg-white font-sans">
+    <section
+      id="what-we-do"
+      className="py-8 sm:py-12 md:py-16 lg:py-24 bg-white font-sans px-4 sm:px-6 lg:px-0"
+    >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-8 md:mb-8">
-          <div className="flex items-center justify-center w-fit mx-auto gap-2 rounded-full px-4 py-2">
+        <div className="text-center mb-6 sm:mb-8">
+          <div className="flex items-center justify-center w-fit mx-auto gap-1.5 sm:gap-2 rounded-full px-3 sm:px-4 py-1.5 sm:py-2">
             <img
               src="/download(1).svg"
               alt="BLOG AND INSIGHTS"
-              className="w-5 h-5 text-white shrink-0"
+              className="w-4 h-4 sm:w-5 sm:h-5 text-white shrink-0"
             />
-            <p className="text-[14px] text-black max-w-2xl mx-auto">SERVICES</p>
+            <p className="text-xs sm:text-sm lg:text-[14px] text-black max-w-2xl mx-auto">
+              SERVICES
+            </p>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-[56px] font-semibold text-gray-900 mb-4 tracking-tight">
-            Enterprise-Grade Parking <br /> Solutions
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[56px] font-semibold text-gray-900 mb-3 sm:mb-4 tracking-tight">
+            Enterprise-Grade Parking <br className="hidden sm:block" />{" "}
+            Solutions
           </h2>
-          <p className="text-[16px] font-normal text-[#828282] max-w-2xl mx-auto leading-5">
-            One connected platform powering smarter, <br /> smoother parking
-            experiences.
+          <p className="text-sm sm:text-base lg:text-[16px] font-normal text-[#828282] max-w-2xl mx-auto leading-5 px-4 sm:px-0">
+            One connected platform powering smarter,{" "}
+            <br className="hidden md:block" /> smoother parking experiences.
           </p>
         </div>
 
-        <div className="relative w-full flex flex-col gap-11">
+        <div className="relative w-full flex flex-col gap-6 sm:gap-8 md:gap-10 lg:gap-11">
           {/* Central Location Pin */}
 
-          <div className="absolute h-180 w-180 rotate-90 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden lg:block z-10 flex items-center justify-center">
+          <div className="absolute h-180 w-180 rotate-90 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden lg:flex z-10 items-center justify-center">
             <FlowConnections
               strokeWidth={1}
               baseColor="#7DD3FC"
@@ -179,7 +185,7 @@ export default function EnterpriseSolutions() {
               ]}
             />
           </div>
-          <div className="text-center absolute h-37 w-37 flex flex-col items-center justify-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden lg:block z-10 bg-white shadow-xl rounded-[38px]">
+          <div className="text-center absolute h-37 w-37 hidden lg:flex flex-col items-center justify-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 bg-white shadow-xl rounded-[38px]">
             <div className="absolute flex items-center justify-center -z-10 w-full h-full">
               <GradientOrb
                 size={105}
@@ -197,11 +203,11 @@ export default function EnterpriseSolutions() {
           </div>
 
           {/* Feature Grid 1*/}
-          <div className="flex gap-18 z-20 relative">
-            <div className="w-full max-w-4xl mx-auto">
-              <div className="bg-[#f3f4f6] rounded-lg border border-gray-200 p-7 px-10">
+          <div className="flex flex-row gap-2 sm:gap-3 md:gap-4 lg:gap-18 z-20 relative">
+            <div className="w-[calc(50%-0.25rem)] sm:w-[calc(50%-0.375rem)] md:w-[calc(50%-0.5rem)] lg:w-full lg:max-w-4xl mx-auto">
+              <div className="bg-[#f3f4f6] rounded-lg border border-gray-200 p-3 sm:p-4 md:p-5 lg:p-7 px-2 sm:px-4 md:px-6 lg:px-10">
                 {/* Map Image */}
-                <div className="w-full h-56 rounded-2xl overflow-hidden mb-6">
+                <div className="w-full h-20 sm:h-48 md:h-52 lg:h-56 rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-5 md:mb-6">
                   <video
                     autoPlay
                     loop
@@ -218,20 +224,20 @@ export default function EnterpriseSolutions() {
 
                 {/* Content */}
                 <div>
-                  <h2 className="text-2xl font-medium tracking-tighter text-gray-900 mb-2">
+                  <h2 className="text-[14px] sm:text-xl md:text-2xl font-medium tracking-tighter text-gray-900 mb-2">
                     Smart Public Parking
                   </h2>
 
-                  <p className="text-gray-600 text-base leading-5 tracking-normal max-w-xl ">
+                  <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl">
                     Cities can manage public parking more efficiently while
                     reducing congestion and confusion for drivers.
                   </p>
                 </div>
               </div>
             </div>
-            <div className="w-full max-w-4xl mx-auto">
-              <div className="bg-[#f3f4f6] rounded-lg border border-gray-200 p-7 px-10">
-                <div className="w-full h-56 rounded-2xl overflow-hidden mb-6">
+            <div className="w-[calc(50%-0.25rem)] sm:w-[calc(50%-0.375rem)] md:w-[calc(50%-0.5rem)] lg:w-full lg:max-w-4xl mx-auto">
+              <div className="bg-[#f3f4f6] rounded-lg border border-gray-200 p-3 sm:p-4 md:p-5 lg:p-7 px-2 sm:px-4 md:px-6 lg:px-10">
+                <div className="w-full h-20 sm:h-48 md:h-52 lg:h-56 rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-5 md:mb-6">
                   <video
                     autoPlay
                     loop
@@ -247,11 +253,11 @@ export default function EnterpriseSolutions() {
                 </div>
 
                 <div>
-                  <h2 className="text-2xl font-medium tracking-tighter text-gray-900 mb-2">
+                  <h2 className="text-[14px] sm:text-xl md:text-2xl font-medium tracking-tighter text-gray-900 mb-2">
                     Private Parking
                   </h2>
 
-                  <p className="text-gray-600 text-base leading-5 tracking-normal max-w-xl ">
+                  <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl">
                     Property owners get secure, flexible parking that fits the
                     needs of their buildings and tenants.
                   </p>
@@ -261,11 +267,11 @@ export default function EnterpriseSolutions() {
           </div>
 
           {/* Feature Grid 2*/}
-          <div className="flex gap-18 justify-between relative z-20 w-full">
-            <div className="w-[37.5%]">
-              <div className="bg-[#f3f4f6] rounded-lg border border-gray-200 p-6">
+          <div className="flex flex-row gap-2 sm:gap-3 md:gap-4 lg:gap-18 justify-between relative z-20 w-full">
+            <div className="w-[calc(50%-0.25rem)] sm:w-[calc(50%-0.375rem)] md:w-[calc(50%-0.5rem)] lg:w-[37.5%]">
+              <div className="bg-[#f3f4f6] rounded-lg border border-gray-200 p-3 sm:p-4 md:p-5 lg:p-6">
                 {/* Map Image */}
-                <div className="w-full h-56 rounded-2xl overflow-hidden mb-6">
+                <div className="w-full h-20 sm:h-48 md:h-52 lg:h-56 rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-5 md:mb-6">
                   <video
                     autoPlay
                     loop
@@ -282,20 +288,20 @@ export default function EnterpriseSolutions() {
 
                 {/* Content */}
                 <div>
-                  <h2 className="text-2xl font-medium tracking-tighter text-gray-900 mb-2">
-                    Smart Public Parking
+                  <h2 className="text-[14px] sm:text-xl md:text-2xl font-medium tracking-tighter text-gray-900 mb-2">
+                    EV Parking
                   </h2>
 
-                  <p className="text-gray-600 text-base leading-5 tracking-normal max-w-xl ">
-                    Cities can manage public parking more efficiently while
-                    reducing congestion and confusion for drivers.
+                  <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl">
+                    Drivers can charge their vehicles conveniently while parked,
+                    without extra steps or hassle.
                   </p>
                 </div>
               </div>
             </div>
-            <div className="w-[37.5%]">
-              <div className="bg-[#f3f4f6] rounded-lg border border-gray-200 p-6">
-                <div className="w-full h-56 rounded-2xl overflow-hidden mb-6">
+            <div className="w-[calc(50%-0.25rem)] sm:w-[calc(50%-0.375rem)] md:w-[calc(50%-0.5rem)] lg:w-[37.5%]">
+              <div className="bg-[#f3f4f6] rounded-lg border border-gray-200 p-3 sm:p-4 md:p-5 lg:p-6">
+                <div className="w-full h-20 sm:h-48 md:h-52 lg:h-56 rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-5 md:mb-6">
                   <video
                     autoPlay
                     loop
@@ -311,13 +317,13 @@ export default function EnterpriseSolutions() {
                 </div>
 
                 <div>
-                  <h2 className="text-2xl font-medium tracking-tighter text-gray-900 mb-2">
-                    Smart Public Parking
+                  <h2 className="text-[14px] sm:text-xl md:text-2xl font-medium tracking-tighter text-gray-900 mb-2">
+                    Valet On Demand
                   </h2>
 
-                  <p className="text-gray-600 text-base leading-5 tracking-normal max-w-xl ">
-                    Cities can manage public parking more efficiently while
-                    reducing congestion and confusion for drivers.
+                  <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl">
+                    Users can request valet service when needed, saving time and
+                    making arrivals smoother.
                   </p>
                 </div>
               </div>
@@ -325,11 +331,11 @@ export default function EnterpriseSolutions() {
           </div>
 
           {/* Feature Grid 3*/}
-          <div className="flex gap-18 relative z-20">
-            <div className="w-full max-w-4xl mx-auto">
-              <div className="bg-[#f3f4f6] rounded-lg border border-gray-200 p-7 px-10">
+          <div className="flex flex-row gap-2 sm:gap-3 md:gap-4 lg:gap-18 relative z-20">
+            <div className="w-[calc(50%-0.25rem)] sm:w-[calc(50%-0.375rem)] md:w-[calc(50%-0.5rem)] lg:w-full lg:max-w-4xl mx-auto">
+              <div className="bg-[#f3f4f6] rounded-lg border border-gray-200 p-3 sm:p-4 md:p-5 lg:p-7 px-2 sm:px-4 md:px-6 lg:px-10">
                 {/* Map Image */}
-                <div className="w-full h-56 rounded-2xl overflow-hidden mb-6">
+                <div className="w-full h-20 sm:h-48 md:h-52 lg:h-56 rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-5 md:mb-6">
                   <video
                     autoPlay
                     loop
@@ -346,20 +352,20 @@ export default function EnterpriseSolutions() {
 
                 {/* Content */}
                 <div>
-                  <h2 className="text-2xl font-medium tracking-tighter text-gray-900 mb-2">
-                    Smart Public Parking
+                  <h2 className="text-[14px] sm:text-xl md:text-2xl font-medium tracking-tighter text-gray-900 mb-2">
+                    Barrier Free Parking
                   </h2>
 
-                  <p className="text-gray-600 text-base leading-5 tracking-normal max-w-xl ">
-                    Cities can manage public parking more efficiently while
-                    reducing congestion and confusion for drivers.
+                  <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl">
+                    Simplify how you manage connections with streamlined
+                    relationship organization — effortlessly.
                   </p>
                 </div>
               </div>
             </div>
-            <div className="w-full max-w-4xl mx-auto">
-              <div className="bg-[#f3f4f6] rounded-lg border border-gray-200 p-7 px-10">
-                <div className="w-full h-56 rounded-2xl overflow-hidden mb-6">
+            <div className="w-[calc(50%-0.25rem)] sm:w-[calc(50%-0.375rem)] md:w-[calc(50%-0.5rem)] lg:w-full lg:max-w-4xl mx-auto">
+              <div className="bg-[#f3f4f6] rounded-lg border border-gray-200 p-3 sm:p-4 md:p-5 lg:p-7 px-2 sm:px-4 md:px-6 lg:px-10">
+                <div className="w-full h-20 sm:h-48 md:h-52 lg:h-56 rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-5 md:mb-6">
                   <video
                     autoPlay
                     loop
@@ -375,13 +381,13 @@ export default function EnterpriseSolutions() {
                 </div>
 
                 <div>
-                  <h2 className="text-2xl font-medium tracking-tighter text-gray-900 mb-2">
-                    Smart Public Parking
+                  <h2 className="text-[14px] sm:text-xl md:text-2xl font-medium tracking-tighter text-gray-900 mb-2">
+                    System Integrations
                   </h2>
 
-                  <p className="text-gray-600 text-base leading-5 tracking-normal max-w-xl ">
-                    Cities can manage public parking more efficiently while
-                    reducing congestion and confusion for drivers.
+                  <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl">
+                    All your parking systems work together in one place, making
+                    daily operations easier to manage.
                   </p>
                 </div>
               </div>

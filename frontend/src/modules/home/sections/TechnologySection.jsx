@@ -117,34 +117,35 @@ export default function TechnologySection() {
     },
   ];
   return (
-    <section className="py-16 pb-0 md:pt-24 bg-[#EFF1F3] font-sans overflow-hidden relative">
+    <section className="py-8 sm:py-12 md:py-16 lg:py-16 pb-0 md:pb-0 lg:pb-0 md:pt-20 lg:pt-24 bg-[#EFF1F3] font-sans overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-0">
-          <div className="flex items-center justify-center w-fit mx-auto gap-2 rounded-full px-4 py-2">
+        <div className="text-center mb-4 sm:mb-6 md:mb-8 lg:mb-0">
+          <div className="flex items-center justify-center w-fit mx-auto gap-1.5 sm:gap-2 rounded-full px-3 sm:px-4 py-1.5 sm:py-2">
             <img
               src="/download(1).svg"
               alt="BLOG AND INSIGHTS"
-              className="w-5 h-5 text-white shrink-0"
+              className="w-4 h-4 sm:w-5 sm:h-5 text-white shrink-0"
             />
-            <p className="text-[14px] text-black max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm lg:text-[14px] text-black max-w-2xl mx-auto">
               All-in-One System
             </p>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-[56px] font-semibold text-gray-900 mb-4 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[56px] font-semibold text-gray-900 mb-3 sm:mb-4 tracking-tight">
             Where Innovative Technology
-            <br />
+            <br className="hidden sm:block" />
             Meets Parking
           </h2>
-          <p className="text-[16px]  font-medium text-[#6D6D6D] max-w-2xl mx-auto">
-            The technology, services, and people behind the <br />
+          <p className="text-sm sm:text-base lg:text-[16px] font-medium text-[#6D6D6D] max-w-2xl mx-auto px-4 sm:px-0">
+            The technology, services, and people behind the{" "}
+            <br className="hidden md:block" />
             scenes.
           </p>
         </div>
 
-        <div className="relative flex justify-center items-center py-0 h-[700px] [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+        <div className="relative flex justify-center items-center py-4 sm:py-6 md:py-8 lg:py-0 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
           {/* Central Smartphone */}
           <div className="z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <div className="h-[500px] md:h-[600px]">
+            <div className="h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px]">
               <img
                 src="/imgi_141_N9Y3S3zXP5Dksf1yurkaiZ9KrU.png"
                 alt="HalaPark Technology"
@@ -153,7 +154,7 @@ export default function TechnologySection() {
             </div>
           </div>
 
-          <div className="flex flex-col items-center justify-center gap-12 w-full">
+          <div className="flex flex-col items-center justify-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 w-full">
             <div className="overflow-x-hidden w-full">
               <style>{`
                 @keyframes scrollLeft {
@@ -168,7 +169,7 @@ export default function TechnologySection() {
                   animation: scrollLeft 15s linear infinite;
                 }
               `}</style>
-              <div className="flex items-center gap-4 animate-scroll-left">
+              <div className="flex items-center gap-2 sm:gap-3 md:gap-4 animate-scroll-left">
                 {loop1.map((item, index) =>
                   index % 2 === 0 ? (
                     <EasyIntegrationCard
@@ -179,7 +180,7 @@ export default function TechnologySection() {
                   ) : (
                     <div
                       key={item.id}
-                      className="w-[170px] h-[180px] object-cover overflow-hidden rounded-3xl shadow-lg shrink-0"
+                      className="w-[100px] h-[110px] sm:w-[120px] sm:h-[130px] md:w-[150px] md:h-[160px] lg:w-[170px] lg:h-[180px] object-cover overflow-hidden rounded-2xl sm:rounded-3xl shadow-lg shrink-0"
                     >
                       <img
                         src={item.image}
@@ -205,7 +206,7 @@ export default function TechnologySection() {
                   animation: scrollRight 5s linear infinite;
                 }
               `}</style>
-              <div className="flex items-center gap-4 animate-scroll-right">
+              <div className="flex items-center gap-2 sm:gap-3 md:gap-4 animate-scroll-right">
                 {loop2.map((item, index) =>
                   index % 2 === 0 ? (
                     <EasyIntegrationCard
@@ -216,7 +217,7 @@ export default function TechnologySection() {
                   ) : (
                     <div
                       key={item.id}
-                      className="w-[170px] h-[180px] object-cover overflow-hidden rounded-3xl shadow-lg shrink-0"
+                      className="w-[100px] h-[110px] sm:w-[120px] sm:h-[130px] md:w-[150px] md:h-[160px] lg:w-[170px] lg:h-[180px] object-cover overflow-hidden rounded-2xl sm:rounded-3xl shadow-lg shrink-0"
                     >
                       <img
                         src={item.image}
