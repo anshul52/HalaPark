@@ -15,7 +15,7 @@ export default function WhyChooseSection() {
 
   return (
     <section ref={ref} className="py-28 px-6 bg-white">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         {/* Image / Visual */}
         <motion.div
           initial={{ opacity: 0, x: -60 }}
@@ -23,7 +23,7 @@ export default function WhyChooseSection() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="relative"
         >
-          <div className="w-full aspect-square bg-gradient-to-br from-slate-100 to-blue-100 rounded-3xl overflow-hidden relative shadow-xl">
+          <div className="w-full aspect-square bg-gradient-to-br from-slate-100 to-blue-100 rounded-3xl overflow-hidden relative">
             {/* Decorative grid */}
             <div className="absolute inset-0 grid grid-cols-8 grid-rows-8">
               {Array.from({ length: 64 }).map((_, i) => (
@@ -72,33 +72,22 @@ export default function WhyChooseSection() {
           initial={{ opacity: 0, x: 60 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+          className=""
         >
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.3 }}
-            className="inline-block text-blue-600 font-semibold text-sm tracking-widest uppercase mb-4 bg-blue-50 px-4 py-1.5 rounded-full"
-          >
-            Why HalaPark
-          </motion.span>
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 leading-tight mb-6">
-            Why Choose <span className="text-blue-600">HalaPark</span> for
-            Parking?
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tighter mb-6">
+            Why Choose HalaPark for Parking?
           </h2>
-          <p className="text-gray-500 text-lg leading-relaxed mb-8">
+          <p className="text-[#50576B] text-base font-medium leading-relaxed mb-8">
             Public parking shouldn't feel like a daily operational challenge.
             With HalaPark, you can run parking as a structured, efficient
             business by reducing reliance on manual supervision, improving space
             utilization, minimizing revenue leakage, and gaining full visibility
-            over daily operations.
-          </p>
-          <p className="text-gray-500 leading-relaxed mb-10">
-            The result is a controlled, transparent, and scalable parking
-            operation that generates predictable, trackable income and grows
-            confidently alongside your needs.
+            over daily operations. The result is a controlled, transparent, and
+            scalable parking operation that generates predictable, trackable
+            income and grows confidently alongside your needs.
           </p>
 
-          <div className="flex flex-col gap-4">
+          {/* <div className="flex flex-col gap-4">
             {[
               { icon: "📊", text: "Full operational visibility & reporting" },
               { icon: "💰", text: "Minimize revenue leakage automatically" },
@@ -120,7 +109,7 @@ export default function WhyChooseSection() {
                 <span className="text-gray-700 font-medium">{item.text}</span>
               </motion.div>
             ))}
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </section>

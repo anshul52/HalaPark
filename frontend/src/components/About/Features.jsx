@@ -19,17 +19,17 @@ export default function AboutFeatures({ pagetype = "about" }) {
       desc: "Get reliable assistance round the clock for all your parking needs.",
     },
     {
-      image: "dollar 1.png",
+      image: "dollar4.png",
       title: "Auto-renew options",
       desc: "Enjoy hassle-free parking with Parkin's intuitive solutions.",
     },
     {
-      image: "dollar 2.png",
+      image: "dollar5.png",
       title: "Easy entry and exit",
       desc: "Easily manage all your parking needs, from booking to subscription, with Parking.",
     },
     {
-      image: "dollar 2-1.png",
+      image: "dollar6.png",
       title: "Digital parking sessions",
       desc: "Get reliable assistance round the clock for all your parking needs.",
     },
