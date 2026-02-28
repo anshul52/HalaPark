@@ -5,117 +5,134 @@ export default function TechnologySection() {
     {
       id: 1,
       image: "/imgi_113_1g4Qo4Xv0r8JP0huQp8QQxF9sU.png",
-      title: "HalaPark Technology",
+      title: "Valet On Demand",
+      img: false,
     },
     {
       id: 2,
       image: "/imgi_110_lGEo0kaWUirwy8w0X2zu2peiRFI.jpg",
       title: "HalaPark Technology",
+      img: true,
     },
     {
       id: 3,
       image: "/imgi_119_VPtiOrlPqrUH6inAid1iVLnqDw.png",
-      title: "HalaPark Technology",
+      title: "Seamless Experience",
+      img: false,
     },
     {
       id: 4,
       image: "/imgi_120_G2ZZxM78k3aMiEnSt71QSsxmFU.png",
-      title: "HalaPark Technology",
+      title: "arab man",
+      img: true,
     },
     {
       id: 5,
-      image: "/imgi_132_Gem3pT18VnozOrWmd4EVprLjIeg.png",
-      title: "HalaPark Technology",
+      image: "/imgi_121_p5WDsTiWBnR6psINubkF941BY.png",
+      title: "Easy Payments",
+      img: false,
     },
 
     {
       id: 6,
-      image: "/imgi_52_jrKxnhujFruOStY7hW7O5YxmU.jpg",
+      image: "/imgi_17_RZmMl1qdcLP0di0AmOgkQLE8ehQ.png",
       title: "HalaPark Technology",
+      img: true,
     },
     {
       id: 7,
-      image: "/imgi_128_PTqZ69hbrHEIDQDjkFuz7umHA.png",
+      image: "/imgi_110_lGEo0kaWUirwy8w0X2zu2peiRFI.jpg",
       title: "HalaPark Technology",
+      img: true,
     },
     {
       id: 8,
-      image: "/imgi_52_jrKxnhujFruOStY7hW7O5YxmU.jpg",
-      title: "HalaPark Technology",
+      image: "/imgi_113_1g4Qo4Xv0r8JP0huQp8QQxF9sU.png",
+      title: "Valet On Demand",
+      img: false,
     },
     {
       id: 9,
-      image: "/imgi_113_1g4Qo4Xv0r8JP0huQp8QQxF9sU.png",
+      image: "/imgi_52_jrKxnhujFruOStY7hW7O5YxmU.jpg",
       title: "HalaPark Technology",
+      img: true,
     },
     {
       id: 10,
-      image: "/imgi_52_jrKxnhujFruOStY7hW7O5YxmU.jpg",
-      title: "HalaPark Technology",
+      image: "/imgi_119_VPtiOrlPqrUH6inAid1iVLnqDw.png",
+      title: "Seamless Experience",
+      img: false,
     },
     {
       id: 11,
-      image: "/imgi_52_jrKxnhujFruOStY7hW7O5YxmU.jpg",
-      title: "HalaPark Technology",
+      image: "/imgi_120_G2ZZxM78k3aMiEnSt71QSsxmFU.png",
+      title: "arab man",
+      img: true,
     },
   ];
   const loop2 = [
     {
       id: 1,
-      image: "/imgi_52_jrKxnhujFruOStY7hW7O5YxmU.jpg",
-      title: "HalaPark Technology",
+      image: "/imgi_22_UBbLcu5oDOTH71yMBqwOYljdec.jpg",
+      title: "arab man 2",
+      img: true,
     },
     {
       id: 2,
-      image: "/imgi_52_jrKxnhujFruOStY7hW7O5YxmU.jpg",
-      title: "HalaPark Technology",
+      image: "/imgi_139_klLoSzJdlmd17l6Zs5Lc4qwK9c.png",
+      title: "Easy Integration",
+      img: false,
     },
     {
       id: 3,
-      image: "/imgi_52_jrKxnhujFruOStY7hW7O5YxmU.jpg",
+      image: "/imgi_140_pNFGIY7IadeAsK5Dc6uONhINB0.png",
       title: "HalaPark Technology",
+      img: true,
     },
     {
       id: 4,
-      image: "/imgi_52_jrKxnhujFruOStY7hW7O5YxmU.jpg",
+      image: "/imgi_18_EwAMq9ZBkZZYiEv4batLACk0iww.jpg",
       title: "HalaPark Technology",
+      img: true,
     },
     {
       id: 5,
-      image: "/imgi_52_jrKxnhujFruOStY7hW7O5YxmU.jpg",
-      title: "HalaPark Technology",
+      image: "/imgi_128_PTqZ69hbrHEIDQDjkFuz7umHA.png",
+      title: "EV Parking",
+      img: false,
     },
     {
       id: 6,
-      image: "/imgi_52_jrKxnhujFruOStY7hW7O5YxmU.jpg",
+      image: "/imgi_54_YWkcqi9gsxDBmfiVE6mQcexGrkI.webp",
       title: "HalaPark Technology",
+      img: true,
     },
     {
       id: 7,
-      image: "/imgi_52_jrKxnhujFruOStY7hW7O5YxmU.jpg",
-      title: "HalaPark Technology",
+      image: "/imgi_132_Gem3pT18VnozOrWmd4EVprLjIeg.png",
+      title: "Easy Integration",
+      img: false,
     },
     {
       id: 8,
-      image: "/imgi_52_jrKxnhujFruOStY7hW7O5YxmU.jpg",
-      title: "HalaPark Technology",
+      image: "/imgi_22_UBbLcu5oDOTH71yMBqwOYljdec.jpg",
+      title: "arab man 2",
+      img: true,
     },
     {
       id: 9,
-      image: "/imgi_52_jrKxnhujFruOStY7hW7O5YxmU.jpg",
-      title: "HalaPark Technology",
+      image: "/imgi_139_klLoSzJdlmd17l6Zs5Lc4qwK9c.png",
+      title: "Easy Integration",
+      img: false,
     },
     {
       id: 10,
-      image: "/imgi_52_jrKxnhujFruOStY7hW7O5YxmU.jpg",
+      image: "/imgi_54_YWkcqi9gsxDBmfiVE6mQcexGrkI.webp",
       title: "HalaPark Technology",
-    },
-    {
-      id: 11,
-      image: "/imgi_52_jrKxnhujFruOStY7hW7O5YxmU.jpg",
-      title: "HalaPark Technology",
+      img: true,
     },
   ];
+
   return (
     <section className="py-8 sm:py-12 md:py-16 lg:py-16 pb-0 md:pb-0 lg:pb-0 md:pt-20 lg:pt-24 bg-[#EFF1F3] font-sans overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -142,7 +159,7 @@ export default function TechnologySection() {
           </p>
         </div>
 
-        <div className="relative flex justify-center items-center py-4 sm:py-6 md:py-8 lg:py-0 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+        <div className="relative flex justify-center items-center py-4 sm:py-6 md:py-8 lg:py-0 h-[300px] sm:h-[500px] md:h-[600px] lg:h-[700px] [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
           {/* Central Smartphone */}
           <div className="z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <div className="h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px]">
@@ -166,21 +183,21 @@ export default function TechnologySection() {
                   }
                 }
                 .animate-scroll-left {
-                  animation: scrollLeft 15s linear infinite;
+                  animation: scrollLeft 20s linear infinite;
                 }
               `}</style>
               <div className="flex items-center gap-2 sm:gap-3 md:gap-4 animate-scroll-left">
-                {loop1.map((item, index) =>
-                  index % 2 === 0 ? (
+                {[...loop1, ...loop1].map((item, index) =>
+                  item.img === false ? (
                     <EasyIntegrationCard
-                      key={item.id}
+                      key={`${item.id}-${index}`}
                       title={item.title}
                       imgSrc={item.image}
                     />
                   ) : (
                     <div
-                      key={item.id}
-                      className="w-[100px] h-[110px] sm:w-[120px] sm:h-[130px] md:w-[150px] md:h-[160px] lg:w-[170px] lg:h-[180px] object-cover overflow-hidden rounded-2xl sm:rounded-3xl shadow-lg shrink-0"
+                      key={`${item.id}-${index}`}
+                      className="w-[50px] h-[50px] sm:w-[120px] sm:h-[130px] md:w-[150px] md:h-[160px] lg:w-[170px] lg:h-[180px] object-cover overflow-hidden rounded-2xl sm:rounded-3xl shadow-lg shrink-0"
                     >
                       <img
                         src={item.image}
@@ -196,28 +213,28 @@ export default function TechnologySection() {
               <style>{`
                 @keyframes scrollRight {
                   0% {
-                    transform: translateX(-20%);
+                    transform: translateX(-50%);
                   }
                   100% {
                     transform: translateX(0);
                   }
                 }
                 .animate-scroll-right {
-                  animation: scrollRight 5s linear infinite;
+                  animation: scrollRight 25s linear infinite;
                 }
               `}</style>
               <div className="flex items-center gap-2 sm:gap-3 md:gap-4 animate-scroll-right">
-                {loop2.map((item, index) =>
-                  index % 2 === 0 ? (
+                {[...loop2, ...loop2].map((item, index) =>
+                  item.img === false ? (
                     <EasyIntegrationCard
-                      key={item.id}
+                      key={`${item.id}-${index}`}
                       title={item.title}
                       imgSrc={item.image}
                     />
                   ) : (
                     <div
-                      key={item.id}
-                      className="w-[100px] h-[110px] sm:w-[120px] sm:h-[130px] md:w-[150px] md:h-[160px] lg:w-[170px] lg:h-[180px] object-cover overflow-hidden rounded-2xl sm:rounded-3xl shadow-lg shrink-0"
+                      key={`${item.id}-${index}`}
+                      className="w-[50px] h-[50px] sm:w-[120px] sm:h-[130px] md:w-[150px] md:h-[160px] lg:w-[170px] lg:h-[180px] object-cover overflow-hidden rounded-2xl sm:rounded-3xl shadow-lg shrink-0"
                     >
                       <img
                         src={item.image}

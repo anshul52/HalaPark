@@ -11,7 +11,7 @@ export default function SmartFeatures() {
     },
     {
       title: "24×7 Customer Support",
-      video: "/Ticket.mp4",
+      video: "/mobilemen.mp4",
       bgColor: "bg-transparent",
     },
     {
@@ -20,18 +20,18 @@ export default function SmartFeatures() {
       bgColor: "bg-transparent",
     },
     {
-      title: "Rent Out Your Space",
-      video: "/Ticket.mp4",
+      title: "Rent Out Your Parking",
+      video: "/cvc.mp4",
       bgColor: "bg-transparent",
     },
     {
-      title: "Smart Parking Solutions",
-      video: "/Ticket.mp4",
+      title: "Valet On Demand",
+      video: "/huhuhuhu.mp4",
       bgColor: "bg-transparent",
     },
     {
-      title: "Real-Time Availability",
-      video: "/Ticket.mp4",
+      title: "Seamless Experience",
+      video: "/Ev.mp4",
       bgColor: "bg-transparent",
     },
   ];
@@ -193,7 +193,7 @@ export default function SmartFeatures() {
                   }}
                 >
                   <div
-                    className={`${f.bgColor} h-[280px] sm:h-[350px] md:h-[420px] lg:h-[530px] rounded-2xl sm:rounded-3xl overflow-hidden relative`}
+                    className={`${f.bgColor} h-[600px] sm:h-[350px] md:h-[420px] lg:h-[530px] rounded-2xl sm:rounded-3xl overflow-hidden relative`}
                   >
                     <video
                       src={f.video}
@@ -206,11 +206,6 @@ export default function SmartFeatures() {
                     <div className="pointer-events-none absolute top-0 left-0 w-full h-20 sm:h-24 md:h-28 lg:h-32 bg-gradient-to-b from-black/60 to-transparent z-10" />
 
                     <div className="pointer-events-none absolute bottom-0 left-0 w-full h-24 sm:h-32 md:h-36 lg:h-40 bg-gradient-to-t from-black/70 to-transparent z-10" />
-
-                    {/* <h3 className="absolute bottom-6 left-6 text-white text-2xl font-bold z-20">
-                    {f.title}
-                  </h3> */}
-
                     <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-2.5 md:p-3 py-0 z-20 group">
                       <div className="relative h-[80px] sm:h-[90px] md:h-[100px] lg:h-[120px]">
                         {/* Title */}

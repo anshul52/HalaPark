@@ -57,9 +57,9 @@ export default function SayGoodbye() {
 [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_35%,black_65%,transparent)]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="relative flex flex-col lg:flex-row gap-4 sm:gap-5 w-full">
+        <div className="relative flex flex-row gap-4 sm:gap-5 w-full">
           {/* LEFT: primary heading */}
-          <div className="w-full lg:w-[43%] text-center lg:text-end flex items-center justify-center lg:justify-end relative mb-4 sm:mb-6 lg:mb-0">
+          <div className="w-[43%] text-center lg:text-end flex items-center justify-center lg:justify-end relative mb-4 sm:mb-6 lg:mb-0">
             <img
               src="/imgi_168_5qfWioz2YlGmZ4gVXknKz1yjY.svg"
               alt="Say goodbye to"
@@ -68,9 +68,9 @@ export default function SayGoodbye() {
             <img
               src="/imgi_167_8BXeBQObnslmzSi9htBC7WTLXM.svg"
               alt="Say goodbye to"
-              className="w-5 h-6 sm:w-6 sm:h-7 lg:w-7 lg:h-8 object-cover absolute top-12 sm:top-14 md:top-16 lg:top-19 left-12 sm:left-16 md:left-18 lg:left-21"
+              className="w-5 h-6 sm:w-6 sm:h-7 lg:w-7 lg:h-8 object-cover absolute top-12 sm:top-14 md:top-16 lg:top-19 -left-2 sm:left-16 md:left-18 lg:left-21"
             />
-            <h2 className="relative text-2xl sm:text-3xl md:text-4xl lg:text-[52px] font-semibold text-gray-900 leading-tight">
+            <h2 className="relative text-base sm:text-3xl md:text-4xl lg:text-[52px] font-semibold text-gray-900 leading-tight">
               <span className="inline-block align-middle">Say goodbye to</span>
             </h2>
           </div>
@@ -78,7 +78,7 @@ export default function SayGoodbye() {
           {/* RIGHT: stack of frustrations */}
           <div
             ref={containerRef}
-            className="relative w-full lg:w-[66%] h-40 sm:h-44 md:h-48 lg:h-56 overflow-visible"
+            className="relative w-[66%] h-40 sm:h-44 md:h-48 lg:h-56 overflow-visible"
             aria-hidden
           >
             <div className="absolute inset-0 flex items-center justify-center">
@@ -108,7 +108,7 @@ export default function SayGoodbye() {
 
                   // size varies with viewport using responsive classes + inline fontSize fallback
                   const sizeClass =
-                    "text-xl sm:text-2xl md:text-3xl lg:text-[50px] text-nowrap text-left";
+                    "text-[15px] sm:text-2xl md:text-3xl lg:text-[50px] text-nowrap text-left";
 
                   return (
                     <div
