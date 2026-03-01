@@ -4,6 +4,7 @@ export default function RatingBadge({
   textColor = "#ffffff",
   shadow = "xl",
   border = true,
+  className
 }) {
   return (
     <div
@@ -32,7 +33,7 @@ export default function RatingBadge({
 
       {/* Text */}
       <p
-        className={`text-[${textColor}] text-[10px] sm:text-xs md:text-sm lg:text-[14px] font-normal whitespace-nowrap`}
+        className={`text-[${textColor}] text-[10px] sm:text-xs md:text-sm lg:text-[14px] font-normal whitespace-nowrap ${className?.text}`}
       >
         <span className="font-semibold">{rating}/5</span>{" "}
         <span className="hidden sm:inline">from {totalReviews} customers</span>
