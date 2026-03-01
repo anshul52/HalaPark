@@ -4,11 +4,11 @@ import RatingBadge from "../common/RatingBadge";
 
 export default function ServiceHero() {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 max-md:pt-24 max-md:pb-16 max-sm:pt-20 max-sm:pb-14 overflow-hidden bg-white max-w-7xl mx-auto">
+    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 max-md:pt-24 max-md:pb-16 max-sm:pt-20 max-sm:pb-14 overflow-hidden bg-white max-w-full mx-auto">
       <div className="container mx-auto sm:px-0 px-4">
         <div className="flex flex-col items-center text-center w-full h-full">
           {/* Rating Badge */}
-          <div className="mb-4">
+          <div className="mb-4 z-20">
             <RatingBadge
               rating="4.9"
               totalReviews="4268"
@@ -34,6 +34,7 @@ export default function ServiceHero() {
               tracking-tight 
               mb-6 
               max-w-4xl
+              z-10
             "
           >
             Find Parking Services in <br className="max-sm:hidden" /> UAE Fast,
@@ -72,8 +73,8 @@ export default function ServiceHero() {
                 src="/Frame9991171276918.png"
                 alt="HalaPark"
                 className="
-                  h-200 
-                  w-300 
+                  h-130 
+                  w-230 
                   max-lg:w-full 
                   max-lg:h-auto 
                   object-cover
@@ -84,25 +85,24 @@ export default function ServiceHero() {
               <div
                 className="
                   absolute 
-                  top-110 
+                  top-90 
                   max-lg:top-1/2
                   left-1/2 
                   transform 
                   -translate-x-1/2 
                   -translate-y-1/2 
                   rounded-[2.5rem] 
-                  p-3
+                  p-3 
                 "
               >
                 <img
-                  src="/aboutherophoneimg.png"
+                  src="/Group-1000004401.png"
                   alt="HalaPark"
                   className="
-                    w-140 
-                    h-230 
-                    max-lg:w-[280px] 
-                    max-lg:h-auto 
-                    max-sm:w-[220px] 
+                    sm:w-68
+                    sm:h-100 
+                    w-50
+                    h-55
                     object-cover
                   "
                 />
@@ -111,6 +111,62 @@ export default function ServiceHero() {
                 <div className="pointer-events-none absolute bottom-0 left-0 w-full h-24 max-sm:h-16 bg-gradient-to-t from-white/95 via-white/90 to-transparent z-10" />
                 <div className="pointer-events-none absolute bottom-0 left-0 w-full h-20 max-sm:h-14 bg-gradient-to-t from-white to-transparent z-20" />
               </div>
+
+              {/* ellipse1 purple background */}
+              <img
+                src="/Ellipse3432.png"
+                alt="HalaPark"
+                className="
+                  absolute -top-50 left-0
+                  sm:w-200
+                  sm:h-200
+                  w-150
+                  h-150
+                  object-cover
+                  sm:block hidden
+                "
+              />
+              {/* ellipse2 blue background */}
+              <img
+                src="/Ellipse23456.png"
+                alt="HalaPark"
+                className="
+                  absolute -top-200 -right-50
+                  w-300
+                  h-300
+                  object-cover
+                  z-0
+                  sm:block hidden
+                "
+              />
+              {/* split 1 background */}
+              <img
+                src="/Gro4567800004394.png"
+                alt="HalaPark"
+                className="
+                  absolute sm:top-50 sm:left-50 top-10 left-0
+                  sm:w-70
+                  sm:h-40
+                  w-30
+                  h-17
+                  object-cover
+                  z-10
+                "
+              />
+              {/* split 2 background */}
+              <img
+                src="/Group0981000004395.png"
+                alt="HalaPark"
+                className="
+                  absolute sm:bottom-0 sm:right-60 bottom-4 right-0
+                  sm:w-70
+                  sm:h-40
+                  w-30
+                  h-17
+                  object-cover
+                  z-10
+                "
+              />
             </div>
           </motion.div>
         </div>
