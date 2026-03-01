@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function HalaParkInAction() {
   return (
     <section className="bg-[#000000] font-sans py-8 sm:py-12 md:py-16 lg:py-0">
@@ -30,9 +32,11 @@ export default function HalaParkInAction() {
             reduce congestion, and improve daily operations for everyone
             involved.
           </p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-7 lg:px-8 py-2.5 sm:py-3 rounded-full font-medium text-sm sm:text-[15px] lg:text-[16px] transition-colors shadow-lg w-full sm:w-auto">
-            See how HalaPark work
-          </button>
+          <Link href="/how-it-works">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-7 lg:px-8 py-2.5 sm:py-3 rounded-full font-medium text-sm sm:text-[15px] lg:text-[16px] transition-colors shadow-lg w-full sm:w-auto">
+              See how HalaPark work
+            </button>
+          </Link>
         </div>
 
         {/* Right Side - Image */}
