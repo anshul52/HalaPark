@@ -4,11 +4,11 @@ export default function RatingBadge({
   textColor = "#ffffff",
   shadow = "xl",
   border = true,
-  className
+  className,
 }) {
   return (
     <div
-      className={`flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 px-2 sm:px-2.5 md:px-3 py-2 sm:py-2.5 md:py-3 rounded-full ${
+      className={`flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 px-2 sm:px-2.5 md:px-3 py-2 sm:py-2.5 md:py-3 z-20 rounded-full ${
         border ? `border border-white/40` : ""
       } backdrop-blur-md bg-white/10 shadow-${shadow}`}
     >
