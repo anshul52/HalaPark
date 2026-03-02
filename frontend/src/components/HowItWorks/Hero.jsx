@@ -84,59 +84,16 @@ export default function Hero() {
             className="relative w-full mt-14 max-sm:mt-10"
           >
             <div className="relative flex items-center justify-center">
-
-              {/* Map Background (Parallax Scale + Fade) */}
               <motion.img
-                src="/Frame9991171276918.png"
+                src="/work-banner.webp"
                 alt="Map Background"
                 initial={{ scale: 1.1, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 1.4, ease: "easeOut" }}
-                className="h-[500px] w-[900px] max-lg:w-full max-lg:h-auto object-cover"
+                className="max-lg:w-full max-lg:h-auto object-cover"
               />
 
-              {/* Floating Phone */}
-              <motion.div
-                initial={{ y: 60, opacity: 0 }}
-                animate={{
-                  y: [0, -15, 0],
-                  opacity: 1,
-                }}
-                transition={{
-                  opacity: { duration: 1 },
-                  y: {
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  },
-                }}
-                className="
-                  absolute 
-                  left-1/2 
-                  top-1/2 
-                  -translate-x-1/2 
-                  -translate-y-1/2 
-                  rounded-[2.5rem] 
-                  p-3
-                "
-              >
-                <motion.img
-                  src="/aboutherophoneimg.png"
-                  alt="Phone Mockup"
-                  whileHover={{ scale: 1.03 }}
-                  transition={{ type: "spring", stiffness: 200 }}
-                  className="
-                    w-[350px] 
-                    max-lg:w-[280px] 
-                    max-sm:w-[220px] 
-                    object-cover
-                  "
-                />
-
-                {/* Bottom Gradient */}
-                <div className="pointer-events-none absolute bottom-0 left-0 w-full h-24 max-sm:h-16 bg-gradient-to-t from-white/95 via-white/90 to-transparent z-10" />
-                <div className="pointer-events-none absolute bottom-0 left-0 w-full h-20 max-sm:h-14 bg-gradient-to-t from-white to-transparent z-20" />
-              </motion.div>
+              
 
             </div>
           </motion.div>
