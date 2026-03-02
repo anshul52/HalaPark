@@ -7,12 +7,11 @@ import HalaParkInAction from "@/modules/home/sections/HalaParkInAction";
 export default function HowItWorks() {
   return (
     <div className="min-h-screen relative bg-white">
-      <BlurEllipse1 />
       <div className="relative">
-      <Hero/>
-      <Profit/>
-      <WhyChooseUs/>
-      <HalaParkInAction />
+        <Hero />
+        <Profit />
+        <WhyChooseUs />
+        <HalaParkInAction />
       </div>
     </div>
   );
