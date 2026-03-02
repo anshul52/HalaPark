@@ -58,15 +58,60 @@ const phoneVariants = {
 
 export default function AllYouNeedSection() {
   return (
-    <section className="relative pt-20 pb-16 overflow-hidden">
+    <section className="relative sm:pt-20 sm:pb-16 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center sm:mb-16 mb-12">
+        {/* Main Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="
+              text-4xl 
+              sm:text-5xl 
+              lg:text-[64px] 
+              max-md:text-[40px] 
+              max-sm:text-[30px] 
+              font-bold 
+              text-slate-900 
+              leading-15 
+              max-md:leading-snug
+              tracking-tight 
+              my-6
+            "
+        >
+          Seamless for Drivers. Profitable for Owners.
+        </motion.h1>
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="
+              text-lg 
+              max-md:text-base 
+              max-sm:text-sm 
+              text-slate-600 
+              mb-0 
+              text-center
+              max-w-3xl
+            "
+        >
+          Whether you're looking for a spot or listing one, HalaPark makes the
+          entire process simple, secure, and fully in your control.
+        </motion.p>
+        <div className="flex gap-2 items-center justify-center mt-4">
+          <img src={"/google-play.svg"} alt="Google play" />
+          <img src={"/app-store.svg"} alt="App Store" />
+        </div>
+      </div>
       <motion.div
-        className="max-w-7xl mx-auto px-6 flex gap-12 items-center justify-center"
+        className="max-w-7xl mx-auto px-6 flex sm:flex-row flex-col sm:gap-12 gap-6 items-center justify-center"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         {/* Left Cards */}
-        <div className="flex flex-col gap-12 w-[3 0%]">
+        <div className="flex sm:flex-col sm:gap-12 gap-6 sm:w-[30%]">
           {cards
             .filter((c) => c.position.includes("left"))
             .map((card) => (
@@ -89,7 +134,7 @@ export default function AllYouNeedSection() {
         </motion.div>
 
         {/* Right Cards */}
-        <div className="flex flex-col gap-12 w-[30%]">
+        <div className="flex sm:flex-col sm:gap-12 gap-6 sm:w-[30%]">
           {cards
             .filter((c) => c.position.includes("right"))
             .map((card) => (
@@ -110,20 +155,20 @@ function ServiceCard({ card }) {
     >
       <div className="flex items-start gap-3 mb-3 p-5 flex-col">
         <div>
-          <h3 className="font-regular text-gray-900 text-[18.8px] leading-tight">
+          <h3 className="font-regular text-gray-900 sm:text-[18.8px] text-[14px] leading-tight">
             {card.title}
           </h3>
-          <p className="text-[#717171] font-regular text-[14.46px] mt-0.5 leading-snug">
+          <p className="text-[#717171] font-regular sm:text-[14.46px] text-[12px] mt-0.5 leading-snug">
             {card.desc}
           </p>
         </div>
-        <div className="flex items-center gap-1 text-[#717171] font-regular text-[14.46px] group-hover:gap-2 transition-all">
+        <div className="flex items-center gap-1 text-[#717171] font-regular sm:text-[14.46px] text-[12px] group-hover:gap-2 transition-all">
           <span>Learn More</span>
           <span>→</span>
         </div>
       </div>
       {/* Visual preview area */}
-      <div className="mt-3 h-80 rounded-xl flex items-center justify-center">
+      <div className="mt-3 sm:h-80 h-25 rounded-xl flex items-center justify-center">
         <img
           src={card.img}
           alt=""

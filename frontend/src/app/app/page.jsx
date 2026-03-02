@@ -1,13 +1,13 @@
-import ServiceHero from "@/components/service/Hero";
-import AllYouNeedSection from "@/components/service/AllYouNeedSection";
+import AppHero from "@/components/app/Hero";
+import AllYouNeedSection from "@/components/app/AllYouNeedSection";
 import AboutFeatures from "@/components/About/Features";
 import HalaParkInAction from "@/modules/home/sections/HalaParkInAction";
-import Whychoosesection from "@/components/service/Whychoosesection";
+import Whychoosesection from "@/components/app/Whychoosesection";
 
-export default function ServicePage() {
+export default function AppPage() {
   return (
     <div className="min-h-screen bg-white">
-      <ServiceHero />
+      <AppHero />
       <AllYouNeedSection />
       <Whychoosesection />
       <AboutFeatures pagetype={"service"} />
