@@ -24,46 +24,11 @@ export default function WhyChooseSection() {
           className="relative"
         >
           <div className="w-full aspect-square bg-gradient-to-br from-slate-100 to-blue-100 rounded-3xl overflow-hidden relative">
-            {/* Decorative grid */}
-            <div className="absolute inset-0 grid grid-cols-8 grid-rows-8">
-              {Array.from({ length: 64 }).map((_, i) => (
-                <div key={i} className="border border-blue-100/40" />
-              ))}
-            </div>
-            {/* Center graphic */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="w-48 h-48 rounded-full border-4 border-dashed border-blue-300/50 absolute"
-              />
-              <div className="w-32 h-32 rounded-full bg-white shadow-2xl flex items-center justify-center">
-                <span className="text-5xl">🅿️</span>
-              </div>
-            </div>
-            {/* Stat badges */}
-            {stats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{
-                  delay: 0.4 + i * 0.15,
-                  duration: 0.5,
-                  ease: "backOut",
-                }}
-                className="absolute bg-white rounded-2xl shadow-lg px-4 py-2 text-center"
-                style={{
-                  top: i === 0 ? "15%" : i === 1 ? "50%" : "75%",
-                  left: i === 0 ? "5%" : i === 1 ? "75%" : "10%",
-                }}
-              >
-                <p className="text-xl font-black text-blue-600">{stat.value}</p>
-                <p className="text-[10px] text-gray-500 font-medium">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
+            <img
+              src="Rectangl5678uhb.png"
+              alt=""
+              className="object-cover h-full w-full"
+            />
           </div>
         </motion.div>
 
@@ -86,30 +51,6 @@ export default function WhyChooseSection() {
             scalable parking operation that generates predictable, trackable
             income and grows confidently alongside your needs.
           </p>
-
-          {/* <div className="flex flex-col gap-4">
-            {[
-              { icon: "📊", text: "Full operational visibility & reporting" },
-              { icon: "💰", text: "Minimize revenue leakage automatically" },
-              {
-                icon: "📈",
-                text: "Scalable infrastructure that grows with you",
-              },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: 20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: 0.5 + i * 0.12 }}
-                className="flex items-center gap-3"
-              >
-                <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-lg flex-shrink-0">
-                  {item.icon}
-                </div>
-                <span className="text-gray-700 font-medium">{item.text}</span>
-              </motion.div>
-            ))}
-          </div> */}
         </motion.div>
       </div>
     </section>
