@@ -32,15 +32,15 @@ export default function Testimonials() {
       image: "👩",
       bgColor: "bg-[#F7F7FE]",
     },
-    {
-      name: "de",
-      title: "Project Manager at TechNova",
-      rating: 4,
-      text: "Managing parking is much easier now. Everything is in one system, payments are seamless, and the team always has clear visibility over daily operations.",
-      image: "./qzIv3DS5PIVL8FC9WfCVRQF73U.avif",
-      bgColor: "bg-transparent",
-      featured: true,
-    },
+    // {
+    //   name: "de",
+    //   title: "Project Manager at TechNova",
+    //   rating: 4,
+    //   text: "Managing parking is much easier now. Everything is in one system, payments are seamless, and the team always has clear visibility over daily operations.",
+    //   image: "./qzIv3DS5PIVL8FC9WfCVRQF73U.avif",
+    //   bgColor: "bg-transparent",
+    //   featured: true,
+    // },
 
     {
       name: "Michael Smith",
