@@ -1,8 +1,54 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 import { ArrowRight, Check } from "lucide-react";
 
 export default function BusinessWhatWeDo() {
+  const images = [
+    "Frame0p1171276920.png",
+    "Frame09k1171276921.png",
+    "Frame1171276894.png",
+    "Frame781171276922.png",
+    "Frame--1171276919.png",
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [blurredImages, setBlurredImages] = useState([]);
+
+  useEffect(() => {
+    const clearTime = 3000; // clear for 3 sec
+    const totalCycle = 6000; // full cycle
+
+    const timer = setTimeout(() => {
+      // Move current to blurred stack
+      setBlurredImages((prev) => [
+        ...prev,
+        {
+          id: currentIndex,
+          src: images[currentIndex],
+        },
+      ]);
+
+      // Move to next image
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, clearTime);
+
+    return () => clearTimeout(timer);
+  }, [currentIndex]);
+
+  // Remove blurred image after 3 seconds
+  useEffect(() => {
+    if (blurredImages.length === 0) return;
+
+    const removeTimer = setTimeout(() => {
+      setBlurredImages((prev) => prev.slice(1));
+    }, 3000);
+
+    return () => clearTimeout(removeTimer);
+  }, [blurredImages]);
+
+  const rotation = currentIndex % 2 === 0 ? 8 : -8;
+
   return (
     <section className="py-24 md:py-20 sm:py-16 overflow-hidden max-w-7xl mx-auto">
       <div className="container mx-auto sm:px-2 px-4">
@@ -22,28 +68,64 @@ export default function BusinessWhatWeDo() {
         </motion.div>
 
         {/* Visual Banner */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="relative w-full h-64 md:h-80 sm:h-56 rounded-3xl bg-gradient-to-t from-[#0088FFBA] to-[#0088FF0A]/10 mb-20 md:mb-16 sm:mb-12 overflow-hidden flex items-center justify-center"
+        {/* <div
+          className="relative w-full h-64 md:h-80 sm:h-56
+      rounded-3xl bg-gradient-to-t from-[#0088FFBA] to-[#0088FF0A]/10
+      mb-20 md:mb-16 sm:mb-12
+      overflow-hidden flex items-center justify-center"
         >
-          {/* Background Image */}
-          <img
-            src="Frame-117127689490.png"
-            alt=""
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
-              w-72 md:w-80 sm:w-64 h-auto z-20"
-          />
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={index}
+              src={images[index]}
+              alt=""
+              initial={{ y: -250, opacity: 0, rotate: 0 }}
+              animate={{ y: 0, opacity: 1, rotate: rotation }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{
+                duration: 0.8,
+                ease: "easeOut",
+              }}
+              className="absolute w-72 md:w-80 sm:w-64 h-auto z-10"
+            />
+          </AnimatePresence>
+        </div> */}
 
-          {/* Foreground Image */}
-          <img
-            src="Frame-117127689334.png"
-            alt=""
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
-              w-72 md:w-80 sm:w-64 h-auto z-10"
+        <div
+          className="relative w-full h-64 md:h-80 sm:h-56
+      rounded-3xl bg-gradient-to-t from-[#0088FFBA] to-[#0088FF0A]/10
+      mb-20 md:mb-16 sm:mb-12
+      overflow-hidden flex items-center justify-center"
+        >
+          {/* Blurred Previous Images */}
+          <AnimatePresence>
+            {blurredImages.map((img) => (
+              <motion.img
+                key={`blur-${img.id}`}
+                src={img.src}
+                initial={{ opacity: 1 }}
+                animate={{ filter: "blur(5px)", opacity: 0.5 }}
+                exit={{ opacity: 0.5 }}
+                transition={{ duration: 0.8 }}
+                className="absolute w-72 md:w-80 sm:w-64 h-auto z-10"
+              />
+            ))}
+          </AnimatePresence>
+
+          {/* Current Image */}
+          <motion.img
+            key={`current-${currentIndex}`}
+            src={images[currentIndex]}
+            initial={{ y: -250, opacity: 0, rotate: 0 }}
+            animate={{ y: 0, opacity: 1, rotate: rotation }}
+            transition={{
+              type: "spring",
+              stiffness: 120,
+              damping: 12,
+            }}
+            className="absolute w-72 md:w-80 sm:w-64 h-auto z-20"
           />
-        </motion.div>
+        </div>
 
         {/* Split Cards */}
         <div className="grid md:grid-cols-2 gap-8 md:gap-6 sm:gap-5">
