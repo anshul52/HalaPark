@@ -8,133 +8,158 @@ import FlowConnections, {
 } from "@/components/common/Home/homecommon";
 
 export default function EnterpriseSolutions() {
-  const features = [
+  const integrations = [
+    { name: "Management", bgcolor: "bg-[#923BE2]", img: "/Group44.svg" },
+    { name: "Maintenance", bgcolor: "bg-pink-600", img: "/Group77.png" },
     {
-      title: "Smart Public Parking",
-      icon: (
-        <svg
-          className="w-8 h-8"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
-          />
-        </svg>
-      ),
-      description: "Real-time parking availability with smart detection",
-      badge: "parking zone (304) detected",
+      name: "Technical Support",
+      bgcolor: "bg-pink-600",
+      img: "/Group11.svg",
+    },
+    { name: "Operations", bgcolor: "bg-[#4A44FE]", img: "/Group66.png" },
+    { name: "Installation", bgcolor: "bg-pink-600", img: "/Group22.svg" },
+    {
+      name: "Equipment Supply",
+      bgcolor: "bg-[#197ADD]",
+      img: "/Group55.png",
     },
     {
-      title: "Private Parking",
-      icon: (
-        <svg
-          className="w-8 h-8"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-          />
-        </svg>
-      ),
-      description: "Reserved parking spaces for your business",
-    },
-    {
-      title: "EV Parking",
-      icon: (
-        <svg
-          className="w-8 h-8"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M13 10V3L4 14h7v7l9-11h-7z"
-          />
-        </svg>
-      ),
-      description: "Electric vehicle charging stations",
-    },
-    {
-      title: "Valet On Demand",
-      icon: (
-        <svg
-          className="w-8 h-8"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
-          />
-        </svg>
-      ),
-      description: "Professional valet service when you need it",
-    },
-    {
-      title: "Barrier-Free Parking",
-      icon: (
-        <svg
-          className="w-8 h-8"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-          />
-        </svg>
-      ),
-      description: "Seamless entry and exit experience",
-    },
-    {
-      title: "System Integrations",
-      icon: (
-        <svg
-          className="w-8 h-8"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-          />
-        </svg>
-      ),
-      description: "Integrate with payment systems and more",
-      showLogos: true,
+      name: "Advisory Services",
+      bgcolor: "bg-[#FA4162]",
+      img: "/Group33.svg",
     },
   ];
 
-  const paymentLogos = [
-    "Stripe",
-    "Apple Pay",
-    "Google Pay",
-    "Visa",
-    "Mastercard",
-    "PayPal",
-  ];
+  // Duplicate integrations for seamless loop
+  const duplicatedIntegrations = [...integrations, ...integrations];
+
+  // const features = [
+  //   {
+  //     title: "Smart Public Parking",
+  //     icon: (
+  //       <svg
+  //         className="w-8 h-8"
+  //         fill="none"
+  //         stroke="currentColor"
+  //         viewBox="0 0 24 24"
+  //       >
+  //         <path
+  //           strokeLinecap="round"
+  //           strokeLinejoin="round"
+  //           strokeWidth={2}
+  //           d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+  //         />
+  //       </svg>
+  //     ),
+  //     description: "Real-time parking availability with smart detection",
+  //     badge: "parking zone (304) detected",
+  //   },
+  //   {
+  //     title: "Private Parking",
+  //     icon: (
+  //       <svg
+  //         className="w-8 h-8"
+  //         fill="none"
+  //         stroke="currentColor"
+  //         viewBox="0 0 24 24"
+  //       >
+  //         <path
+  //           strokeLinecap="round"
+  //           strokeLinejoin="round"
+  //           strokeWidth={2}
+  //           d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+  //         />
+  //       </svg>
+  //     ),
+  //     description: "Reserved parking spaces for your business",
+  //   },
+  //   {
+  //     title: "EV Parking",
+  //     icon: (
+  //       <svg
+  //         className="w-8 h-8"
+  //         fill="none"
+  //         stroke="currentColor"
+  //         viewBox="0 0 24 24"
+  //       >
+  //         <path
+  //           strokeLinecap="round"
+  //           strokeLinejoin="round"
+  //           strokeWidth={2}
+  //           d="M13 10V3L4 14h7v7l9-11h-7z"
+  //         />
+  //       </svg>
+  //     ),
+  //     description: "Electric vehicle charging stations",
+  //   },
+  //   {
+  //     title: "Valet On Demand",
+  //     icon: (
+  //       <svg
+  //         className="w-8 h-8"
+  //         fill="none"
+  //         stroke="currentColor"
+  //         viewBox="0 0 24 24"
+  //       >
+  //         <path
+  //           strokeLinecap="round"
+  //           strokeLinejoin="round"
+  //           strokeWidth={2}
+  //           d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
+  //         />
+  //       </svg>
+  //     ),
+  //     description: "Professional valet service when you need it",
+  //   },
+  //   {
+  //     title: "Barrier-Free Parking",
+  //     icon: (
+  //       <svg
+  //         className="w-8 h-8"
+  //         fill="none"
+  //         stroke="currentColor"
+  //         viewBox="0 0 24 24"
+  //       >
+  //         <path
+  //           strokeLinecap="round"
+  //           strokeLinejoin="round"
+  //           strokeWidth={2}
+  //           d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+  //         />
+  //       </svg>
+  //     ),
+  //     description: "Seamless entry and exit experience",
+  //   },
+  //   {
+  //     title: "System Integrations",
+  //     icon: (
+  //       <svg
+  //         className="w-8 h-8"
+  //         fill="none"
+  //         stroke="currentColor"
+  //         viewBox="0 0 24 24"
+  //       >
+  //         <path
+  //           strokeLinecap="round"
+  //           strokeLinejoin="round"
+  //           strokeWidth={2}
+  //           d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+  //         />
+  //       </svg>
+  //     ),
+  //     description: "Integrate with payment systems and more",
+  //     showLogos: true,
+  //   },
+  // ];
+
+  // const paymentLogos = [
+  //   "Stripe",
+  //   "Apple Pay",
+  //   "Google Pay",
+  //   "Visa",
+  //   "Mastercard",
+  //   "PayPal",
+  // ];
 
   return (
     <section
@@ -330,66 +355,155 @@ export default function EnterpriseSolutions() {
             </div>
           </div>
 
-          {/* Feature Grid 3*/}
-          <div className="flex flex-row gap-2 sm:gap-3 md:gap-4 lg:gap-18 relative z-20">
-            <div className="w-[calc(50%-0.25rem)] sm:w-[calc(50%-0.375rem)] md:w-[calc(50%-0.5rem)] lg:w-full lg:max-w-4xl mx-auto">
-              <div className="bg-[#f3f4f6] rounded-lg border border-gray-200 p-3 sm:p-4 md:p-5 lg:p-7 px-2 sm:px-4 md:px-6 lg:px-10">
-                {/* Map Image */}
-                <div className="w-full h-20 sm:h-48 md:h-52 lg:h-56 rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-5 md:mb-6">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
-                  >
-                    <source
-                      src="https://framerusercontent.com/assets/lYtF9CvnSQ87rJssRO4TBGeHuM.mp4"
-                      type="video/mp4"
-                    />
-                  </video>
-                </div>
-
-                {/* Content */}
-                <div>
-                  <h2 className="text-[14px] sm:text-xl md:text-2xl font-medium tracking-tighter text-gray-900 mb-2">
-                    Barrier Free Parking
-                  </h2>
-
-                  <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl">
-                    Simplify how you manage connections with streamlined
-                    relationship organization — effortlessly.
-                  </p>
-                </div>
+          {/* Feature Grid 3 */}
+          <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4 lg:gap-18 relative z-20">
+            {/* Card 1 - Barrier Free Parking */}
+            <div className="bg-[#f3f4f6] rounded-lg border border-gray-200 p-3 sm:p-4 md:p-5 lg:p-7 px-2 sm:px-4 md:px-6 lg:px-10">
+              <div className="w-full h-20 sm:h-48 md:h-52 lg:h-56 rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-5 md:mb-6">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                >
+                  <source
+                    src="https://framerusercontent.com/assets/lYtF9CvnSQ87rJssRO4TBGeHuM.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+              </div>
+              <div>
+                <h2 className="text-[14px] sm:text-xl md:text-2xl font-medium tracking-tighter text-gray-900 mb-2">
+                  Barrier Free Parking
+                </h2>
+                <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl">
+                  Simplify how you manage connections with streamlined
+                  relationship organization — effortlessly.
+                </p>
               </div>
             </div>
-            <div className="w-[calc(50%-0.25rem)] sm:w-[calc(50%-0.375rem)] md:w-[calc(50%-0.5rem)] lg:w-full lg:max-w-4xl mx-auto">
-              <div className="bg-[#f3f4f6] rounded-lg border border-gray-200 p-3 sm:p-4 md:p-5 lg:p-7 px-2 sm:px-4 md:px-6 lg:px-10">
-                <div className="w-full h-20 sm:h-48 md:h-52 lg:h-56 rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-5 md:mb-6">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
-                  >
-                    <source
-                      src="https://framerusercontent.com/assets/clShwemj51ZsM12xcORI3h6pdo0.mp4"
-                      type="video/mp4"
-                    />
-                  </video>
-                </div>
 
-                <div>
-                  <h2 className="text-[14px] sm:text-xl md:text-2xl font-medium tracking-tighter text-gray-900 mb-2">
-                    System Integrations
-                  </h2>
+            {/* Card 2 - System Integrations */}
+            <div className="bg-[#f3f4f6] rounded-lg border border-gray-200 p-3 sm:p-4 md:p-5 lg:p-7 px-2 sm:px-4 md:px-6 lg:px-10">
+              <div className="w-full h-20 flex flex-col items-center justify-evenly sm:h-48 md:h-52 lg:h-56 rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-5 md:mb-6">
+                {/* ===============c11=============== */}
+                <div
+                  className="w-full h-1/3 flex items-center overflow-hidden
+        [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]
+        [-webkit-mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]"
+                >
+                  {/* <style>{`
+          @keyframes scroll {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+          }
+          .scroll-animation { animation: scroll 30s linear infinite; }
+        `}</style> */}
+                  <style>{`
+  @keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
 
-                  <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl">
-                    All your parking systems work together in one place, making
-                    daily operations easier to manage.
-                  </p>
+  @keyframes scroll-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  .scroll-left {
+    animation: scroll-left 30s linear infinite;
+  }
+
+  .scroll-right {
+    animation: scroll-right 30s linear infinite;
+  }
+`}</style>
+                  <div className="flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 scroll-right">
+                    {duplicatedIntegrations.map((integration, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center gap-1.5 sm:gap-2 shrink-0 bg-white border border-white rounded-[2px] sm:rounded-xl px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 shadow-lg text-xs sm:text-sm font-medium text-white transition-transform"
+                      >
+                        <div
+                          className={`w-4 h-4 sm:w-6 sm:h-6 md:w-7 md:h-7 ${integration.bgcolor} rounded-[7px] flex items-center justify-center`}
+                        >
+                          <img
+                            src={integration.img}
+                            alt={integration.name}
+                            className="sm:w-4 w-2 sm:h-4 h-2 object-cover"
+                          />
+                        </div>
+                        <span className="text-black text-[8px] sm:text-sm font-medium whitespace-nowrap">
+                          {integration.name}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
+                {/* ======= c22 ============ */}
+                <div
+                  className="w-full h-1/3 flex items-center overflow-hidden
+        [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]
+        [-webkit-mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]"
+                >
+                  {/* <style>{`
+          @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .scroll-animation { animation: scroll 30s linear infinite; }
+        `}</style> */}
+                  <style>{`
+  @keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes scroll-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  .scroll-left {
+    animation: scroll-left 30s linear infinite;
+  }
+
+  .scroll-right {
+    animation: scroll-right 30s linear infinite;
+  }
+`}</style>
+                  <div className="flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 scroll-left">
+                    {duplicatedIntegrations.map((integration, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center gap-1.5 sm:gap-2 shrink-0 bg-white border border-white rounded-lg sm:rounded-xl px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-white transition-transform"
+                      >
+                        <div
+                          className={`w-4 h-4 sm:w-6 sm:h-6 md:w-7 md:h-7 ${integration.bgcolor} rounded-[7px] flex items-center justify-center`}
+                        >
+                          <img
+                            src={integration.img}
+                            alt={integration.name}
+                            className="sm:w-4 w-2 sm:h-4 h-2 object-cover"
+                          />
+                        </div>
+                        <span className="text-black text-[8px] sm:text-sm font-medium whitespace-nowrap">
+                          {integration.name}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h2 className="text-[14px] sm:text-xl md:text-2xl font-medium tracking-tighter text-gray-900 mb-2">
+                  System Integrations
+                </h2>
+                <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl">
+                  All your parking systems work together in one place, making
+                  daily operations easier to manage.
+                </p>
               </div>
             </div>
           </div>
