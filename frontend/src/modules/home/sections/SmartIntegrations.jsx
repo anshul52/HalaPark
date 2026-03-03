@@ -43,13 +43,13 @@ export default function SmartIntegrations() {
         <div className="relative flex justify-center items-center mb-0 sm:mb-16 md:mb-20 lg:mb-20">
           {/* Central Location Pin */}
           <div className="absolute z-10">
-            <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-62 lg:h-62 rounded-full flex items-center justify-center shadow-2xl overflow-hidden">
+            <div className="relative w-20 h-20 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-62 lg:h-62 rounded-full flex items-center justify-center shadow-2xl overflow-hidden">
               <img
                 src="/imgi_32_rRwo7mUtZ89fOzQy5lvrDQHYjo.png"
                 alt="Smart Integrations"
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  sm:w-26 w-8 sm:h-26 h-8 object-cover z-10"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  sm:w-26 w-15 sm:h-26 h-15 object-cover z-10"
               />
-              <div className="scale-[0.64] sm:scale-[0.8] md:scale-[0.96] lg:scale-100">
+              <div className="scale-100">
                 <PulseLogo size={100} scale={1} />
               </div>
             </div>

@@ -35,19 +35,17 @@ function FeatureList({ heading, items, highlighted = false }) {
     <motion.div
       variants={cardVariants}
       whileHover={{ y: -5 }}
-      className={`flex-1 rounded-2xl p-8 text-left transition-all duration-300 ${
-        highlighted
-          ? "bg-white border border-blue-200"
-          : ""
+      className={`flex-1 rounded-2xl sm:p-8 p-4 text-left transition-all duration-300 ${
+        highlighted ? "bg-white border border-blue-200" : ""
       }`}
     >
-      <h2 className="text-2xl font-semibold text-slate-900 mb-8">
+      <h2 className="text-2xl font-semibold text-slate-900 sm:mb-8 mb-4">
         {heading}
       </h2>
 
       <motion.div
         variants={containerVariants}
-        className="space-y-8"
+        className="sm:space-y-8 space-y-4"
       >
         {items.map((item, index) => (
           <motion.div
@@ -55,17 +53,13 @@ function FeatureList({ heading, items, highlighted = false }) {
             variants={itemVariants}
             className="flex items-start gap-4"
           >
-            <img
-              src="/check.svg"
-              alt="tick"
-              className="mt-1 w-5 h-5"
-            />
+            <img src="/check.svg" alt="tick" className="mt-1 w-5 h-5" />
 
             <div>
-              <h3 className="font-semibold text-lg text-slate-900 mb-2">
+              <h3 className="font-semibold text-lg text-slate-900 mb-2 sm:leading-relaxed leading-tight">
                 {item.title}
               </h3>
-              <p className="text-slate-800 text-base leading-relaxed max-w-md">
+              <p className="text-slate-800 text-base sm:leading-relaxed leading-tight max-w-md">
                 {item.description}
               </p>
             </div>
@@ -78,7 +72,7 @@ function FeatureList({ heading, items, highlighted = false }) {
 
 export default function FeatureSplit({ left, right }) {
   return (
-    <section className="w-full flex justify-center px-6">
+    <section className="w-full flex justify-center sm:px-6">
       <motion.div
         initial="hidden"
         whileInView="show"
@@ -97,10 +91,7 @@ export default function FeatureSplit({ left, right }) {
         "
       >
         <div className="flex flex-col md:flex-row gap-8">
-          <FeatureList
-            heading={left.heading}
-            items={left.items}
-          />
+          <FeatureList heading={left.heading} items={left.items} />
 
           <FeatureList
             heading={right.heading}
