@@ -74,7 +74,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex flex-row justify-evenly items-start sm:w-3/5 w-full gap-3">
+          <div className="flex flex-row justify-evenly items-start sm:w-3/5 w-full gap-3 relative sm:pb-0 pb-20">
             {/* Quick Links */}
             <div>
               <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
@@ -125,7 +125,7 @@ export default function Footer() {
                     </Link>
                   </li>
                 ))}
-                <div className="flex gap-2 items-center justify-center mt-4">
+                <div className="flex gap-2 items-center justify-center mt-4 sm:relative absolute bottom-0 right-0 left-0">
                   <img
                     src={"/google-play.svg"}
                     alt="Google play"
