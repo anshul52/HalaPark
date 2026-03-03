@@ -159,7 +159,7 @@ export default function TechnologySection() {
           </p>
         </div>
 
-        <div className="relative flex justify-center items-center py-4 sm:py-6 md:py-8 lg:py-0 h-[300px] sm:h-[500px] md:h-[600px] lg:h-[700px] [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+        <div className="relative flex justify-center items-center py-4 sm:py-6 md:py-8 lg:py-0 h-[500px] sm:h-[500px] md:h-[600px] lg:h-[700px] [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
           {/* Central Smartphone */}
           <div className="z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <div className="h-[220px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px]">
