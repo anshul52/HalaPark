@@ -5,10 +5,9 @@ import Link from "next/link";
 export default function Footer() {
   const quickLinks = [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "#about" },
-    { name: "Services", href: "#what-we-do" },
-    { name: "Blog", href: "#blog" },
-    { name: "Contact Us", href: "#contact" },
+    { name: "About Us", href: "/about" },
+    { name: "App", href: "/app" },
+    { name: "Business", href: "/business" },
   ];
 
   const supportLinks = [
@@ -18,6 +17,7 @@ export default function Footer() {
     { name: "Privacy Policy", href: "#" },
     { name: "Terms of Service", href: "#" },
   ];
+  const ContactLinks = [{ name: "Contact Us", href: "/contact" }];
 
   const resourcesLinks = [
     { name: "Case Studies", href: "#" },
@@ -74,7 +74,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex flex-row justify-evenly items-center sm:w-3/5 w-full gap-3">
+          <div className="flex flex-row justify-evenly items-start sm:w-3/5 w-full gap-3">
             {/* Quick Links */}
             <div>
               <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
@@ -93,9 +93,54 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
-
-            {/* Support */}
+            {/* contact */}
             <div>
+              <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
+                Support
+              </h4>
+              <ul className="space-y-2 sm:space-y-1">
+                <li>
+                  <Link
+                    href={""}
+                    className="text-white transition-colors text-xs sm:text-sm"
+                  >
+                    {"Mail : info@halapark.com"}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={""}
+                    className="text-white transition-colors text-xs sm:text-sm"
+                  >
+                    {"Phone : +971 4 3782022"}
+                  </Link>
+                </li>
+                {ContactLinks.map((link, index) => (
+                  <li key={index}>
+                    <Link
+                      href={link.href}
+                      className="text-white transition-colors text-xs sm:text-sm underline"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+                <div className="flex gap-2 items-center justify-center mt-4">
+                  <img
+                    src={"/google-play.svg"}
+                    alt="Google play"
+                    className="border border-gray-600 rounded-3xl"
+                  />
+                  <img
+                    src={"/app-store.svg"}
+                    alt="App Store"
+                    className="border border-gray-600 rounded-3xl"
+                  />
+                </div>
+              </ul>
+            </div>
+            {/* Support */}
+            {/* <div>
               <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
                 Support
               </h4>
@@ -111,10 +156,10 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </div> */}
 
             {/* Resources */}
-            <div>
+            {/* <div>
               <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
                 Resources
               </h4>
@@ -130,7 +175,7 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

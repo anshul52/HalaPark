@@ -313,6 +313,7 @@ const navLinks = [
   { href: "/app", label: "App" },
   { href: "/business", label: "Business" },
   { href: "/about", label: "About Us" },
+  { href: "/contact", label: "Contact Us" },
 ];
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -342,7 +343,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-[70px]">
             {/* Logo */}
-            <a href="#" className="flex items-center gap-1 flex-shrink-0">
+            <a href="/" className="flex items-center gap-1 flex-shrink-0">
               <img src="logo-blue-11.png" alt="" className="sm:h-10 h-6" />
             </a>
 
@@ -363,7 +364,7 @@ export default function Navbar() {
             {/* Desktop CTA */}
             <div className="hidden lg:block flex-shrink-0">
               <a
-                href="#"
+                href="/app"
                 className="inline-flex items-center gap-2 bg-[#0088FF] hover:bg-blue-700 active:bg-blue-800 text-white text-sm sm:text-base font-light px-5 py-2.5 rounded-full transition-all duration-150 shadow-sm hover:shadow-md"
               >
                 Download the App
@@ -374,7 +375,7 @@ export default function Navbar() {
             {/* Mobile: compact CTA + Hamburger */}
             <div className="flex lg:hidden items-center gap-2">
               <a
-                href="#"
+                href="/app"
                 className="inline-flex items-center gap-1.5 bg-[#0088FF] hover:bg-blue-700 text-white text-sm sm:text-base font-medium px-4 py-2 rounded-full transition-colors duration-150"
               >
                 <span className="hidden sm:inline">Download the App</span>
