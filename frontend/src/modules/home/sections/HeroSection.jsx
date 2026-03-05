@@ -179,6 +179,18 @@ export default function HeroSection() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(14,165,233,0.12)_0%,transparent_35%),radial-gradient(circle_at_80%_80%,rgba(59,130,246,0.1)_0%,transparent_40%)]" />
       <div className="pointer-events-none absolute inset-0 bg-white/35" />
 
+      {/* Side Gradient Shapes (reference: app hero) */}
+      <img
+        src="/Ellipse3432.png"
+        alt="left gradient"
+        className="pointer-events-none absolute top-1/2 left-0 z-0 hidden h-150 w-150 -translate-y-1/2 object-cover sm:block sm:h-200 sm:w-200"
+      />
+      <img
+        src="/Ellipse23456.png"
+        alt="right gradient"
+        className="pointer-events-none absolute top-1/2 right-0 z-0 hidden h-300 w-300 -translate-y-1/2 object-cover sm:block"
+      />
+
       <div
         className={`relative z-10 flex h-full w-full items-center justify-center ${
           !hasStartedScroll ? "hero-idle-rotate" : ""
@@ -244,6 +256,23 @@ export default function HeroSection() {
           );
         })}
       </div>
+
+      <motion.div
+        initial={false}
+        animate={
+          hasStartedScroll
+            ? { opacity: 0, scale: 0.8, filter: "blur(6px)" }
+            : { opacity: 1, scale: 1, filter: "blur(0px)" }
+        }
+        transition={{ duration: 0.45, ease: "easeOut" }}
+        className="pointer-events-none absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2"
+      >
+        <img
+          src="/imgi_32_rRwo7mUtZ89fOzQy5lvrDQHYjo.png"
+          alt="HalaPark logo"
+          className="h-14 w-14 object-contain sm:h-18 sm:w-18"
+        />
+      </motion.div>
 
       <motion.div
         style={{ opacity: contentOpacity, y: contentY }}
