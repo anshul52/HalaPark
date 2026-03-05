@@ -77,21 +77,21 @@ export default function AppFeaturesSection() {
   };
 
   return (
-    <section className="bg-white px-6 py-16">
+    <section className="bg-white px-4 py-12 sm:px-6 sm:py-14 lg:py-16">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#0088FF]">
+        <div className="mb-9 text-center sm:mb-10 lg:mb-12">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#0088FF] sm:text-sm sm:tracking-[0.18em]">
             Smart Features
           </p>
-          <h2 className="mt-3 text-4xl font-bold text-black md:text-5xl">
+          <h2 className="mx-auto mt-3 max-w-3xl text-2xl font-bold leading-tight text-black sm:text-3xl md:text-4xl lg:text-5xl">
             Everything You Need To Operate Parking Better
           </h2>
         </div>
 
-        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
+        <div className="grid items-center gap-6 md:gap-8 lg:grid-cols-2 lg:gap-16">
           <div
             ref={listRef}
-            className="flex flex-row gap-5 overflow-x-auto pb-3 lg:flex-col lg:overflow-visible"
+            className="flex snap-x snap-mandatory flex-row gap-4 overflow-x-auto pb-2 md:flex-col md:gap-5 md:overflow-visible md:pb-0 lg:gap-6"
           >
             {FEATURES.map((feature, index) => {
               const Icon = feature.icon;
@@ -104,25 +104,27 @@ export default function AppFeaturesSection() {
                     featureRefs.current[index] = el;
                   }}
                   onClick={() => handleSelect(index)}
-                  className={`w-full max-w-md cursor-pointer rounded-2xl border p-4 text-left transition-all duration-300 ${
+                  className={`w-[84vw] max-w-[340px] shrink-0 snap-center cursor-pointer rounded-2xl border p-4 text-left transition-all duration-300 sm:w-[360px] md:w-full md:max-w-none lg:max-w-md ${
                     isActive
                       ? "border-[#D7E7FF] bg-white shadow-lg"
                       : "border-transparent bg-[#F8FAFD]"
                   }`}
                   type="button"
                 >
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-start gap-3 sm:gap-4">
                     <div
-                      className={`rounded-full p-2.5 ${
+                      className={`rounded-full p-2 sm:p-2.5 ${
                         isActive
                           ? "bg-[#0088FF] text-white"
                           : "bg-[#EAF3FF] text-[#0088FF]"
                       }`}
                     >
-                      <Icon size={20} />
+                      <Icon size={18} className="sm:h-5 sm:w-5" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-black">{feature.title}</h3>
+                      <h3 className="text-base font-semibold text-black sm:text-lg">
+                        {feature.title}
+                      </h3>
                       <p className="mt-2 text-sm leading-relaxed text-[#50576B]">
                         {feature.description}
                       </p>
@@ -154,7 +156,7 @@ export default function AppFeaturesSection() {
               <img
                 src={FEATURES[activeIndex].image}
                 alt={FEATURES[activeIndex].title}
-                className="h-[360px] w-full object-cover md:h-[430px]"
+                className="h-[240px] w-full object-cover sm:h-[320px] md:h-[380px] lg:h-[430px]"
               />
             </motion.div>
           </div>
