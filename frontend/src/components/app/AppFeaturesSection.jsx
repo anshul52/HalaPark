@@ -88,7 +88,7 @@ export default function AppFeaturesSection() {
           </h2>
         </div>
 
-        <div className="grid items-center gap-6 md:gap-8 lg:grid-cols-2 lg:gap-16">
+        <div className="grid items-center gap-6 md:gap-8 lg:grid-cols-2 lg:gap-6">
           <div
             ref={listRef}
             className="flex snap-x snap-mandatory flex-row gap-4 overflow-x-auto pb-2 md:flex-col md:gap-5 md:overflow-visible md:pb-0 lg:gap-6"
