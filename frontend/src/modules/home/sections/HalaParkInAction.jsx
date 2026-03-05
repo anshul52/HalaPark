@@ -1,51 +1,99 @@
-import Link from "next/link";
-
 export default function HalaParkInAction() {
   return (
     <section className="bg-[#000000] font-sans py-8 sm:py-12 md:py-16 lg:py-0">
-      <div className="w-full flex flex-col lg:flex-row justify-between items-center">
+      <div className="w-full flex flex-col lg:flex-row justify-between items-center h-[80vh]">
         {/* Left Side - Content */}
-        <div className="text-white w-full lg:w-[34%] px-4 sm:px-6 md:px-8 lg:px-10 mb-8 sm:mb-10 md:mb-12 lg:mb-0">
-          <div className="mb-4 sm:mb-5 lg:mb-0">
-            <button className="relative bg-black text-white px-4 sm:px-5 lg:px-6 py-2.5 sm:py-3 rounded-3xl flex items-center gap-2 sm:gap-3 font-medium text-sm sm:text-[15px] lg:text-[16px] transition-all duration-300 hover:opacity-95 hover:-translate-y-0.5 shadow-[0_8px_24px_rgba(0,0,0,0.45)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.6)] overflow-visible group border border-white/10 mb-6">
-              {/* Subtle gradient overlay on top edge */}
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
-
-              {/* Star Icon - Four-pointed star */}
-              <img
-                src="/download.svg"
-                alt="HalaPark in Action"
-                className="w-4 h-4 sm:w-5 sm:h-5 text-white shrink-0"
-              />
-
-              {/* Button Text */}
-              <span className="whitespace-nowrap text-white font-medium text-xs sm:text-sm lg:text-[14px]">
-                HalaPark in Action
-              </span>
-            </button>
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[56px] font-semibold mb-4 sm:mb-5 lg:mb-6">
-            HalaPark in Action
+        <div className="text-white w-full lg:w-[40%] pl-4 sm:pl-6 md:pl-8 lg:pl-30 mb-8 sm:mb-10 md:mb-12 lg:mb-0">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[48px] font-medium mb-4 sm:mb-5 lg:mb-6 leading-12">
+            Park Smarter with the HalaPark App
           </h2>
-          <p className="text-sm sm:text-[15px] lg:text-[16px] text-white mb-6 sm:mb-7 lg:mb-8 leading-relaxed">
-            HalaPark works across public and private spaces to simplify parking,
-            reduce congestion, and improve daily operations for everyone
-            involved.
+          <p className="text-sm sm:text-[15px] lg:text-[16px] font-light text-white/40 mb-6 sm:mb-7 lg:mb-8 leading-relaxed">
+            Replace multiple broken tools with Ramp, the only platform designed
+            to make your finance team faster—and happier.
           </p>
-          <Link href="/how-it-works">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-7 lg:px-8 py-2.5 sm:py-3 rounded-full font-medium text-sm sm:text-[15px] lg:text-[16px] transition-colors shadow-lg w-full sm:w-auto">
-              See how HalaPark work
-            </button>
-          </Link>
+          <div class="bg-black py-6">
+            <div class="max-w-4xl mx-auto flex items-center justify-start gap-12">
+              {/* <!-- App Store --> */}
+              <div class="flex items-center gap-4 cursor-pointer">
+                <img
+                  src="/image--04.png"
+                  alt="App Store"
+                  class="w-14 h-14 rounded-2xl"
+                />
+
+                <div class="text-white leading-tight">
+                  <p class="text-sm font-light">Download Now On</p>
+                  <p class="text-2xl font-medium">App Store</p>
+                </div>
+              </div>
+
+              {/* <!-- Play Store --> */}
+              <div class="flex items-center gap-4 cursor-pointer">
+                <img
+                  src="image 4.png"
+                  alt="Play Store"
+                  class="w-14 h-14 rounded-2xl"
+                />
+
+                <div class="text-white leading-tight">
+                  <p class="text-sm font-light">Download Now On</p>
+                  <p class="text-2xl font-medium">Play Store</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Right Side - Image */}
-        <div className="relative flex justify-center items-center w-full lg:w-[66%] h-[300px] sm:h-[400px] md:h-[500px] lg:h-[650px] overflow-hidden">
-          <img
-            src="/image.png"
-            alt="HalaPark in Action"
-            className="h-full sm:h-[450px] md:h-[600px] lg:h-[800px] object-contain"
-          />
+        <div
+          className="relative flex justify-center items-center w-full lg:w-[60%] h-full overflow-hidden"
+          // style={}
+        >
+          <div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative w-full mt-10 sm:mt-0 h-full"
+          >
+            <div className="inset-0 w-full h-full flex items-center justify-center relative">
+              {/* Map Background */}
+              <div className="relative w-full h-full">
+                <img
+                  src="/Frame9991171276918.png"
+                  alt="HalaPark"
+                  className="
+                    h-full
+                    w-230 
+                    max-lg:w-full 
+                    max-lg:h-full 
+                    object-cover
+                    opacity-10
+                  "
+                />
+              </div>
+
+              {/* Phone */}
+              <div
+                className="
+                  absolute 
+                  z-20
+                  rounded-[2.5rem] h-full
+                "
+              >
+                <img
+                  src="/Frame78901171276870.png"
+                  alt="HalaPark"
+                  className="
+                    sm:w-auto
+                    sm:h-full
+                    w-50
+                    h-55
+                    object-cover
+                  "
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

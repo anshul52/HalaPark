@@ -8,6 +8,7 @@ export default function Testimonials() {
     typeof window !== "undefined" ? window.innerWidth : 1024
   );
   const [isPlaying, setIsPlaying] = useState(false);
+
   useEffect(() => {
     // Set initial width
     if (typeof window !== "undefined") {
@@ -29,25 +30,15 @@ export default function Testimonials() {
       title: "Senior PM at NexaTech",
       rating: 4,
       text: "HalaPark made parking simple for our visitors and easier for our team to manage. Queues reduced, operations improved, and support is always available whenever we need help",
-      image: "👩",
+      image: "imgi_38_ANzV36qYUnxIKmq0u2hYCbuyA30.png",
       bgColor: "bg-[#F7F7FE]",
     },
-    // {
-    //   name: "de",
-    //   title: "Project Manager at TechNova",
-    //   rating: 4,
-    //   text: "Managing parking is much easier now. Everything is in one system, payments are seamless, and the team always has clear visibility over daily operations.",
-    //   image: "./qzIv3DS5PIVL8FC9WfCVRQF73U.avif",
-    //   bgColor: "bg-transparent",
-    //   featured: true,
-    // },
-
     {
       name: "Michael Smith",
       title: "Product Owner at InnovateX",
       rating: 4,
       text: "Since using HalaPark, parking has become smooth and stress-free. No tickets, no confusion, just an easy experience from entry to exit every single time.",
-      image: "👩‍💼",
+      image: "imgi_63_y13E9h0wZ0TlqpbGXMISrZx6YVs.jpg",
       bgColor: "bg-[#F7F7FE]",
     },
     {
@@ -55,7 +46,7 @@ export default function Testimonials() {
       title: "Team Lead at BrightSolutions",
       rating: 4,
       text: "The valet on demand service saved us time and greatly improved customer satisfaction. Visitors arrive, hand over their keys, and move on without delays or frustration.",
-      image: "👩‍💼",
+      image: "imgi_41_z7MKCfs2kLf57EnFlS7rZkCe1Q.png",
       bgColor: "bg-[#F7F7FE]",
     },
     {
@@ -63,7 +54,7 @@ export default function Testimonials() {
       title: "Project Manager at TechNova",
       rating: 4,
       text: "Managing parking is much easier now. Everything is in one system, payments are seamless, and the team always has clear visibility over daily operations.",
-      image: "👩‍💼",
+      image: "imgi_42_ixIJ2UH7mmjJC486D9CvoYxtytk.png",
       bgColor: "bg-[#F7F7FE]",
     },
   ];
@@ -210,8 +201,12 @@ export default function Testimonials() {
 
                         {/* Profile section at bottom */}
                         <div className="flex items-center mt-auto">
-                          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-orange-500 flex items-center justify-center text-xl sm:text-2xl shrink-0 mr-3 sm:mr-4 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.3),0_2px_4px_-1px_rgba(0,0,0,0.2)]">
-                            {testimonial.image}
+                          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-orange-500 flex items-center justify-center text-xl sm:text-2xl shrink-0 mr-3 sm:mr-4 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.3),0_2px_4px_-1px_rgba(0,0,0,0.2)] overflow-hidden border-3 border-white">
+                            <img
+                              src={testimonial.image}
+                              alt=""
+                              className="h-full w-full"
+                            />
                           </div>
                           <div>
                             <p className="font-semibold text-gray-800 text-sm sm:text-base">
