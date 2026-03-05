@@ -87,34 +87,34 @@ export default function Footer() {
           </div>
         </div>
         {/* bottom menu */}
-        <div class="w-full py-4 px-0 flex sm:flex-row flex-col sm:items-center justify-between gap-5 sm:gap-0  mt-2">
-          <div class="flex items-center">
-            <button class="flex items-center gap-3 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm text-gray-900 hover:shadow-sm transition">
-              <span class="w-6 h-6 flex items-center justify-center bg-blue-100 rounded-full">
+        <div className="w-full py-4 px-0 flex sm:flex-row flex-col sm:items-center justify-between gap-5 sm:gap-0  mt-2">
+          <div className="flex items-center">
+            <button className="flex items-center gap-3 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm text-gray-900 hover:shadow-sm transition">
+              <span className="w-6 h-6 flex items-center justify-center bg-blue-100 rounded-full">
                 <img src="/Figure09mailicon.png" alt="" />
               </span>
               support@halapark.com
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-4 h-4 text-gray-500"
+                className="w-4 h-4 text-gray-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M9 5l7 7-7 7"
                 />
               </svg>
             </button>
           </div>
 
-          <div class="flex flex-col items-start justify-end gap-4">
-            <span class="text-base text-black">Social media:</span>
+          <div className="flex flex-col items-start justify-end gap-4">
+            <span className="text-base text-black">Social media:</span>
 
-            <div class="flex gap-3">
+            <div className="flex gap-3">
               <div className="flex space-x-3 sm:space-x-4">
                 {socialLinks.map((social, index) => (
                   <button

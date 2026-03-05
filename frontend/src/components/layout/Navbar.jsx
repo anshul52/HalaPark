@@ -259,6 +259,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const PhoneIcon = () => (
   <svg
@@ -318,6 +319,8 @@ const navLinks = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [heroVisible, setHeroVisible] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 8);
@@ -333,11 +336,36 @@ export default function Navbar() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    if (pathname !== "/") {
+      setHeroVisible(false);
+      return;
+    }
+
+    const hero = document.getElementById("hero-section");
+    if (!hero) {
+      setHeroVisible(false);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setHeroVisible(entry.isIntersecting);
+      },
+      { threshold: 0.12 }
+    );
+
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, [pathname]);
+
+  const showShadow = pathname === "/" ? !heroVisible : scrolled;
+
   return (
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300 ${
-          scrolled ? "shadow-md" : "shadow-sm"
+          showShadow ? "shadow-md" : "shadow-none"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

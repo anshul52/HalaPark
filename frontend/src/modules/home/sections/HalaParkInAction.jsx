@@ -11,33 +11,33 @@ export default function HalaParkInAction() {
             Replace multiple broken tools with Ramp, the only platform designed
             to make your finance team faster—and happier.
           </p>
-          <div class="bg-black py-6">
-            <div class="max-w-4xl mx-auto flex items-center justify-start gap-12">
+          <div className="bg-black py-6">
+            <div className="max-w-4xl mx-auto flex items-center justify-start gap-12">
               {/* <!-- App Store --> */}
-              <div class="flex items-center gap-4 cursor-pointer">
+              <div className="flex items-center gap-4 cursor-pointer">
                 <img
-                  src="/image--04.png"
+                  src="image--04.png"
                   alt="App Store"
-                  class="w-14 h-14 rounded-2xl"
+                  className="w-14 h-14 rounded-2xl"
                 />
 
-                <div class="text-white leading-tight">
-                  <p class="text-sm font-light">Download Now On</p>
-                  <p class="text-2xl font-medium">App Store</p>
+                <div className="text-white leading-tight">
+                  <p className="text-sm font-light">Download Now On</p>
+                  <p className="text-2xl font-medium">App Store</p>
                 </div>
               </div>
 
               {/* <!-- Play Store --> */}
-              <div class="flex items-center gap-4 cursor-pointer">
+              <div className="flex items-center gap-4 cursor-pointer">
                 <img
                   src="image 4.png"
                   alt="Play Store"
-                  class="w-14 h-14 rounded-2xl"
+                  className="w-14 h-14 rounded-2xl"
                 />
 
-                <div class="text-white leading-tight">
-                  <p class="text-sm font-light">Download Now On</p>
-                  <p class="text-2xl font-medium">Play Store</p>
+                <div className="text-white leading-tight">
+                  <p className="text-sm font-light">Download Now On</p>
+                  <p className="text-2xl font-medium">Play Store</p>
                 </div>
               </div>
             </div>
