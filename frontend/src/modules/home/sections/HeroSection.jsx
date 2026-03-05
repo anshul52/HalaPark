@@ -22,10 +22,6 @@ const CARD_IMAGES = [
 ];
 
 const lerp = (start, end, t) => start * (1 - t) + end * t;
-const seeded = (value) => {
-  const raw = Math.sin(value * 9999.91) * 43758.5453;
-  return raw - Math.floor(raw);
-};
 
 function MorphCard({ src, index, target }) {
   return (
@@ -62,8 +58,8 @@ function MorphCard({ src, index, target }) {
 }
 
 export default function HeroSection() {
-  const [phase, setPhase] = useState("scatter");
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
+  const [hasStartedScroll, setHasStartedScroll] = useState(false);
   const containerRef = useRef(null);
   const scrollRef = useRef(0);
 
@@ -115,6 +111,9 @@ export default function HeroSection() {
 
       event.preventDefault();
       const next = Math.min(Math.max(scrollRef.current + delta, 0), MAX_SCROLL);
+      if (next > 0 && !hasStartedScroll) {
+        setHasStartedScroll(true);
+      }
       scrollRef.current = next;
       virtualScroll.set(next);
     };
@@ -139,6 +138,9 @@ export default function HeroSection() {
 
       event.preventDefault();
       const next = Math.min(Math.max(scrollRef.current + delta, 0), MAX_SCROLL);
+      if (next > 0 && !hasStartedScroll) {
+        setHasStartedScroll(true);
+      }
       scrollRef.current = next;
       virtualScroll.set(next);
     };
@@ -152,7 +154,7 @@ export default function HeroSection() {
       node.removeEventListener("touchstart", onTouchStart);
       node.removeEventListener("touchmove", onTouchMove);
     };
-  }, [virtualScroll]);
+  }, [hasStartedScroll, virtualScroll]);
 
   useEffect(() => {
     const unsubMorph = smoothMorph.on("change", setMorphValue);
@@ -163,28 +165,6 @@ export default function HeroSection() {
       unsubRotate();
     };
   }, [smoothMorph, smoothScrollRotate]);
-
-  useEffect(() => {
-    const t1 = setTimeout(() => setPhase("line"), 450);
-    const t2 = setTimeout(() => setPhase("circle"), 1900);
-
-    return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-    };
-  }, []);
-
-  const scatterPositions = useMemo(
-    () =>
-      Array.from({ length: TOTAL_CARDS }).map((_, i) => ({
-        x: (seeded(i + 1) - 0.5) * 1500,
-        y: (seeded(i + 101) - 0.5) * 1000,
-        rotation: (seeded(i + 1001) - 0.5) * 180,
-        scale: 0.6,
-        opacity: 0,
-      })),
-    [],
-  );
 
   const contentOpacity = useTransform(smoothMorph, [0.72, 1], [0, 1]);
   const contentY = useTransform(smoothMorph, [0.72, 1], [24, 0]);
@@ -199,71 +179,60 @@ export default function HeroSection() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(14,165,233,0.12)_0%,transparent_35%),radial-gradient(circle_at_80%_80%,rgba(59,130,246,0.1)_0%,transparent_40%)]" />
       <div className="pointer-events-none absolute inset-0 bg-white/35" />
 
-      <div className="relative z-10 flex h-full w-full items-center justify-center">
+      <div
+        className={`relative z-10 flex h-full w-full items-center justify-center ${
+          !hasStartedScroll ? "hero-idle-rotate" : ""
+        }`}
+      >
         {Array.from({ length: TOTAL_CARDS }).map((_, i) => {
           let target = { x: 0, y: 0, rotation: 0, scale: 1, opacity: 1 };
+          const isMobile = containerSize.width < 768;
+          const minDimension = Math.min(
+            containerSize.width,
+            containerSize.height,
+          );
 
-          if (phase === "scatter") {
-            target = scatterPositions[i];
-          } else if (phase === "line") {
-            const lineSpacing = 72;
-            const totalWidth = TOTAL_CARDS * lineSpacing;
-            target = {
-              x: i * lineSpacing - totalWidth / 2,
-              y: 0,
-              rotation: 0,
-              scale: 1,
-              opacity: 1,
-            };
-          } else {
-            const isMobile = containerSize.width < 768;
-            const minDimension = Math.min(
-              containerSize.width,
-              containerSize.height,
-            );
+          const circleRadius = Math.min(minDimension * 0.33, 330);
+          const circleAngle = (i / TOTAL_CARDS) * 360;
+          const circleRad = (circleAngle * Math.PI) / 180;
+          const circlePos = {
+            x: Math.cos(circleRad) * circleRadius,
+            y: Math.sin(circleRad) * circleRadius,
+            rotation: circleAngle + 90,
+          };
 
-            const circleRadius = Math.min(minDimension * 0.33, 330);
-            const circleAngle = (i / TOTAL_CARDS) * 360;
-            const circleRad = (circleAngle * Math.PI) / 180;
-            const circlePos = {
-              x: Math.cos(circleRad) * circleRadius,
-              y: Math.sin(circleRad) * circleRadius,
-              rotation: circleAngle + 90,
-            };
+          const baseRadius = Math.min(
+            containerSize.width,
+            containerSize.height * 1.5,
+          );
+          const arcRadius = baseRadius * (isMobile ? 1.45 : 1.15);
+          const arcApexY = containerSize.height * (isMobile ? 0.36 : 0.26);
+          const arcCenterY = arcApexY + arcRadius;
 
-            const baseRadius = Math.min(
-              containerSize.width,
-              containerSize.height * 1.5,
-            );
-            const arcRadius = baseRadius * (isMobile ? 1.45 : 1.15);
-            const arcApexY = containerSize.height * (isMobile ? 0.36 : 0.26);
-            const arcCenterY = arcApexY + arcRadius;
+          const spread = isMobile ? 100 : 130;
+          const startAngle = -90 - spread / 2;
+          const step = spread / (TOTAL_CARDS - 1);
 
-            const spread = isMobile ? 100 : 130;
-            const startAngle = -90 - spread / 2;
-            const step = spread / (TOTAL_CARDS - 1);
+          const progress = Math.min(Math.max(rotateValue / 360, 0), 1);
+          const boundedRotation = -progress * spread * 0.82;
 
-            const progress = Math.min(Math.max(rotateValue / 360, 0), 1);
-            const boundedRotation = -progress * spread * 0.82;
+          const arcAngle = startAngle + i * step + boundedRotation;
+          const arcRad = (arcAngle * Math.PI) / 180;
 
-            const arcAngle = startAngle + i * step + boundedRotation;
-            const arcRad = (arcAngle * Math.PI) / 180;
+          const arcPos = {
+            x: Math.cos(arcRad) * arcRadius,
+            y: Math.sin(arcRad) * arcRadius + arcCenterY,
+            rotation: arcAngle + 90,
+            scale: isMobile ? 1.35 : 1.7,
+          };
 
-            const arcPos = {
-              x: Math.cos(arcRad) * arcRadius,
-              y: Math.sin(arcRad) * arcRadius + arcCenterY,
-              rotation: arcAngle + 90,
-              scale: isMobile ? 1.35 : 1.7,
-            };
-
-            target = {
-              x: lerp(circlePos.x, arcPos.x, morphValue),
-              y: lerp(circlePos.y, arcPos.y, morphValue),
-              rotation: lerp(circlePos.rotation, arcPos.rotation, morphValue),
-              scale: lerp(1, arcPos.scale, morphValue),
-              opacity: 1,
-            };
-          }
+          target = {
+            x: lerp(circlePos.x, arcPos.x, morphValue),
+            y: lerp(circlePos.y, arcPos.y, morphValue),
+            rotation: lerp(circlePos.rotation, arcPos.rotation, morphValue),
+            scale: lerp(1, arcPos.scale, morphValue),
+            opacity: 1,
+          };
 
           return (
             <MorphCard
@@ -337,6 +306,22 @@ export default function HeroSection() {
       >
         SCROLL TO EXPLORE
       </motion.p>
+
+      <style jsx>{`
+        .hero-idle-rotate {
+          animation: heroIdleRotate 36s linear infinite;
+          transform-origin: center center;
+        }
+
+        @keyframes heroIdleRotate {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      `}</style>
     </section>
   );
 }
