@@ -42,9 +42,7 @@ function MorphCard({ src, index, target }) {
       className="group pointer-events-auto"
     >
       <div className="relative h-full w-full transition-transform duration-200 group-hover:scale-[1.03]">
-        <div
-          className="absolute inset-0 h-full w-full overflow-hidden rounded-xl border border-white/15 shadow-[0_8px_18px_rgba(0,0,0,0.22)]"
-        >
+        <div className="absolute inset-0 h-full w-full overflow-hidden rounded-xl border border-white/15 shadow-[0_8px_18px_rgba(0,0,0,0.22)]">
           <img
             src={src}
             alt={`card-${index}`}
@@ -267,11 +265,18 @@ export default function HeroSection() {
         transition={{ duration: 0.45, ease: "easeOut" }}
         className="pointer-events-none absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2"
       >
-        <img
-          src="/imgi_32_rRwo7mUtZ89fOzQy5lvrDQHYjo.png"
-          alt="HalaPark logo"
-          className="h-14 w-14 object-contain sm:h-18 sm:w-18"
-        />
+        <div className="flex flex-col items-center gap-2">
+          <img
+            src="/imgi_32_rRwo7mUtZ89fOzQy5lvrDQHYjo.png"
+            alt="HalaPark logo"
+            className="h-16 w-16 object-contain sm:h-22 sm:w-22"
+          />
+          <img
+            src="/imgi_107_ZggRpdAhyW6Ogq5nZrCCWGcBpAsdhbkasd.png"
+            alt="HalaPark mark"
+            className="h-5 w-auto object-contain sm:h-6"
+          />
+        </div>
       </motion.div>
 
       <motion.div
