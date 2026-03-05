@@ -130,27 +130,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
-      {/* Scroll to Top Button */}
-      <button
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-blue-600 hover:bg-blue-700 text-black rounded-full shadow-lg flex items-center justify-center transition-colors z-50"
-        aria-label="Scroll to top"
-      >
-        <svg
-          className="w-5 h-5 sm:w-5 sm:h-5 md:w-6 md:h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M5 10l7-7m0 0l7 7m-7-7v18"
-          />
-        </svg>
-      </button>
     </footer>
   );
 }

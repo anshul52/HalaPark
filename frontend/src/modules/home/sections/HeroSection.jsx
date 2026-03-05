@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
-const TOTAL_CARDS = 12;
+const TOTAL_CARDS = 10;
 const MAX_SCROLL = 2200;
 const CARD_WIDTH = 66;
 const CARD_HEIGHT = 96;
@@ -22,22 +22,24 @@ const CARD_IMAGES = [
 ];
 
 const lerp = (start, end, t) => start * (1 - t) + end * t;
+const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+const mapRange = (value, inMin, inMax, outMin, outMax) => {
+  if (inMax === inMin) return outMin;
+  const t = clamp((value - inMin) / (inMax - inMin), 0, 1);
+  return lerp(outMin, outMax, t);
+};
 
 function MorphCard({ src, index, target }) {
   return (
-    <motion.div
-      animate={{
-        x: target.x,
-        y: target.y,
-        rotate: target.rotation,
-        scale: target.scale,
-        opacity: target.opacity,
-      }}
-      transition={{ type: "spring", stiffness: 45, damping: 16 }}
+    <div
       style={{
         position: "absolute",
         width: CARD_WIDTH,
         height: CARD_HEIGHT,
+        transform: `translate3d(${target.x}px, ${target.y}px, 0) rotate(${target.rotation}deg) scale(${target.scale})`,
+        opacity: target.opacity,
+        willChange: "transform, opacity",
+        transition: "transform 120ms linear, opacity 120ms linear",
       }}
       className="group pointer-events-auto"
     >
@@ -51,29 +53,19 @@ function MorphCard({ src, index, target }) {
           <div className="absolute inset-0 bg-black/16 transition-colors group-hover:bg-black/6" />
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
 export default function HeroSection() {
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
   const [hasStartedScroll, setHasStartedScroll] = useState(false);
+  const [isAnimationReady, setIsAnimationReady] = useState(false);
+  const [scrollValue, setScrollValue] = useState(0);
   const containerRef = useRef(null);
   const scrollRef = useRef(0);
-
-  const virtualScroll = useMotionValue(0);
-
-  const morphProgress = useTransform(virtualScroll, [0, 650], [0, 1]);
-  const smoothMorph = useSpring(morphProgress, { stiffness: 45, damping: 20 });
-
-  const scrollRotate = useTransform(virtualScroll, [650, MAX_SCROLL], [0, 300]);
-  const smoothScrollRotate = useSpring(scrollRotate, {
-    stiffness: 45,
-    damping: 20,
-  });
-
-  const [morphValue, setMorphValue] = useState(0);
-  const [rotateValue, setRotateValue] = useState(0);
+  const pendingScrollRef = useRef(0);
+  const frameRef = useRef(null);
 
   useEffect(() => {
     const node = containerRef.current;
@@ -95,8 +87,23 @@ export default function HeroSection() {
   }, []);
 
   useEffect(() => {
+    if (containerSize.width === 0 || containerSize.height === 0) return;
+    const id = requestAnimationFrame(() => setIsAnimationReady(true));
+    return () => cancelAnimationFrame(id);
+  }, [containerSize.width, containerSize.height]);
+
+  useEffect(() => {
     const node = containerRef.current;
     if (!node) return;
+
+    const scheduleScrollUpdate = (next) => {
+      pendingScrollRef.current = next;
+      if (frameRef.current !== null) return;
+      frameRef.current = requestAnimationFrame(() => {
+        frameRef.current = null;
+        setScrollValue(pendingScrollRef.current);
+      });
+    };
 
     const onWheel = (event) => {
       const delta = event.deltaY;
@@ -109,11 +116,9 @@ export default function HeroSection() {
 
       event.preventDefault();
       const next = Math.min(Math.max(scrollRef.current + delta, 0), MAX_SCROLL);
-      if (next > 0 && !hasStartedScroll) {
-        setHasStartedScroll(true);
-      }
+      setHasStartedScroll(next > 0);
       scrollRef.current = next;
-      virtualScroll.set(next);
+      scheduleScrollUpdate(next);
     };
 
     let touchY = 0;
@@ -136,11 +141,9 @@ export default function HeroSection() {
 
       event.preventDefault();
       const next = Math.min(Math.max(scrollRef.current + delta, 0), MAX_SCROLL);
-      if (next > 0 && !hasStartedScroll) {
-        setHasStartedScroll(true);
-      }
+      setHasStartedScroll(next > 0);
       scrollRef.current = next;
-      virtualScroll.set(next);
+      scheduleScrollUpdate(next);
     };
 
     node.addEventListener("wheel", onWheel, { passive: false });
@@ -148,25 +151,23 @@ export default function HeroSection() {
     node.addEventListener("touchmove", onTouchMove, { passive: false });
 
     return () => {
+      if (frameRef.current !== null) {
+        cancelAnimationFrame(frameRef.current);
+      }
       node.removeEventListener("wheel", onWheel);
       node.removeEventListener("touchstart", onTouchStart);
       node.removeEventListener("touchmove", onTouchMove);
     };
-  }, [hasStartedScroll, virtualScroll]);
+  }, []);
 
-  useEffect(() => {
-    const unsubMorph = smoothMorph.on("change", setMorphValue);
-    const unsubRotate = smoothScrollRotate.on("change", setRotateValue);
-
-    return () => {
-      unsubMorph();
-      unsubRotate();
-    };
-  }, [smoothMorph, smoothScrollRotate]);
-
-  const contentOpacity = useTransform(smoothMorph, [0.72, 1], [0, 1]);
-  const contentY = useTransform(smoothMorph, [0.72, 1], [24, 0]);
-  const scrollHintOpacity = useTransform(smoothMorph, [0, 0.6, 1], [1, 0.7, 0]);
+  const morphValue = mapRange(scrollValue, 0, 650, 0, 1);
+  const rotateValue = mapRange(scrollValue, 650, MAX_SCROLL, 0, 300);
+  const contentOpacity = mapRange(morphValue, 0.72, 1, 0, 1);
+  const contentY = mapRange(morphValue, 0.72, 1, 24, 0);
+  const scrollHintOpacity =
+    morphValue <= 0.6
+      ? mapRange(morphValue, 0, 0.6, 1, 0.7)
+      : mapRange(morphValue, 0.6, 1, 0.7, 0);
 
   return (
     <section
@@ -189,12 +190,23 @@ export default function HeroSection() {
         className="pointer-events-none absolute top-1/2 right-0 z-0 hidden h-300 w-300 -translate-y-1/2 object-cover sm:block"
       />
 
-      <div
-        className={`relative z-10 flex h-full w-full items-center justify-center ${
-          !hasStartedScroll ? "hero-idle-rotate" : ""
-        }`}
+      <motion.div
+        initial={false}
+        animate={{
+          opacity: isAnimationReady ? 1 : 0,
+          filter: isAnimationReady ? "blur(0px)" : "blur(10px)",
+          scale: isAnimationReady ? 1 : 0.985,
+        }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="relative z-10 flex h-full w-full items-center justify-center"
       >
-        {Array.from({ length: TOTAL_CARDS }).map((_, i) => {
+        <div
+          className={`relative flex h-full w-full items-center justify-center ${
+            !hasStartedScroll ? "hero-idle-rotate" : ""
+          }`}
+        >
+          {isAnimationReady &&
+            Array.from({ length: TOTAL_CARDS }).map((_, i) => {
           let target = { x: 0, y: 0, rotation: 0, scale: 1, opacity: 1 };
           const isMobile = containerSize.width < 768;
           const minDimension = Math.min(
@@ -223,7 +235,7 @@ export default function HeroSection() {
           const startAngle = -90 - spread / 2;
           const step = spread / (TOTAL_CARDS - 1);
 
-          const progress = Math.min(Math.max(rotateValue / 360, 0), 1);
+          const progress = Math.min(Math.max(rotateValue / 300, 0), 1);
           const boundedRotation = -progress * spread * 0.82;
 
           const arcAngle = startAngle + i * step + boundedRotation;
@@ -252,8 +264,9 @@ export default function HeroSection() {
               target={target}
             />
           );
-        })}
-      </div>
+          })}
+        </div>
+      </motion.div>
 
       <motion.div
         initial={false}
@@ -267,14 +280,14 @@ export default function HeroSection() {
       >
         <div className="flex flex-col items-center gap-2">
           <img
-            src="/imgi_32_rRwo7mUtZ89fOzQy5lvrDQHYjo.png"
+            src="/Untitled0okm3456789.png"
             alt="HalaPark logo"
             className="h-16 w-16 object-contain sm:h-22 sm:w-22"
           />
           <img
             src="/imgi_107_ZggRpdAhyW6Ogq5nZrCCWGcBpAsdhbkasd.png"
             alt="HalaPark mark"
-            className="h-5 w-auto object-contain sm:h-6"
+            className="h-5 w-auto object-contain sm:h-16"
           />
         </div>
       </motion.div>
@@ -284,7 +297,7 @@ export default function HeroSection() {
         className="pointer-events-none absolute inset-0 z-20 flex items-center"
       >
         <div className="mx-auto w-full px-4 sm:px-6 md:px-8 lg:px-12">
-          <div className="w-full max-w-3xl text-left">
+          <div className="w-full max-w-3xl text-left mb-15">
             <div className="mb-4 flex items-center sm:mb-5 md:mb-6">
               <div className="flex items-center gap-2 rounded-full border border-black/20 bg-white/80 px-2 py-2 shadow-xl backdrop-blur-md sm:gap-3 sm:px-2.5 sm:py-2.5 md:gap-4 md:px-3 md:py-3 lg:gap-6">
                 <div className="flex -space-x-2 sm:-space-x-3 md:-space-x-4">
