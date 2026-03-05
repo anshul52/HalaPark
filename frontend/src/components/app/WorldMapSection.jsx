@@ -45,7 +45,7 @@ const CONNECTIONS = [
   { start: CITY_POINTS.AbuDhabi, end: CITY_POINTS.Fujairah },
 ];
 
-const VIEWBOX = { width: 900, height: 420, pad: 30 };
+const VIEWBOX = { width: 900, height: 500, pad: 34 };
 const BOUNDS = {
   minLng: Math.min(...UAE_POLYGON.map((d) => d[0])),
   maxLng: Math.max(...UAE_POLYGON.map((d) => d[0])),
@@ -78,13 +78,14 @@ const curvedPath = (start, end) => {
 
 function UAEMap() {
   return (
-    <div className="relative w-full overflow-hidden rounded-[30px] border border-[#DDE3EA] bg-gradient-to-b from-[#F8FAFC] to-[#EEF2F7] p-3 shadow-[0_24px_80px_rgba(15,23,42,0.10)]">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(14,165,233,0.14),transparent_38%),radial-gradient(circle_at_90%_18%,rgba(59,130,246,0.08),transparent_32%)]" />
+    <div className="relative h-full w-full overflow-hidden rounded-[30px]   p-3">
+      {/* <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(14,165,233,0.14),transparent_38%),radial-gradient(circle_at_90%_18%,rgba(59,130,246,0.08),transparent_32%)]" />
       <div className="pointer-events-none absolute -left-10 top-10 h-44 w-44 rounded-full bg-[#60A5FA]/20 blur-3xl" />
-      <div className="pointer-events-none absolute -right-8 bottom-8 h-48 w-48 rounded-full bg-[#0EA5E9]/16 blur-3xl" />
+      <div className="pointer-events-none absolute -right-8 bottom-8 h-48 w-48 rounded-full bg-[#0EA5E9]/16 blur-3xl" /> */}
       <svg
         viewBox={`0 0 ${VIEWBOX.width} ${VIEWBOX.height}`}
-        className="relative z-10 h-full w-full rounded-2xl border border-[#E5E7EB] bg-[#F2F4F7]"
+        preserveAspectRatio="xMidYMid meet"
+        className="relative z-10 h-full w-full rounded-2xl "
       >
         <defs>
           <pattern
@@ -101,8 +102,8 @@ function UAEMap() {
             <path d={polygonPath} />
           </clipPath>
           <linearGradient id="uae-map-fill" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#F8FAFC" />
-            <stop offset="100%" stopColor="#E4E7EC" />
+            <stop offset="0%" stopColor="#FFFFFF" />
+            <stop offset="100%" stopColor="#FFFFFF" />
           </linearGradient>
           <linearGradient id="uae-route" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0" />
@@ -110,17 +111,17 @@ function UAEMap() {
             <stop offset="90%" stopColor="#0088FF" stopOpacity="1" />
             <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
           </linearGradient>
+          <filter id="route-glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="2.2" />
+          </filter>
           <filter
-            id="map-soft-blur"
+            id="map-border-blur"
             x="-20%"
             y="-20%"
             width="140%"
             height="140%"
           >
-            <feGaussianBlur stdDeviation="5" />
-          </filter>
-          <filter id="route-glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="2.2" />
+            <feGaussianBlur stdDeviation="3.2" />
           </filter>
         </defs>
 
@@ -129,13 +130,7 @@ function UAEMap() {
           y="0"
           width={VIEWBOX.width}
           height={VIEWBOX.height}
-          fill="#F2F4F7"
-        />
-        <path
-          d={polygonPath}
-          fill="#94A3B8"
-          opacity="0.12"
-          filter="url(#map-soft-blur)"
+          fill="#FFFFFF"
         />
         <path d={polygonPath} fill="url(#uae-map-fill)" stroke="none" />
         <rect
@@ -146,7 +141,14 @@ function UAEMap() {
           fill="url(#uae-dot-pattern)"
           clipPath="url(#uae-shape-clip)"
         />
-        <path d={polygonPath} fill="none" stroke="#98A2B3" strokeWidth="1.6" />
+        <path
+          d={polygonPath}
+          fill="none"
+          stroke="#cad7e8"
+          strokeWidth="5"
+          strokeOpacity="0.34"
+          filter="url(#map-border-blur)"
+        />
 
         {CONNECTIONS.map((route, index) => {
           const start = projectPoint(route.start.lat, route.start.lng);
@@ -212,7 +214,7 @@ function UAEMap() {
           );
         })}
 
-        {["Abu Dhabi", "Dubai", "Ras Al Khaimah"].map((label) => {
+        {["Abu Dhabi", "Dubai", "Sharjah", "Ras Al Khaimah"].map((label) => {
           const city = Object.values(CITY_POINTS).find(
             (d) => d.label === label,
           );
@@ -253,7 +255,7 @@ export default function WorldMapSection() {
         </p>
       </div>
 
-      <div className="mx-auto mt-10 max-w-7xl">
+      <div className="mx-auto mt-10 h-[360px] max-w-6xl sm:h-[420px] lg:h-[500px]">
         <UAEMap />
       </div>
     </section>
