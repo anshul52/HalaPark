@@ -3,10 +3,10 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
-const TOTAL_CARDS = 20;
-const MAX_SCROLL = 2800;
-const CARD_WIDTH = 78;
-const CARD_HEIGHT = 112;
+const TOTAL_CARDS = 12;
+const MAX_SCROLL = 2200;
+const CARD_WIDTH = 66;
+const CARD_HEIGHT = 96;
 
 const CARD_IMAGES = [
   "/banner1.png",
@@ -42,43 +42,21 @@ function MorphCard({ src, index, target }) {
         position: "absolute",
         width: CARD_WIDTH,
         height: CARD_HEIGHT,
-        transformStyle: "preserve-3d",
-        perspective: "1000px",
       }}
       className="group pointer-events-auto"
     >
-      <motion.div
-        className="relative h-full w-full"
-        style={{ transformStyle: "preserve-3d" }}
-        transition={{
-          duration: 0.6,
-          type: "spring",
-          stiffness: 260,
-          damping: 20,
-        }}
-        whileHover={{ rotateY: 180 }}
-      >
+      <div className="relative h-full w-full transition-transform duration-200 group-hover:scale-[1.03]">
         <div
-          className="absolute inset-0 h-full w-full overflow-hidden rounded-xl border border-white/15 "
-          style={{ backfaceVisibility: "hidden" }}
+          className="absolute inset-0 h-full w-full overflow-hidden rounded-xl border border-white/15 shadow-[0_8px_18px_rgba(0,0,0,0.22)]"
         >
           <img
             src={src}
             alt={`card-${index}`}
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/20 transition-colors group-hover:bg-transparent" />
+          <div className="absolute inset-0 bg-black/16 transition-colors group-hover:bg-black/6" />
         </div>
-
-        <div
-          className="absolute inset-0 flex h-full w-full items-center justify-center rounded-xl border border-cyan-200/40 bg-[#020C18] px-3 text-center"
-          style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
-        >
-          <p className="text-xs font-semibold tracking-wide text-cyan-200">
-            HalaPark
-          </p>
-        </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 }
@@ -90,22 +68,18 @@ export default function HeroSection() {
   const scrollRef = useRef(0);
 
   const virtualScroll = useMotionValue(0);
-  const mouseX = useMotionValue(0);
 
   const morphProgress = useTransform(virtualScroll, [0, 650], [0, 1]);
   const smoothMorph = useSpring(morphProgress, { stiffness: 45, damping: 20 });
 
-  const scrollRotate = useTransform(virtualScroll, [650, MAX_SCROLL], [0, 360]);
+  const scrollRotate = useTransform(virtualScroll, [650, MAX_SCROLL], [0, 300]);
   const smoothScrollRotate = useSpring(scrollRotate, {
     stiffness: 45,
     damping: 20,
   });
 
-  const smoothMouseX = useSpring(mouseX, { stiffness: 30, damping: 22 });
-
   const [morphValue, setMorphValue] = useState(0);
   const [rotateValue, setRotateValue] = useState(0);
-  const [parallaxValue, setParallaxValue] = useState(0);
 
   useEffect(() => {
     const node = containerRef.current;
@@ -169,37 +143,26 @@ export default function HeroSection() {
       virtualScroll.set(next);
     };
 
-    const onMouseMove = (event) => {
-      const rect = node.getBoundingClientRect();
-      const relativeX = event.clientX - rect.left;
-      const normalizedX = (relativeX / rect.width) * 2 - 1;
-      mouseX.set(normalizedX * 90);
-    };
-
     node.addEventListener("wheel", onWheel, { passive: false });
     node.addEventListener("touchstart", onTouchStart, { passive: false });
     node.addEventListener("touchmove", onTouchMove, { passive: false });
-    node.addEventListener("mousemove", onMouseMove);
 
     return () => {
       node.removeEventListener("wheel", onWheel);
       node.removeEventListener("touchstart", onTouchStart);
       node.removeEventListener("touchmove", onTouchMove);
-      node.removeEventListener("mousemove", onMouseMove);
     };
-  }, [mouseX, virtualScroll]);
+  }, [virtualScroll]);
 
   useEffect(() => {
     const unsubMorph = smoothMorph.on("change", setMorphValue);
     const unsubRotate = smoothScrollRotate.on("change", setRotateValue);
-    const unsubMouse = smoothMouseX.on("change", setParallaxValue);
 
     return () => {
       unsubMorph();
       unsubRotate();
-      unsubMouse();
     };
-  }, [smoothMorph, smoothMouseX, smoothScrollRotate]);
+  }, [smoothMorph, smoothScrollRotate]);
 
   useEffect(() => {
     const t1 = setTimeout(() => setPhase("line"), 450);
@@ -287,7 +250,7 @@ export default function HeroSection() {
             const arcRad = (arcAngle * Math.PI) / 180;
 
             const arcPos = {
-              x: Math.cos(arcRad) * arcRadius + parallaxValue,
+              x: Math.cos(arcRad) * arcRadius,
               y: Math.sin(arcRad) * arcRadius + arcCenterY,
               rotation: arcAngle + 90,
               scale: isMobile ? 1.35 : 1.7,
