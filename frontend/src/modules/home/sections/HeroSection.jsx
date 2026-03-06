@@ -16,9 +16,9 @@ const CARD_IMAGES = [
   "/aboutherophoneimg.png",
   "/imgi_30_8nsi4FFv3MDWMqrJo5thcG02qBk.jpg",
   "/imgi_29_reP9x3qZdQloSNzp8Jjaq0XDiyg.jpg",
-  "/imgi_28_VtGsyJs2affVK3ADnnlSoxNph30.jpg",
-  "/imgi_27_J43YEwKdcm8Se3yO2hv6heQUr0.jpg",
-  "/imgi_26_kizUz1tXR7Z3c1Li33hw1dmhjk.jpg",
+  "/Rectangle111.png",
+  "/Rectangle222.png",
+  "/Rectangle333.png",
 ];
 
 const lerp = (start, end, t) => start * (1 - t) + end * t;
@@ -207,64 +207,64 @@ export default function HeroSection() {
         >
           {isAnimationReady &&
             Array.from({ length: TOTAL_CARDS }).map((_, i) => {
-          let target = { x: 0, y: 0, rotation: 0, scale: 1, opacity: 1 };
-          const isMobile = containerSize.width < 768;
-          const minDimension = Math.min(
-            containerSize.width,
-            containerSize.height,
-          );
+              let target = { x: 0, y: 0, rotation: 0, scale: 1, opacity: 1 };
+              const isMobile = containerSize.width < 768;
+              const minDimension = Math.min(
+                containerSize.width,
+                containerSize.height,
+              );
 
-          const circleRadius = Math.min(minDimension * 0.33, 330);
-          const circleAngle = (i / TOTAL_CARDS) * 360;
-          const circleRad = (circleAngle * Math.PI) / 180;
-          const circlePos = {
-            x: Math.cos(circleRad) * circleRadius,
-            y: Math.sin(circleRad) * circleRadius,
-            rotation: circleAngle + 90,
-          };
+              const circleRadius = Math.min(minDimension * 0.33, 330);
+              const circleAngle = (i / TOTAL_CARDS) * 360;
+              const circleRad = (circleAngle * Math.PI) / 180;
+              const circlePos = {
+                x: Math.cos(circleRad) * circleRadius,
+                y: Math.sin(circleRad) * circleRadius,
+                rotation: circleAngle + 90,
+              };
 
-          const baseRadius = Math.min(
-            containerSize.width,
-            containerSize.height * 1.5,
-          );
-          const arcRadius = baseRadius * (isMobile ? 1.45 : 1.15);
-          const arcApexY = containerSize.height * (isMobile ? 0.36 : 0.26);
-          const arcCenterY = arcApexY + arcRadius;
+              const baseRadius = Math.min(
+                containerSize.width,
+                containerSize.height * 1.5,
+              );
+              const arcRadius = baseRadius * (isMobile ? 1.45 : 1.15);
+              const arcApexY = containerSize.height * (isMobile ? 0.36 : 0.26);
+              const arcCenterY = arcApexY + arcRadius;
 
-          const spread = isMobile ? 100 : 130;
-          const startAngle = -90 - spread / 2;
-          const step = spread / (TOTAL_CARDS - 1);
+              const spread = isMobile ? 100 : 130;
+              const startAngle = -90 - spread / 2;
+              const step = spread / (TOTAL_CARDS - 1);
 
-          const progress = Math.min(Math.max(rotateValue / 300, 0), 1);
-          const boundedRotation = -progress * spread * 0.82;
+              const progress = Math.min(Math.max(rotateValue / 300, 0), 1);
+              const boundedRotation = -progress * spread * 0.82;
 
-          const arcAngle = startAngle + i * step + boundedRotation;
-          const arcRad = (arcAngle * Math.PI) / 180;
+              const arcAngle = startAngle + i * step + boundedRotation;
+              const arcRad = (arcAngle * Math.PI) / 180;
 
-          const arcPos = {
-            x: Math.cos(arcRad) * arcRadius,
-            y: Math.sin(arcRad) * arcRadius + arcCenterY,
-            rotation: arcAngle + 90,
-            scale: isMobile ? 1.35 : 1.7,
-          };
+              const arcPos = {
+                x: Math.cos(arcRad) * arcRadius,
+                y: Math.sin(arcRad) * arcRadius + arcCenterY,
+                rotation: arcAngle + 90,
+                scale: isMobile ? 1.35 : 1.7,
+              };
 
-          target = {
-            x: lerp(circlePos.x, arcPos.x, morphValue),
-            y: lerp(circlePos.y, arcPos.y, morphValue),
-            rotation: lerp(circlePos.rotation, arcPos.rotation, morphValue),
-            scale: lerp(1, arcPos.scale, morphValue),
-            opacity: 1,
-          };
+              target = {
+                x: lerp(circlePos.x, arcPos.x, morphValue),
+                y: lerp(circlePos.y, arcPos.y, morphValue),
+                rotation: lerp(circlePos.rotation, arcPos.rotation, morphValue),
+                scale: lerp(1, arcPos.scale, morphValue),
+                opacity: 1,
+              };
 
-          return (
-            <MorphCard
-              key={i}
-              index={i}
-              src={CARD_IMAGES[i % CARD_IMAGES.length]}
-              target={target}
-            />
-          );
-          })}
+              return (
+                <MorphCard
+                  key={i}
+                  index={i}
+                  src={CARD_IMAGES[i % CARD_IMAGES.length]}
+                  target={target}
+                />
+              );
+            })}
         </div>
       </motion.div>
 
@@ -294,11 +294,11 @@ export default function HeroSection() {
 
       <motion.div
         style={{ opacity: contentOpacity, y: contentY }}
-        className="pointer-events-none absolute inset-0 z-20 flex items-center"
+        className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center"
       >
         <div className="mx-auto w-full px-4 sm:px-6 md:px-8 lg:px-12">
-          <div className="w-full max-w-3xl text-left mb-15">
-            <div className="mb-4 flex items-center sm:mb-5 md:mb-6">
+          <div className="mx-auto mb-15 w-full max-w-3xl text-center">
+            <div className="mb-4 flex items-center justify-center sm:mb-5 md:mb-6">
               <div className="flex items-center gap-2 rounded-full border border-black/20 bg-white/80 px-2 py-2 shadow-xl backdrop-blur-md sm:gap-3 sm:px-2.5 sm:py-2.5 md:gap-4 md:px-3 md:py-3 lg:gap-6">
                 <div className="flex -space-x-2 sm:-space-x-3 md:-space-x-4">
                   <img
@@ -332,7 +332,7 @@ export default function HeroSection() {
               Innovating Smarter <br className="hidden sm:block" /> Parking
               Experiences
             </h1>
-            <p className="mb-4 max-w-2xl text-sm leading-relaxed text-black sm:mb-5 sm:text-base md:mb-6 md:text-lg lg:text-[18px]">
+            <p className="mx-auto mb-4 max-w-2xl text-sm leading-relaxed text-black sm:mb-5 sm:text-base md:mb-6 md:text-lg lg:text-[18px]">
               We transform your parking into a fully automated, high-performing{" "}
               <br className="hidden md:block" />
               asset with smart systems, valet on demand, and digital operations.

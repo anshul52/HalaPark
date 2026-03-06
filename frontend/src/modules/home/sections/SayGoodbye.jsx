@@ -54,7 +54,7 @@ export default function SayGoodbye() {
   return (
     <section
       className="py-8 sm:py-12 md:py-16 lg:py-18 font-sans w-full overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_35%,black_65%,transparent)]
-[-webkit-mask-image:linear-gradient(to_bottom,transparent,black_35%,black_65%,transparent)]"
+[-webkit-mask-image:linear-gradient(to_bottom,transparent,black_35%,black_65%,transparent)] bg-white"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="relative flex flex-row gap-4 sm:gap-5 w-full">
