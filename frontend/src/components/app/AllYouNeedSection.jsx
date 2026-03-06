@@ -10,10 +10,10 @@ const features = [
     cta: "Learn More",
     className: "md:col-span-5",
     Icon: PIcon,
-    image: "/hf_20260306_103153_b265804d-2d81-4c0d-8c86-50b94bd60634 (1).jpeg",
+    image: "/Untitled23e32.png",
   },
   {
-    image: "/9f6d39892454a4aecbb4b8d648804225.jpg.jpeg",
+    image: "/9f6d39892454a4aecbb4b8d648804225.jpg.png",
     name: "Private Parking",
     description:
       "Monetize private spaces with secure access and smart controls.",
@@ -40,7 +40,8 @@ const features = [
     cta: "Learn More",
     className: "md:col-span-6",
     Icon: BoltIcon,
-    image: "/hf_20260306_105244_1ba5c7ed-2bfa-4d2e-b422-35180510c1ba.jpeg",
+    image:
+      "/Untitledhf_20260306_103153_b265804d-2d81-4c0d-8c86-50b94bd60634.png",
   },
 ];
 
@@ -50,7 +51,7 @@ export default function AllYouNeedSection() {
       <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-[#1E92FE]/10 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-20 -right-20 h-72 w-72 rounded-full bg-[#5B7CFA]/10 blur-3xl" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-10 sm:mb-12">
           <div className="inline-flex items-center rounded-full border border-[#CFE4FF] bg-white/80 backdrop-blur px-4 py-1.5 text-xs sm:text-sm font-medium text-[#1E92FE]">
             All You Need In One Place
@@ -108,7 +109,7 @@ function BentoCard({ name, className, Icon, description, href, cta, image }) {
           {name}
         </h3>
         <p className="max-w-lg text-[#5F6B7A] leading-relaxed">{description}</p>
-        <div className="mt-auto w-full h-56 sm:h-64 rounded-xl overflow-hidden border border-[#E6EEF8] bg-white">
+        <div className="mt-auto w-full h-56 sm:h-68 rounded-xl overflow-hidden border border-[#E6EEF8]">
           <div
             className="h-full w-full bg-contain bg-center bg-no-repeat transition-transform duration-500 group-hover:scale-105"
             style={{ backgroundImage: `url("${image}")` }}
