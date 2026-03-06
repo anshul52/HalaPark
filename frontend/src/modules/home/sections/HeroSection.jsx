@@ -9,16 +9,15 @@ const CARD_WIDTH = 66;
 const CARD_HEIGHT = 96;
 
 const CARD_IMAGES = [
-  "/banner1.png",
-  "/banner2.png",
-  "/Frame9991171276918.png",
-  "/Frame78901171276870.png",
-  "/aboutherophoneimg.png",
-  "/imgi_30_8nsi4FFv3MDWMqrJo5thcG02qBk.jpg",
-  "/imgi_29_reP9x3qZdQloSNzp8Jjaq0XDiyg.jpg",
   "/Rectangle111.png",
   "/Rectangle222.png",
   "/Rectangle333.png",
+  "/Rectangle444.png",
+  "/Rectangle555.png",
+  "/Rectangle666.png",
+  "/Rectangle777.png",
+  "/Rectangle888.png",
+  "/Rectangle999.png",
 ];
 
 const lerp = (start, end, t) => start * (1 - t) + end * t;
