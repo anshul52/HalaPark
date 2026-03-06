@@ -64,15 +64,14 @@ export default function HalaParkInAction() {
               {/* Map Background */}
               <div className="relative w-full h-full">
                 <img
-                  src="/Frame9991171276918.png"
+                  src="/Frame567890-1171276930.png"
                   alt="HalaPark"
                   className="
                     h-full
-                    w-230 
+                    w-full 
                     max-lg:w-full 
                     max-lg:h-full 
                     object-cover
-                    opacity-10
                   "
                 />
               </div>
