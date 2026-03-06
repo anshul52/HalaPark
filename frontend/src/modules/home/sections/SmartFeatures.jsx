@@ -350,7 +350,7 @@ export default function SmartFeatures() {
     features.length;
 
   return (
-    <section className="py-8 sm:py-12 md:py-14 lg:py-16 px-4 sm:px-6 lg:px-0">
+    <section className="py-8 sm:py-12 md:py-14 lg:py-16 px-4 sm:px-6 lg:px-0 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 bg-white">
