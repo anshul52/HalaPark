@@ -10,9 +10,10 @@ const features = [
     cta: "Learn More",
     className: "md:col-span-5",
     Icon: PIcon,
-    image: "/hf_20260306_105244_1ba5c7ed-2bfa-4d2e-b422-35180510c1ba.jpeg",
+    image: "/hf_20260306_103153_b265804d-2d81-4c0d-8c86-50b94bd60634 (1).jpeg",
   },
   {
+    image: "/9f6d39892454a4aecbb4b8d648804225.jpg.jpeg",
     name: "Private Parking",
     description:
       "Monetize private spaces with secure access and smart controls.",
@@ -20,17 +21,16 @@ const features = [
     cta: "Learn More",
     className: "md:col-span-5",
     Icon: LockIcon,
-    image: "/hf_20260306_103153_b265804d-2d81-4c0d-8c86-50b94bd60634 (1).jpeg",
   },
   {
-    name: "EVC Parking",
+    name: "EV Parking",
     description:
       "Book charging-enabled parking for electric vehicles on demand.",
     href: "#",
     cta: "Learn More",
     className: "md:col-span-6",
     Icon: BoltIcon,
-    image: "/9f6d39892454a4aecbb4b8d648804225.jpg.jpeg",
+    image: "/hf_20260306_105244_1ba5c7ed-2bfa-4d2e-b422-35180510c1ba.jpeg",
   },
   {
     name: "Valet",
@@ -78,7 +78,7 @@ function BentoGrid({ children, className }) {
   return (
     <div
       className={cn(
-        "grid w-full auto-rows-[18rem] sm:auto-rows-[19rem] grid-cols-1 md:grid-cols-10 gap-4 sm:gap-5",
+        " grid w-full auto-rows-[24rem] sm:auto-rows-[26rem] grid-cols-1 md:grid-cols-10 gap-4 sm:gap-5",
         className,
       )}
     >
@@ -108,7 +108,7 @@ function BentoCard({ name, className, Icon, description, href, cta, image }) {
           {name}
         </h3>
         <p className="max-w-lg text-[#5F6B7A] leading-relaxed">{description}</p>
-        <div className="mt-auto w-full h-28 sm:h-300 rounded-xl overflow-hidden border border-[#E6EEF8]">
+        <div className="mt-auto w-full h-44 sm:h-302 rounded-xl overflow-hidden border border-[#E6EEF8]">
           <div
             className="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
             style={{ backgroundImage: `url("${image}")` }}
