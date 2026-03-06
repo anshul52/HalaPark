@@ -61,7 +61,7 @@ export default function SayGoodbye() {
 
   return (
     <section
-      className="py-8 sm:py-12 md:py-16 lg:py-18 font-sans w-full overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_35%,black_65%,transparent)]
+      className="py-8 sm:py-12 md:py-16 lg:py-18 font-sans w-full overflow-hidden shadow-[0_0_60px_rgba(255,255,255,0.9)] [mask-image:linear-gradient(to_bottom,transparent,black_35%,black_65%,transparent)]
 [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_35%,black_65%,transparent)] bg-white"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -127,7 +127,7 @@ export default function SayGoodbye() {
                       <span
                         className={`px-1 sm:px-1.5 md:px-2 ${
                           isActive
-                            ? "text-[#1E92FE] text-left text-align-left"
+                            ? "text-[#1E92FE] text-left text-align-left drop-shadow-[0_0_14px_rgba(255,255,255,0.95)]"
                             : "text-black/70"
                         }`}
                         style={{
