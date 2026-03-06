@@ -241,7 +241,7 @@ function UAEMap() {
 
 export default function WorldMapSection() {
   return (
-    <section className="w-full bg-white px-6 py-24">
+    <section className="w-full bg-white px-6 pt-24">
       <div className="mx-auto max-w-7xl text-center">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#0088FF]">
           UAE Network
@@ -255,7 +255,7 @@ export default function WorldMapSection() {
         </p>
       </div>
 
-      <div className="mx-auto mt-10 h-[360px] max-w-6xl sm:h-[420px] lg:h-[500px]">
+      <div className="mx-auto mt-10 h-[180px] max-w-6xl sm:h-[420px] lg:h-[600px]">
         <UAEMap />
       </div>
     </section>

@@ -118,7 +118,7 @@ export default function AboutFeatures({ pagetype = "about" }) {
                   {feature.desc}
                 </p>
               </motion.div>
-            )
+            ),
           )}
         </div>
       </div>
