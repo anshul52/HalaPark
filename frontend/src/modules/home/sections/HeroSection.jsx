@@ -328,13 +328,12 @@ export default function HeroSection() {
             </div>
 
             <h1 className="mb-4 text-3xl font-bold leading-tight text-black sm:mb-5 sm:text-4xl md:mb-6 md:text-5xl lg:text-[54px]">
-              Park Smarter. Earn More. <br className="hidden sm:block" /> Stress
-              Less.
+              The AI-Powered Parking Platform <br className="hidden sm:block" />{" "}
+              Built for the UAE
             </h1>
             <p className="mx-auto mb-4 max-w-2xl text-sm leading-relaxed text-black sm:mb-5 sm:text-base md:mb-6 md:text-lg lg:text-[18px]">
-              Hala Park gives property owners the tools to monetise unused
-              parking bays and gives customers a faster, smarter way to park,
-              all through one app.
+              Smarter entry. Faster payments. Real passive income. Hala Park
+              brings AI-powered parking to every corner of the UAE.
             </p>
             <h4 className="mb-4 text-sm font-bold text-black sm:mb-5 sm:text-base md:mb-6 md:text-lg lg:text-[18px]">
               List it. Book it. Earn from it.

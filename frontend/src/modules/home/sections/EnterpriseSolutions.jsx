@@ -124,8 +124,9 @@ export default function EnterpriseSolutions() {
                   </h2>
 
                   <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl transition-colors duration-400">
-                    Real-time availability and cashless payment, parking without
-                    the friction.
+                    Find available parking near you in real time, book your
+                    spot, and pay entirely through the app. No tickets, no
+                    queues, no cash.
                   </p>
                 </div>
               </div>
@@ -153,8 +154,9 @@ export default function EnterpriseSolutions() {
                   </h2>
 
                   <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl transition-colors duration-400">
-                    Property owners get secure, flexible parking that fits the
-                    needs of their buildings and tenants.
+                    Own an unused bay? List it on Hala Park for free and earn
+                    hourly, daily, or monthly income. We handle bookings,
+                    payments, and support.
                   </p>
                 </div>
               </div>
@@ -188,8 +190,9 @@ export default function EnterpriseSolutions() {
                   </h2>
 
                   <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl">
-                    Charge while you park. No extra apps, no separate accounts,
-                    built right into the Hala Park experience.
+                    Select Hala Park facilities offer integrated EV charging
+                    points - manage everything through the same app. Park,
+                    charge, and go.
                   </p>
                 </div>
               </div>
@@ -217,8 +220,9 @@ export default function EnterpriseSolutions() {
                   </h2>
 
                   <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl">
-                    Request a professional valet from your phone. Your vehicle
-                    is collected, secured, and returned, on your time.
+                    One tap and a professional valet is on the way. Your
+                    vehicle is collected, parked securely, and returned exactly
+                    when you need it - tracked in real time through the app.
                   </p>
                 </div>
               </div>
@@ -353,8 +357,10 @@ export default function EnterpriseSolutions() {
                   System Integrations
                 </h2>
                 <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl">
-                  All your parking systems work together in one place, making
-                  daily operations easier to manage.
+                  Barrier cameras, licence plate recognition, operator
+                  dashboards, and app payments - all integrated and managed
+                  from a single system. No fragmented tools, no manual
+                  workarounds.
                 </p>
               </div>
             </div>
