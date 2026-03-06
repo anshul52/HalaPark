@@ -30,12 +30,14 @@ export default function SmartIntegrations() {
           />
           <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16 absolute top-[60%] sm:top-[62%] md:top-[63%] lg:top-2/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-6xl font-semibold text-white mb-3 sm:mb-4">
-              Smart Integrations That <br className="hidden sm:block" /> Power
-              Smarter Parking
+              This is what parking looks like when{" "}
+              <br className="hidden sm:block" /> technology actually gets it
+              right.
             </h2>
             <p className="text-xs sm:text-sm md:text-[15px] text-gray-300 max-w-2xl mx-auto">
-              Everything works better when the right services{" "}
-              <br className="hidden md:block" /> come together.
+              Hala Park integrates with existing building management systems,
+              property platforms, and access control infrastructure. Your
+              current setup stays. Ours makes it smarter.
             </p>
           </div>
         </div>

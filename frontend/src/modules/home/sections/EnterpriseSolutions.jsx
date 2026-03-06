@@ -48,12 +48,13 @@ export default function EnterpriseSolutions() {
             </p>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[56px] font-semibold text-gray-900 mb-3 sm:mb-4 tracking-tight">
-            Enterprise-Grade Parking <br className="hidden sm:block" />{" "}
-            Solutions
+            Everything Your Parking <br className="hidden sm:block" /> Space
+            Needs. In One Place.{" "}
           </h2>
           <p className="text-sm sm:text-base lg:text-[16px] font-normal text-[#828282] max-w-2xl mx-auto leading-5 px-4 sm:px-0">
-            One connected platform powering smarter,{" "}
-            <br className="hidden md:block" /> smoother parking experiences.
+            This is what parking looks like when{" "}
+            <br className="hidden md:block" /> technology actually gets it
+            right.
           </p>
         </div>
 
@@ -123,8 +124,8 @@ export default function EnterpriseSolutions() {
                   </h2>
 
                   <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl transition-colors duration-400">
-                    Cities can manage public parking more efficiently while
-                    reducing congestion and confusion for drivers.
+                    Real-time availability and cashless payment, parking without
+                    the friction.
                   </p>
                 </div>
               </div>
@@ -148,7 +149,7 @@ export default function EnterpriseSolutions() {
 
                 <div>
                   <h2 className="text-[14px] sm:text-xl md:text-2xl font-medium tracking-tighter text-gray-900 mb-2 transition-colors duration-400">
-                    Private Parking
+                    Private Parking Rental
                   </h2>
 
                   <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl transition-colors duration-400">
@@ -183,12 +184,12 @@ export default function EnterpriseSolutions() {
                 {/* Content */}
                 <div>
                   <h2 className="text-[14px] sm:text-xl md:text-2xl font-medium tracking-tighter text-gray-900 mb-2">
-                    EV Parking
+                    EV Charging
                   </h2>
 
                   <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl">
-                    Drivers can charge their vehicles conveniently while parked,
-                    without extra steps or hassle.
+                    Charge while you park. No extra apps, no separate accounts,
+                    built right into the Hala Park experience.
                   </p>
                 </div>
               </div>
@@ -216,8 +217,8 @@ export default function EnterpriseSolutions() {
                   </h2>
 
                   <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl">
-                    Users can request valet service when needed, saving time and
-                    making arrivals smoother.
+                    Request a professional valet from your phone. Your vehicle
+                    is collected, secured, and returned, on your time.
                   </p>
                 </div>
               </div>
@@ -244,11 +245,11 @@ export default function EnterpriseSolutions() {
               </div>
               <div>
                 <h2 className="text-[14px] sm:text-xl md:text-2xl font-medium tracking-tighter text-gray-900 mb-2">
-                  Barrier Free Parking
+                  Barrier-Free Parking
                 </h2>
                 <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl">
-                  Simplify how you manage connections with streamlined
-                  relationship organization — effortlessly.
+                  Your licence plate is your ticket. Drive in, drive out, the
+                  system handles everything in between.
                 </p>
               </div>
             </div>

@@ -208,7 +208,7 @@ export default function TrustedUsers() {
 
         const animatedTransform = getAnimatedTransform(
           { ...currentPosition, transform: item.transform },
-          scrollProgress
+          scrollProgress,
         );
 
         return (
@@ -234,13 +234,12 @@ export default function TrustedUsers() {
 
       <div className="relative z-20 text-center max-w-3xl mx-auto px-4 sm:px-6 md:px-8">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-[64px] font-semibold tracking-tight text-[#292929] mb-6">
-          Trusted by 50,000+
-          <br />
-          <span className="inline-block ml-2 sm:ml-6 lg:ml-12">Users</span>
+          50,000+ People Already <br /> Parking Smarter
         </h2>
         <p className="text-sm sm:text-base text-[#828282] max-w-2xl mx-auto">
-          Join the growing community of Payer trusted
-          <br className="hidden sm:block" /> for its reliability and security.
+          Property owners earn from spaces that used to sit completely empty.
+          <br className="hidden sm:block" />
+          Customers park without stress. That is the difference.
         </p>
       </div>
     </section>

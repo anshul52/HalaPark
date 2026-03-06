@@ -5,44 +5,47 @@ export default function HalaParkInAction() {
         {/* Left Side - Content */}
         <div className="text-white w-full lg:w-[40%] px-4 sm:px-6 md:px-8 lg:pl-30 lg:pr-0 mb-8 sm:mb-10 md:mb-12 lg:mb-0">
           <div className="max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[48px] font-medium mb-4 sm:mb-5 lg:mb-6 leading-tight lg:leading-12">
-            Park Smarter with the HalaPark App
-          </h2>
-          <p className="text-sm sm:text-[15px] lg:text-[16px] font-light text-white/40 mb-6 sm:mb-7 lg:mb-8 leading-relaxed">
-            Replace multiple broken tools with Ramp, the only platform designed
-            to make your finance team faster—and happier.
-          </p>
-          <div className="bg-black py-2 sm:py-4 lg:py-6">
-            <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-start gap-5 sm:gap-8 lg:gap-12">
-              {/* <!-- App Store --> */}
-              <div className="flex items-center gap-3 sm:gap-4 cursor-pointer">
-                <img
-                  src="image--04.png"
-                  alt="App Store"
-                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl"
-                />
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[48px] font-medium mb-4 sm:mb-5 lg:mb-6 leading-tight lg:leading-12">
+              Your Parking Space Could Be Working Right Now
+            </h2>
+            <p className="text-sm sm:text-[15px] lg:text-[16px] font-light text-white/40 mb-6 sm:mb-7 lg:mb-8 leading-relaxed">
+              Thousands of property owners across the UAE are earning from bays
+              that used to sit empty. It takes under five minutes to list. Join
+              them.
+            </p>
+            <div className="bg-black py-2 sm:py-4 lg:py-6">
+              <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-start gap-5 sm:gap-8 lg:gap-12">
+                {/* <!-- App Store --> */}
+                <div className="flex items-center gap-3 sm:gap-4 cursor-pointer">
+                  <img
+                    src="image--04.png"
+                    alt="App Store"
+                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl"
+                  />
 
-                <div className="text-white leading-tight">
-                  <p className="text-sm font-light">Download Now On</p>
-                  <p className="text-xl sm:text-2xl font-medium">App Store</p>
+                  <div className="text-white leading-tight">
+                    <p className="text-sm font-light">Download Now On</p>
+                    <p className="text-xl sm:text-2xl font-medium">App Store</p>
+                  </div>
                 </div>
-              </div>
 
-              {/* <!-- Play Store --> */}
-              <div className="flex items-center gap-3 sm:gap-4 cursor-pointer">
-                <img
-                  src="image 4.png"
-                  alt="Play Store"
-                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl"
-                />
+                {/* <!-- Play Store --> */}
+                <div className="flex items-center gap-3 sm:gap-4 cursor-pointer">
+                  <img
+                    src="image 4.png"
+                    alt="Play Store"
+                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl"
+                  />
 
-                <div className="text-white leading-tight">
-                  <p className="text-sm font-light">Download Now On</p>
-                  <p className="text-xl sm:text-2xl font-medium">Play Store</p>
+                  <div className="text-white leading-tight">
+                    <p className="text-sm font-light">Download Now On</p>
+                    <p className="text-xl sm:text-2xl font-medium">
+                      Play Store
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
           </div>
         </div>
 

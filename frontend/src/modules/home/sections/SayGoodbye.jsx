@@ -4,21 +4,29 @@ import { useEffect, useRef, useState } from "react";
 
 export default function SayGoodbye() {
   const frustrations = [
-    "Slow entry and exit",
-    "Parking stress",
-    "Unmanaged parking space",
-    "Outdated systems",
-    "manual payments",
-    "Slow entry and exit",
-    "Parking stress",
-    "Unmanaged parking space",
-    "Outdated systems",
-    "manual payments",
-    "Slow entry and exit",
-    "Parking stress",
-    "Unmanaged parking space",
-    "Outdated systems",
-    "manual payments",
+    "Wasted parking bays",
+    "Payment machines",
+    "Ticketing queues",
+    "Untracked spaces",
+    "Revenue left on the table",
+    "Manual bookings",
+    "Chasing monthly payments",
+    // =====================
+    "Wasted parking bays",
+    "Payment machines",
+    "Ticketing queues",
+    "Untracked spaces",
+    "Revenue left on the table",
+    "Manual bookings",
+    "Chasing monthly payments",
+    // =====================
+    "Wasted parking bays",
+    "Payment machines",
+    "Ticketing queues",
+    "Untracked spaces",
+    "Revenue left on the table",
+    "Manual bookings",
+    "Chasing monthly payments",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(4); // start at the blue "manual payments"
@@ -70,7 +78,7 @@ export default function SayGoodbye() {
               alt="Say goodbye to"
               className="w-5 h-6 sm:w-6 sm:h-7 lg:w-7 lg:h-8 object-cover absolute top-12 sm:top-14 md:top-16 lg:top-19 -left-2 sm:left-16 md:left-18 lg:left-21"
             />
-            <h2 className="relative text-base sm:text-3xl md:text-4xl lg:text-[52px] font-semibold text-gray-900 leading-tight bg-white">
+            <h2 className="relative text-base sm:text-3xl md:text-4xl lg:text-[52px] font-semibold text-gray-900 leading-tight">
               <span className="inline-block align-middle">Say goodbye to</span>
             </h2>
           </div>

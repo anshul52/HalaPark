@@ -148,14 +148,13 @@ export default function TechnologySection() {
             </p>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[56px] font-semibold text-gray-900 mb-3 sm:mb-4 tracking-tight">
-            Where Innovative Technology
-            <br className="hidden sm:block" />
-            Meets Parking
+            The Technology Behind a Parking <br className="hidden sm:block" />{" "}
+            Space That Works Hard for You
           </h2>
           <p className="text-sm sm:text-base lg:text-[16px] font-medium text-[#6D6D6D] max-w-2xl mx-auto px-4 sm:px-0">
-            The technology, services, and people behind the{" "}
-            <br className="hidden md:block" />
-            scenes.
+            Smart hardware, seamless software, and real{" "}
+            <br className="hidden md:block" /> people, all working together so
+            your parking runs itself.
           </p>
         </div>
 
@@ -205,7 +204,7 @@ export default function TechnologySection() {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                  )
+                  ),
                 )}
               </div>
             </div>
@@ -242,7 +241,7 @@ export default function TechnologySection() {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                  )
+                  ),
                 )}
               </div>
             </div>

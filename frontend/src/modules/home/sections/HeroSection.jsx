@@ -297,7 +297,7 @@ export default function HeroSection() {
         className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center"
       >
         <div className="mx-auto w-full px-4 sm:px-6 md:px-8 lg:px-12">
-          <div className="mx-auto mb-15 w-full max-w-3xl text-center">
+          <div className="mx-auto mb-40 w-full max-w-3xl text-center">
             <div className="mb-4 flex items-center justify-center sm:mb-5 md:mb-6">
               <div className="flex items-center gap-2 rounded-full border border-black/20 bg-white/80 px-2 py-2 shadow-xl backdrop-blur-md sm:gap-3 sm:px-2.5 sm:py-2.5 md:gap-4 md:px-3 md:py-3 lg:gap-6">
                 <div className="flex -space-x-2 sm:-space-x-3 md:-space-x-4">
@@ -329,19 +329,19 @@ export default function HeroSection() {
             </div>
 
             <h1 className="mb-4 text-3xl font-bold leading-tight text-black sm:mb-5 sm:text-4xl md:mb-6 md:text-5xl lg:text-[54px]">
-              Innovating Smarter <br className="hidden sm:block" /> Parking
-              Experiences
+              Park Smarter. Earn More. <br className="hidden sm:block" /> Stress
+              Less.
             </h1>
             <p className="mx-auto mb-4 max-w-2xl text-sm leading-relaxed text-black sm:mb-5 sm:text-base md:mb-6 md:text-lg lg:text-[18px]">
-              We transform your parking into a fully automated, high-performing{" "}
-              <br className="hidden md:block" />
-              asset with smart systems, valet on demand, and digital operations.
+              Hala Park gives property owners the tools to monetise unused
+              parking bays and gives customers a faster, smarter way to park,
+              all through one app.
             </p>
             <h4 className="mb-4 text-sm font-bold text-black sm:mb-5 sm:text-base md:mb-6 md:text-lg lg:text-[18px]">
-              Smart Parking. Real Revenue. Zero Stress.
+              List it. Book it. Earn from it.
             </h4>
             <button className="pointer-events-auto w-full cursor-pointer rounded-full bg-black px-6 py-2.5 text-sm font-medium text-white shadow-[0_10px_40px_rgba(0,0,0,0.2)] transition-all duration-300 ease-out hover:scale-[1.03] active:scale-[0.98] sm:w-auto sm:px-7 sm:text-[15px] md:px-8 md:py-3 md:text-[16px]">
-              Book A Call
+              Book a Call
             </button>
           </div>
         </div>

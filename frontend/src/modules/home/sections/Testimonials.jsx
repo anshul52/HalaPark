@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(1);
   const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1024
+    typeof window !== "undefined" ? window.innerWidth : 1024,
   );
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -26,18 +26,18 @@ export default function Testimonials() {
 
   const testimonials = [
     {
-      name: "Clara H,",
-      title: "Senior PM at NexaTech",
+      name: "Aisha R",
+      title: "Property Owner, Dubai Marina",
       rating: 4,
-      text: "HalaPark made parking simple for our visitors and easier for our team to manage. Queues reduced, operations improved, and support is always available whenever we need help",
+      text: "I had two parking bays sitting empty for over a year. Listed them on Hala Park on a Tuesday. Both were booked by Thursday. The income now covers part of my service charges every month.",
       image: "imgi_38_ANzV36qYUnxIKmq0u2hYCbuyA30.png",
       bgColor: "bg-[#F7F7FE]",
     },
     {
-      name: "Michael Smith",
-      title: "Product Owner at InnovateX",
+      name: "Omar K,",
+      title: "Customer, Business Bay",
       rating: 4,
-      text: "Since using HalaPark, parking has become smooth and stress-free. No tickets, no confusion, just an easy experience from entry to exit every single time.",
+      text: "We used to spend 20 minutes every morning hunting for parking near the office. Since switching to Hala Park, I book the night before and walk straight in. It has genuinely changed my mornings.",
       image: "imgi_63_y13E9h0wZ0TlqpbGXMISrZx6YVs.jpg",
       bgColor: "bg-[#F7F7FE]",
     },
@@ -45,7 +45,7 @@ export default function Testimonials() {
       name: "Jessica Brown",
       title: "Team Lead at BrightSolutions",
       rating: 4,
-      text: "The valet on demand service saved us time and greatly improved customer satisfaction. Visitors arrive, hand over their keys, and move on without delays or frustration.",
+      text: "We integrated Hala Park into our building's car park in less than a week. Residents love the touchless entry, and we have reduced parking-related complaints by over 80%.",
       image: "imgi_41_z7MKCfs2kLf57EnFlS7rZkCe1Q.png",
       bgColor: "bg-[#F7F7FE]",
     },
@@ -65,7 +65,7 @@ export default function Testimonials() {
 
   const prevTestimonial = () => {
     setCurrentIndex(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length,
     );
   };
 
@@ -85,8 +85,9 @@ export default function Testimonials() {
             Smarter
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl sm:text-center lg:text-left">
-            Hear how HalaPark is making parking{" "}
-            <br className="hidden lg:block" /> easier for our customers.
+            Property owners earning more. Customers arriving{" "}
+            <br className="hidden lg:block" /> without the stress. Here is what
+            they have to say.
           </p>
         </div>
 

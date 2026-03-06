@@ -2,26 +2,26 @@ export default function BlogSection() {
   const blogPosts = [
     {
       id: 1,
-      category: "CRM",
-      title: "How Customer Relationships Will Evolve in 2024",
+      category: "Smart Parking",
+      title: "The Landlord's Guide to Monetising Your Parking Space in Dubai",
       description:
-        "Not all CRMs are built the same. Learn what really based on your business size & needs.",
+        "Not all parking spaces are earning what they should. Here is how property owners in the UAE are turning unused bays into reliable monthly income.",
       image: "/imgi_180_1kzCxED38jsjIKuhRBA6i4NjDGw.png",
     },
     {
       id: 2,
-      category: "Productivity",
-      title: "7 Sales Tasks You Should Automate Today",
+      category: "Technology",
+      title: "How Barrier-Free Parking Works, And Why It Matters",
       description:
-        "Stop wasting hours on manual follow-ups. Learn the workflows that top teams run on autopilot.",
+        "Licence plate recognition, automated barriers, and cashless payments, here is the technology behind the HalaPark experience.",
       image: "/imgi_183_duJmg8i6Rpv49UWkPseSAewzew.png",
     },
     {
       id: 3,
-      category: "Growth",
-      title: "How to Scale from 10 to 10,000 Contacts",
+      category: "Business",
+      title: "Why UAE Businesses Are Rethinking Their Parking Infrastructure",
       description:
-        "A playbook for turning early traction into long-term customer relationships without chaos.",
+        "From residential towers to retail complexes, how smart parking technology is reducing costs and improving the customer experience.",
       image: "/imgi_188_WnsbD4yww7gkGwGcZ8z0c6oSc9U.png",
     },
   ];
@@ -71,8 +71,8 @@ export default function BlogSection() {
                       post.id === 3
                         ? "text-[#805CFF] bg-[#EBF1FF]"
                         : post.id === 2
-                        ? "text-[#0454FF] bg-[#EBF1FF]"
-                        : "bg-[#FFF2F2] text-[#FF6262]"
+                          ? "text-[#0454FF] bg-[#EBF1FF]"
+                          : "bg-[#FFF2F2] text-[#FF6262]"
                     }`}
                   >
                     {post.category}
