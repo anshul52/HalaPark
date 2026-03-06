@@ -23,6 +23,16 @@ const features = [
     Icon: LockIcon,
   },
   {
+    name: "Valet",
+    description:
+      "Offer premium valet workflows with ticketless handover and tracking.",
+    href: "#",
+    cta: "Learn More",
+    className: "md:col-span-4",
+    Icon: CarIcon,
+    image: "/imgi_20_YWkcqi9gsxDBmfiVE6mQcexGrkI.webp",
+  },
+  {
     name: "EV Parking",
     description:
       "Book charging-enabled parking for electric vehicles on demand.",
@@ -31,16 +41,6 @@ const features = [
     className: "md:col-span-6",
     Icon: BoltIcon,
     image: "/hf_20260306_105244_1ba5c7ed-2bfa-4d2e-b422-35180510c1ba.jpeg",
-  },
-  {
-    name: "Valet",
-    description:
-      "Offer premium valet workflows with ticketless handover and tracking.",
-    href: "#",
-    cta: "Learn More",
-    className: "md:col-span-4",
-    Icon: CarIcon,
-    image: "/hf_20260306_105452_e9554d73-6553-4981-92ac-9e3b5e9b1dbf.jpeg",
   },
 ];
 
@@ -78,7 +78,7 @@ function BentoGrid({ children, className }) {
   return (
     <div
       className={cn(
-        " grid w-full auto-rows-[24rem] sm:auto-rows-[26rem] grid-cols-1 md:grid-cols-10 gap-4 sm:gap-5",
+        "grid w-full auto-rows-[26rem] sm:auto-rows-[28rem] grid-cols-1 md:grid-cols-10 gap-4 sm:gap-5",
         className,
       )}
     >
@@ -91,7 +91,7 @@ function BentoCard({ name, className, Icon, description, href, cta, image }) {
   return (
     <div
       className={cn(
-        "group relative col-span-1 flex flex-col justify-between overflow-hidden rounded-2xl",
+        "group relative col-span-1 flex h-full min-h-[26rem] flex-col justify-between overflow-hidden rounded-2xl",
         "bg-white border border-[#E6EEF8] shadow-[0_1px_0_rgba(255,255,255,0.8)_inset,0_0_0_1px_rgba(30,146,254,.08),0_12px_30px_rgba(30,146,254,.10)]",
         "transform-gpu transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_1px_0_rgba(255,255,255,0.8)_inset,0_0_0_1px_rgba(30,146,254,.15),0_20px_44px_rgba(30,146,254,.22)]",
         className,
@@ -108,16 +108,16 @@ function BentoCard({ name, className, Icon, description, href, cta, image }) {
           {name}
         </h3>
         <p className="max-w-lg text-[#5F6B7A] leading-relaxed">{description}</p>
-        <div className="mt-auto w-full h-44 sm:h-302 rounded-xl overflow-hidden border border-[#E6EEF8]">
+        <div className="mt-auto w-full h-56 sm:h-64 rounded-xl overflow-hidden border border-[#E6EEF8] bg-white">
           <div
-            className="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+            className="h-full w-full bg-contain bg-center bg-no-repeat transition-transform duration-500 group-hover:scale-105"
             style={{ backgroundImage: `url("${image}")` }}
             aria-label={name}
           />
         </div>
       </div>
 
-      <div className="pointer-events-none absolute bottom-0 z-20 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+      {/* <div className="pointer-events-none absolute bottom-0 z-20 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
         <a
           href={href}
           className="pointer-events-auto inline-flex items-center rounded-full border border-[#CFE4FF] bg-white px-3.5 py-1.5 text-sm font-medium text-[#0A2540] hover:text-[#1E92FE] hover:border-[#9ECAFF] transition-colors"
@@ -125,7 +125,7 @@ function BentoCard({ name, className, Icon, description, href, cta, image }) {
           {cta}
           <ArrowRightIcon className="ml-2 h-4 w-4" />
         </a>
-      </div>
+      </div> */}
 
       <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-500 group-hover:bg-[#1E92FE]/[.05]" />
     </div>
