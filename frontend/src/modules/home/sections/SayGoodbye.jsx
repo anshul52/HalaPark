@@ -23,7 +23,7 @@ export default function SayGoodbye() {
 
   const [currentIndex, setCurrentIndex] = useState(4); // start at the blue "manual payments"
   const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1024
+    typeof window !== "undefined" ? window.innerWidth : 1024,
   );
   const containerRef = useRef(null);
 
@@ -70,7 +70,7 @@ export default function SayGoodbye() {
               alt="Say goodbye to"
               className="w-5 h-6 sm:w-6 sm:h-7 lg:w-7 lg:h-8 object-cover absolute top-12 sm:top-14 md:top-16 lg:top-19 -left-2 sm:left-16 md:left-18 lg:left-21"
             />
-            <h2 className="relative text-base sm:text-3xl md:text-4xl lg:text-[52px] font-semibold text-gray-900 leading-tight">
+            <h2 className="relative text-base sm:text-3xl md:text-4xl lg:text-[52px] font-semibold text-gray-900 leading-tight bg-white">
               <span className="inline-block align-middle">Say goodbye to</span>
             </h2>
           </div>
@@ -96,8 +96,8 @@ export default function SayGoodbye() {
                       windowWidth >= 1024
                         ? "36%"
                         : windowWidth >= 768
-                        ? "38%"
-                        : "40%",
+                          ? "38%"
+                          : "40%",
                     transform: `translateY(${offset}px) scale(${
                       isActive ? 1 : 1
                     })`,
