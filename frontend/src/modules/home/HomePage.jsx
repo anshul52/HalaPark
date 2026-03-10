@@ -20,7 +20,7 @@ export default function HomePage() {
       <SmartFeatures />
       <SayGoodbye />
       <Testimonials />
-      <BlogSection />
+      {/* <BlogSection /> */}
       <HalaParkInAction />
     </div>
   );
