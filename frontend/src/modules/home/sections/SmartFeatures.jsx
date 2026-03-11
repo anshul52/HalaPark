@@ -117,38 +117,36 @@ export default function SmartFeatures() {
     features.length;
 
   return (
-    <section className="py-8 sm:py-12 md:py-14 lg:py-16 px-4 sm:px-6 lg:px-0 bg-white">
+    <section className="py-5 sm:py-7 md:py-8 px-4 sm:px-5 lg:px-0 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 bg-white">
-          <div className="flex items-center justify-center w-fit mx-auto gap-1.5 sm:gap-2 rounded-full px-3 sm:px-4 py-1.5 sm:py-2">
+        <div className="text-center mb-4 sm:mb-5 md:mb-6 bg-white">
+          <div className="flex items-center justify-center w-fit mx-auto gap-1.5 rounded-full px-3 py-1">
             <img
               src="/download(1).svg"
               alt="Features icon"
-              className="w-4 h-4 sm:w-5 sm:h-5 shrink-0"
+              className="w-4 h-4 shrink-0"
             />
-            <p className="text-xs sm:text-sm lg:text-[14px] text-black">
-              Features
-            </p>
+            <p className="text-xs sm:text-sm text-black">Features</p>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[56px] font-semibold bg-white text-gray-900 mb-3 sm:mb-4 tracking-tight">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold bg-white text-gray-900 mb-2 sm:mb-3 tracking-tight leading-tight">
             Smart Features for Modern <br className="hidden sm:block" /> Parking
           </h2>
-          <p className="text-sm sm:text-base lg:text-[16px] font-medium text-[#6D6D6D] max-w-2xl mx-auto px-4 sm:px-0">
+          <p className="text-sm sm:text-[15px] font-medium text-[#6D6D6D] max-w-xl mx-auto">
             Designed to support smooth operations and better experiences for
             customers and property owners alike.
           </p>
         </div>
 
         {/* Nav arrows */}
-        <div className="flex justify-end gap-2 sm:gap-3 mb-3 sm:mb-4">
+        <div className="flex justify-end gap-2 mb-2 sm:mb-3">
           <button
             onClick={prev}
-            className="bg-blue-600 text-white p-1.5 sm:p-2 rounded-xl sm:rounded-2xl shadow-lg hover:bg-blue-700 transition-colors z-10 flex items-center justify-center"
+            className="bg-blue-600 text-white p-1.5 rounded-lg shadow hover:bg-blue-700 transition-colors z-10 flex items-center justify-center"
             aria-label="Previous feature"
           >
             <svg
-              className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7"
+              className="w-4 h-4 sm:w-5 sm:h-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -163,11 +161,11 @@ export default function SmartFeatures() {
           </button>
           <button
             onClick={next}
-            className="bg-blue-600 text-white p-1.5 sm:p-2 rounded-xl sm:rounded-2xl shadow-lg hover:bg-blue-700 transition-colors z-10 flex items-center justify-center"
+            className="bg-blue-600 text-white p-1.5 rounded-lg shadow hover:bg-blue-700 transition-colors z-10 flex items-center justify-center"
             aria-label="Next feature"
           >
             <svg
-              className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7"
+              className="w-4 h-4 sm:w-5 sm:h-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -208,7 +206,7 @@ export default function SmartFeatures() {
                         }px)`,
                 }}
               >
-                <div className="h-[480px] sm:h-[380px] md:h-[420px] lg:h-[530px] rounded-2xl sm:rounded-3xl overflow-hidden relative">
+                <div className="h-[330px] sm:h-[300px] md:h-[320px] lg:h-[370px] rounded-xl sm:rounded-2xl overflow-hidden relative">
                   <video
                     src={f.video}
                     className="w-full h-full object-cover"
@@ -218,17 +216,17 @@ export default function SmartFeatures() {
                     playsInline
                   />
                   {/* Top gradient */}
-                  <div className="pointer-events-none absolute top-0 left-0 w-full h-20 sm:h-24 lg:h-32 bg-gradient-to-b from-black/60 to-transparent z-10" />
+                  <div className="pointer-events-none absolute top-0 left-0 w-full h-16 sm:h-20 lg:h-24 bg-gradient-to-b from-black/60 to-transparent z-10" />
                   {/* Bottom gradient */}
-                  <div className="pointer-events-none absolute bottom-0 left-0 w-full h-28 sm:h-32 lg:h-40 bg-gradient-to-t from-black/70 to-transparent z-10" />
+                  <div className="pointer-events-none absolute bottom-0 left-0 w-full h-20 sm:h-24 lg:h-28 bg-gradient-to-t from-black/70 to-transparent z-10" />
 
                   {/* Text overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-3 md:p-4 z-20 group">
-                    <div className="relative min-h-[80px] sm:min-h-[90px] lg:min-h-[110px]">
-                      <h3 className="text-white text-xl sm:text-xl md:text-2xl lg:text-[1.6rem] font-bold transition-all duration-300 ease-out translate-y-5 group-hover:-translate-y-1">
+                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-3 z-20 group">
+                    <div className="relative min-h-[64px] sm:min-h-[72px] lg:min-h-[84px]">
+                      <h3 className="text-white text-lg sm:text-lg md:text-xl font-bold transition-all duration-300 ease-out translate-y-3 group-hover:-translate-y-1">
                         {f.title}
                       </h3>
-                      <p className="text-white/90 text-sm sm:text-sm md:text-[15px] mt-1 opacity-0 translate-y-8 transition-all duration-300 ease-out delay-75 group-hover:opacity-100 group-hover:translate-y-0">
+                      <p className="text-white/90 text-xs sm:text-sm mt-1 opacity-0 translate-y-6 transition-all duration-300 ease-out delay-75 group-hover:opacity-100 group-hover:translate-y-0">
                         {f.description}
                       </p>
                     </div>
@@ -240,7 +238,7 @@ export default function SmartFeatures() {
         </div>
 
         {/* Dot indicators — visible on mobile only */}
-        <div className="flex justify-center gap-2 mt-5 sm:hidden">
+        <div className="flex justify-center gap-2 mt-3 sm:hidden">
           {features.map((_, i) => (
             <button
               key={i}

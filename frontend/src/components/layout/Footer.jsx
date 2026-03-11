@@ -4,11 +4,23 @@ import { FaLinkedin, FaTwitter } from "react-icons/fa";
 import Link from "next/link";
 
 export default function Footer() {
+  const appDownloadUrl = "https://halapark.com/app";
+  const qrCodeSrc = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(
+    appDownloadUrl
+  )}`;
   const quickLinks = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
     { name: "App", href: "/app" },
     { name: "Business", href: "/business" },
+    { name: "Blog", href: "/blog" },
+  ];
+  const quickLinks2 = [
+    { name: "Services", href: "/service" },
+    { name: "About Us", href: "/about" },
+    { name: "App", href: "/app" },
+    { name: "Business", href: "/business" },
+    { name: "Blog", href: "/blog" },
   ];
 
   const ContactLinks = [{ name: "Contact Us", href: "/contact" }];
@@ -31,7 +43,7 @@ export default function Footer() {
             </a>
           </div>
 
-          <div className="flex flex-row justify-evenly items-start sm:w-3/5 w-full gap-3 relative sm:pb-0 pb-20">
+          <div className="flex flex-row flex-wrap justify-between items-start sm:w-3/5 w-full gap-6 relative sm:pb-0 pb-20">
             {/* Quick Links */}
             <div>
               <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
@@ -39,6 +51,24 @@ export default function Footer() {
               </h4>
               <ul className="space-y-2 sm:space-y-1">
                 {quickLinks.map((link, index) => (
+                  <li key={index}>
+                    <Link
+                      href={link.href}
+                      className="text-black transition-colors text-xs sm:text-sm underline"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
+                Quick Links
+              </h4>
+              <ul className="space-y-2 sm:space-y-1">
+                {quickLinks2.map((link, index) => (
                   <li key={index}>
                     <Link
                       href={link.href}
@@ -83,6 +113,38 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
+            </div>
+            <div className="w-full sm:w-auto max-w-[220px]">
+              <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
+                Download App
+              </h4>
+              <p className="text-xs sm:text-sm text-black/70 mb-3">
+                Scan to open the HalaPark app download page.
+              </p>
+              <Link
+                href={appDownloadUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <img
+                  src={qrCodeSrc}
+                  alt="QR code for HalaPark app download"
+                  className="w-28 h-28 sm:w-32 sm:h-32 rounded-xl border border-gray-200 p-2 bg-white"
+                />
+              </Link>
+              <div className="flex items-center gap-2 mt-3">
+                <img
+                  src="/google-play.svg"
+                  alt="Get it on Google Play"
+                  className="h-8 w-auto"
+                />
+                <img
+                  src="/app-store.svg"
+                  alt="Download on the App Store"
+                  className="h-8 w-auto"
+                />
+              </div>
             </div>
           </div>
         </div>
