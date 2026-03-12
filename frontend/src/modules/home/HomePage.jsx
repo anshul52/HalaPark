@@ -2,6 +2,9 @@ import HeroSection from "./sections/HeroSection";
 import EnterpriseSolutions from "./sections/EnterpriseSolutions";
 import TechnologySection from "./sections/TechnologySection";
 import TrustedUsers from "./sections/TrustedUsers";
+import GettingStartedSteps from "./sections/GettingStartedSteps";
+import MajorFocusHighlight from "./sections/MajorFocusHighlight";
+import GlobalMomentumSection from "./sections/GlobalMomentumSection";
 import CertificationsSection from "./sections/CertificationsSection";
 import ClientsPartners from "./sections/ClientsPartners";
 import SmartIntegrations from "./sections/SmartIntegrations";
@@ -18,9 +21,12 @@ export default function HomePage() {
       <EnterpriseSolutions />
       <TechnologySection />
       <TrustedUsers />
+      {/* <SmartIntegrations /> */}
+      <GettingStartedSteps />
+      <MajorFocusHighlight />
+      <GlobalMomentumSection />
       <CertificationsSection />
       <ClientsPartners />
-      <SmartIntegrations />
       <SmartFeatures />
       <SayGoodbye />
       <Testimonials />

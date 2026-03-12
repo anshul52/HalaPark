@@ -61,10 +61,10 @@ const navLinks = [
   { href: "/contact", label: "Contact Us" },
 ];
 export default function Navbar() {
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [heroVisible, setHeroVisible] = useState(false);
-  const pathname = usePathname();
+  const [heroVisible, setHeroVisible] = useState(pathname === "/");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 8);
@@ -86,6 +86,8 @@ export default function Navbar() {
       return;
     }
 
+    setHeroVisible(true);
+
     const hero = document.getElementById("hero-section");
     if (!hero) {
       setHeroVisible(false);
@@ -103,7 +105,7 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, [pathname]);
 
-  const showShadow = pathname === "/" ? !heroVisible : scrolled;
+  const showShadow = pathname === "/" ? scrolled && !heroVisible : scrolled;
 
   return (
     <>

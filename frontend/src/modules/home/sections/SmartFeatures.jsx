@@ -127,9 +127,11 @@ export default function SmartFeatures() {
               alt="Features icon"
               className="w-4 h-4 shrink-0"
             />
-            <p className="text-xs sm:text-sm text-black">Features</p>
+            <p className="text-xs sm:text-sm lg:text-[14px] text-black max-w-2xl mx-auto">
+              Features
+            </p>
           </div>
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold bg-white text-gray-900 mb-2 sm:mb-3 tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[56px] font-semibold text-gray-900 mb-3 sm:mb-4 tracking-tight">
             Smart Features for Modern <br className="hidden sm:block" /> Parking
           </h2>
           <p className="text-sm sm:text-[15px] font-medium text-[#6D6D6D] max-w-xl mx-auto">

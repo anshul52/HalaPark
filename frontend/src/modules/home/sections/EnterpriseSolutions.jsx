@@ -1,10 +1,21 @@
 "use client";
 import * as React from "react";
+import Link from "next/link";
 import FlowConnections, {
   GradientOrb,
 } from "@/components/common/Home/homecommon";
+import { servicesData } from "@/modules/home/servicesData";
 
 export default function EnterpriseSolutions() {
+  const [
+    smartPublicParking,
+    privateParkingRental,
+    evCharging,
+    valetOnDemand,
+    barrierFreeParking,
+    parkingManagement,
+  ] = servicesData;
+
   const integrations = [
     { name: "Management", bgcolor: "bg-[#923BE2]", img: "/Group44.svg" },
     { name: "Maintenance", bgcolor: "bg-pink-600", img: "/Group77.png" },
@@ -120,14 +131,18 @@ export default function EnterpriseSolutions() {
                 {/* Content */}
                 <div>
                   <h2 className="text-[14px] sm:text-xl md:text-2xl font-medium tracking-tighter text-gray-900 mb-2 transition-colors duration-400">
-                    Smart Public Parking
+                    {smartPublicParking.name}
                   </h2>
 
                   <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl transition-colors duration-400">
-                    Find available parking near you in real time, book your
-                    spot, and pay entirely through the app. No tickets, no
-                    queues, no cash.
+                    {smartPublicParking.summary}
                   </p>
+                  <Link
+                    href={`/services/${smartPublicParking.slug}`}
+                    className="mt-4 inline-flex text-sm font-semibold text-[#0088FF] transition hover:text-blue-700"
+                  >
+                    Learn More
+                  </Link>
                 </div>
               </div>
             </div>
@@ -150,14 +165,18 @@ export default function EnterpriseSolutions() {
 
                 <div>
                   <h2 className="text-[14px] sm:text-xl md:text-2xl font-medium tracking-tighter text-gray-900 mb-2 transition-colors duration-400">
-                    Private Parking Rental
+                    {privateParkingRental.name}
                   </h2>
 
                   <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl transition-colors duration-400">
-                    Own an unused bay? List it on Hala Park for free and earn
-                    hourly, daily, or monthly income. We handle bookings,
-                    payments, and support.
+                    {privateParkingRental.summary}
                   </p>
+                  <Link
+                    href={`/services/${privateParkingRental.slug}`}
+                    className="mt-4 inline-flex text-sm font-semibold text-[#0088FF] transition hover:text-blue-700"
+                  >
+                    Learn More
+                  </Link>
                 </div>
               </div>
             </div>
@@ -186,14 +205,18 @@ export default function EnterpriseSolutions() {
                 {/* Content */}
                 <div>
                   <h2 className="text-[14px] sm:text-xl md:text-2xl font-medium tracking-tighter text-gray-900 mb-2">
-                    EV Charging
+                    {evCharging.name}
                   </h2>
 
                   <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl">
-                    Select Hala Park facilities offer integrated EV charging
-                    points - manage everything through the same app. Park,
-                    charge, and go.
+                    {evCharging.summary}
                   </p>
+                  <Link
+                    href={`/services/${evCharging.slug}`}
+                    className="mt-4 inline-flex text-sm font-semibold text-[#0088FF] transition hover:text-blue-700"
+                  >
+                    Learn More
+                  </Link>
                 </div>
               </div>
             </div>
@@ -216,14 +239,18 @@ export default function EnterpriseSolutions() {
 
                 <div>
                   <h2 className="text-[14px] sm:text-xl md:text-2xl font-medium tracking-tighter text-gray-900 mb-2">
-                    Valet On Demand
+                    {valetOnDemand.name}
                   </h2>
 
                   <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl">
-                    One tap and a professional valet is on the way. Your
-                    vehicle is collected, parked securely, and returned exactly
-                    when you need it - tracked in real time through the app.
+                    {valetOnDemand.summary}
                   </p>
+                  <Link
+                    href={`/services/${valetOnDemand.slug}`}
+                    className="mt-4 inline-flex text-sm font-semibold text-[#0088FF] transition hover:text-blue-700"
+                  >
+                    Learn More
+                  </Link>
                 </div>
               </div>
             </div>
@@ -249,12 +276,17 @@ export default function EnterpriseSolutions() {
               </div>
               <div>
                 <h2 className="text-[14px] sm:text-xl md:text-2xl font-medium tracking-tighter text-gray-900 mb-2">
-                  Barrier-Free Parking
+                  {barrierFreeParking.name}
                 </h2>
                 <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl">
-                  Your licence plate is your ticket. Drive in, drive out, the
-                  system handles everything in between.
+                  {barrierFreeParking.summary}
                 </p>
+                <Link
+                  href={`/services/${barrierFreeParking.slug}`}
+                  className="mt-4 inline-flex text-sm font-semibold text-[#0088FF] transition hover:text-blue-700"
+                >
+                  Learn More
+                </Link>
               </div>
             </div>
 
@@ -354,14 +386,17 @@ export default function EnterpriseSolutions() {
               </div>
               <div>
                 <h2 className="text-[14px] sm:text-xl md:text-2xl font-medium tracking-tighter text-gray-900 mb-2">
-                  System Integrations
+                  {parkingManagement.name}
                 </h2>
                 <p className="text-gray-600 text-[12px] sm:text-base leading-4 sm:leading-5 tracking-normal max-w-xl">
-                  Barrier cameras, licence plate recognition, operator
-                  dashboards, and app payments - all integrated and managed
-                  from a single system. No fragmented tools, no manual
-                  workarounds.
+                  {parkingManagement.summary}
                 </p>
+                <Link
+                  href={`/services/${parkingManagement.slug}`}
+                  className="mt-4 inline-flex text-sm font-semibold text-[#0088FF] transition hover:text-blue-700"
+                >
+                  Learn More
+                </Link>
               </div>
             </div>
           </div>

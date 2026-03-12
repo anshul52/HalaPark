@@ -1,61 +1,164 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+
 export default function TrustedUsers() {
-  const highlights = [
-    "Smart parking platform for property owners, enterprises, and drivers",
-    "Integrated operations across access, payments, and reporting",
-    "Focused on security, reliability, and scalable deployments",
+  const stats = [
+    {
+      label: "Years in Market",
+      value: 8,
+      prefix: "",
+      suffix: "+",
+    },
+    {
+      label: "Properties",
+      value: 500,
+      prefix: "",
+      suffix: "+",
+    },
+    {
+      label: "Enterprise Clients",
+      value: 40,
+      prefix: "",
+      suffix: "+",
+    },
+    {
+      label: "Integration Partners",
+      value: 25,
+      prefix: "",
+      suffix: "+",
+    },
   ];
 
-  const stats = [
-    { label: "Years in Market", value: "8+" },
-    { label: "Operational Locations", value: "120+" },
-    { label: "Enterprise Deployments", value: "40+" },
-    { label: "Monthly Transactions", value: "1M+" },
-  ];
+  const [animatedValues, setAnimatedValues] = useState(() =>
+    stats.map(() => 0),
+  );
+  const statsRef = useRef(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const element = statsRef.current;
+
+    if (!element || hasAnimated) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasAnimated(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.35 },
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, [hasAnimated]);
+
+  useEffect(() => {
+    if (!hasAnimated) {
+      return;
+    }
+
+    let frameId;
+    const duration = 1400;
+    const startTime = performance.now();
+
+    const tick = (now) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+      setAnimatedValues(
+        stats.map((item) => Math.round(item.value * easedProgress)),
+      );
+
+      if (progress < 1) {
+        frameId = window.requestAnimationFrame(tick);
+      }
+    };
+
+    frameId = window.requestAnimationFrame(tick);
+
+    return () => window.cancelAnimationFrame(frameId);
+  }, [hasAnimated]);
+
+  const formatStatValue = (item, index) =>
+    `${item.prefix}${animatedValues[index]}${item.suffix}`;
 
   return (
-    <section className="py-10 sm:py-12 md:py-14 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-blue-50 p-5 sm:p-7 md:p-8">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-6 md:gap-8 items-start">
-            <div>
-              <p className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-xs sm:text-sm font-medium text-blue-700">
-                About The Company
-              </p>
-              <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight text-slate-900 max-w-2xl">
-                Building smarter parking ecosystems for modern cities
+    <section className="bg-white py-10 sm:py-12 md:py-14">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="rounded-[2rem] border border-[#e5e7eb] bg-[#f4f5f7] p-5 sm:p-7 md:p-10">
+          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
+            <div className="max-w-xl">
+              <div className="flex w-full items-start">
+                <div className="flex w-fit items-center justify-center gap-1.5 rounded-full px-3 py-1.5 sm:gap-2 sm:px-4 sm:py-2">
+                  <img
+                    src="/download(1).svg"
+                    alt="About HalaPark"
+                    className="h-4 w-4 shrink-0 sm:h-5 sm:w-5"
+                  />
+                  <p className="mx-auto max-w-2xl text-xs text-black sm:text-sm lg:text-[14px]">
+                    About HalaPark
+                  </p>
+                </div>
+              </div>
+
+              <h2 className="mt-5 text-3xl font-semibold leading-tight text-slate-950 sm:text-4xl md:text-[3.25rem]">
+                Building Smarter Parking Ecosystems for Modern Cities
               </h2>
-              <p className="mt-3 text-sm sm:text-base text-slate-600 max-w-2xl leading-relaxed">
-                Hala Park helps transform underused parking into efficient,
-                revenue-generating infrastructure with digital-first operations.
-                Our solutions support residential towers, commercial properties,
-                and enterprise facilities.
+
+              <p className="mt-4 max-w-lg text-sm leading-7 text-slate-600 sm:text-base">
+                HalaPark is a UAE-based smart parking platform helping property
+                owners, enterprises, and drivers make the most of every parking
+                space. From AI-powered access to digital payments and real-time
+                reporting, we manage the full parking lifecycle so you do not
+                have to.
+              </p>
+              <p className="mt-3 max-w-lg text-sm leading-7 text-slate-600 sm:text-base">
+                Operating since 2016, we have grown to serve 120+ locations and
+                over 40 enterprise clients across the UAE.
               </p>
 
-              <div className="mt-5 space-y-2.5">
-                {highlights.map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-start gap-2.5 rounded-xl border border-slate-200 bg-white px-3 py-2.5"
-                  >
-                    <span className="mt-1 h-2 w-2 rounded-full bg-blue-500 shrink-0" />
-                    <p className="text-sm sm:text-base text-slate-700">{item}</p>
-                  </div>
-                ))}
+              <div className="mt-8 flex flex-wrap gap-3">
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center rounded-full bg-[#0088FF] px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(25,103,255,0.25)] transition hover:bg-[#0f56e6] sm:px-7"
+                >
+                  Get Started
+                </button>
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center rounded-full border border-[#bdd3ff] bg-white px-6 py-3 text-sm font-semibold text-[#0088FF] transition hover:border-[#1967ff] hover:bg-blue-50 sm:px-7"
+                >
+                  Free trial
+                </button>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              {stats.map((item) => (
-                <div
-                  key={item.label}
-                  className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5"
-                >
-                  <p className="text-2xl sm:text-3xl font-semibold text-slate-900">
-                    {item.value}
+            <div className="overflow-hidden rounded-[2rem] bg-[#d9d8d3]">
+              <img
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=80"
+                alt="Placeholder portrait for about section"
+                className="max-h-[520px] w-full object-cover"
+              />
+            </div>
+          </div>
+
+          <div
+            ref={statsRef}
+            className="mt-8 border-t border-[#dde1e7] pt-8 sm:mt-10 sm:pt-10"
+          >
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
+              {stats.map((item, index) => (
+                <div key={item.label} className="min-w-0">
+                  <p className="text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
+                    {formatStatValue(item, index)}
                   </p>
-                  <p className="mt-1 text-xs sm:text-sm text-slate-500">
+                  <p className="mt-2 max-w-[12rem] text-sm leading-6 text-slate-500">
                     {item.label}
                   </p>
                 </div>
