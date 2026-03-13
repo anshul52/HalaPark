@@ -11,16 +11,16 @@ const markerPoints = [
 export default function GlobalMomentumGlobe() {
   return (
     <div className="relative mx-auto flex h-[260px] w-[260px] items-center justify-center sm:h-[300px] sm:w-[300px]">
-      <div className="pointer-events-none absolute inset-5 rounded-full bg-[radial-gradient(circle,rgba(0,136,255,0.26),transparent_60%)] blur-3xl" />
-      <div className="globe-shell relative h-[220px] w-[220px] overflow-hidden rounded-full border border-cyan-200/15 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.16),rgba(17,24,39,0.12)_34%,rgba(1,11,30,0.9)_72%)] shadow-[0_0_45px_rgba(0,136,255,0.16),0_0_90px_rgba(8,145,178,0.08)] sm:h-[250px] sm:w-[250px]">
-        <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_40%,rgba(56,189,248,0.12),transparent_50%),radial-gradient(circle_at_50%_110%,rgba(0,0,0,0.48),transparent_42%)]" />
-        <div className="absolute inset-[5%] rounded-full border border-cyan-100/10" />
-        <div className="absolute inset-y-0 left-1/2 w-[18%] -translate-x-1/2 rounded-full border border-cyan-200/12" />
-        <div className="absolute inset-y-0 left-1/2 w-[48%] -translate-x-1/2 rounded-full border border-cyan-200/10" />
-        <div className="absolute inset-y-0 left-1/2 w-[78%] -translate-x-1/2 rounded-full border border-cyan-200/8" />
-        <div className="absolute left-0 right-0 top-1/2 h-[18%] -translate-y-1/2 rounded-full border border-cyan-100/12" />
-        <div className="absolute left-0 right-0 top-[34%] h-[12%] -translate-y-1/2 rounded-full border border-cyan-100/8" />
-        <div className="absolute left-0 right-0 top-[66%] h-[12%] -translate-y-1/2 rounded-full border border-cyan-100/8" />
+      <div className="pointer-events-none absolute inset-5 rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.24),rgba(125,211,252,0.1)_45%,transparent_72%)] blur-3xl" />
+      <div className="globe-shell relative h-[220px] w-[220px] overflow-hidden rounded-full border border-sky-200/80 bg-[radial-gradient(circle_at_30%_28%,rgba(255,255,255,0.98),rgba(232,245,255,0.96)_40%,rgba(201,232,255,0.94)_72%,rgba(186,230,253,0.92)_100%)] shadow-[0_22px_54px_rgba(14,165,233,0.18),inset_0_1px_0_rgba(255,255,255,0.95)] sm:h-[250px] sm:w-[250px]">
+        <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_38%,rgba(56,189,248,0.16),transparent_48%),radial-gradient(circle_at_50%_110%,rgba(125,211,252,0.28),transparent_44%)]" />
+        <div className="absolute inset-[5%] rounded-full border border-sky-300/40" />
+        <div className="absolute inset-y-0 left-1/2 w-[18%] -translate-x-1/2 rounded-full border border-sky-300/40" />
+        <div className="absolute inset-y-0 left-1/2 w-[48%] -translate-x-1/2 rounded-full border border-sky-300/35" />
+        <div className="absolute inset-y-0 left-1/2 w-[78%] -translate-x-1/2 rounded-full border border-sky-300/30" />
+        <div className="absolute left-0 right-0 top-1/2 h-[18%] -translate-y-1/2 rounded-full border border-sky-300/35" />
+        <div className="absolute left-0 right-0 top-[34%] h-[12%] -translate-y-1/2 rounded-full border border-sky-300/28" />
+        <div className="absolute left-0 right-0 top-[66%] h-[12%] -translate-y-1/2 rounded-full border border-sky-300/28" />
 
         <div className="globe-continents absolute inset-0">
           <svg viewBox="0 0 250 250" className="h-full w-full" aria-hidden="true">
@@ -33,7 +33,7 @@ export default function GlobalMomentumGlobe() {
                 height="6"
                 patternUnits="userSpaceOnUse"
               >
-                <circle cx="2" cy="2" r="1.15" fill="#38BDF8" />
+                <circle cx="2" cy="2" r="1.15" fill="#0284C7" />
               </pattern>
               <filter id="halapark-globe-glow">
                 <feGaussianBlur stdDeviation="1.4" result="blur" />
@@ -70,7 +70,7 @@ export default function GlobalMomentumGlobe() {
         {markerPoints.map((point, index) => (
           <div
             key={`${point.left}-${point.top}-${index}`}
-            className="globe-pin absolute h-2.5 w-2.5 rounded-full bg-white shadow-[0_0_14px_rgba(255,255,255,0.9)]"
+            className="globe-pin absolute h-2.5 w-2.5 rounded-full bg-sky-600 shadow-[0_0_14px_rgba(14,165,233,0.55)]"
             style={{
               left: point.left,
               top: point.top,
@@ -79,7 +79,7 @@ export default function GlobalMomentumGlobe() {
           />
         ))}
 
-        <div className="absolute inset-0 rounded-full border border-cyan-200/10 shadow-[inset_0_0_28px_rgba(56,189,248,0.08)]" />
+        <div className="absolute inset-0 rounded-full border border-sky-200/60 shadow-[inset_0_0_28px_rgba(56,189,248,0.12)]" />
       </div>
 
       <style jsx>{`

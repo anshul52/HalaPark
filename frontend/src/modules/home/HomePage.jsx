@@ -13,6 +13,7 @@ import SayGoodbye from "./sections/SayGoodbye";
 import Testimonials from "./sections/Testimonials";
 import BlogSection from "./sections/BlogSection";
 import HalaParkInAction from "./sections/HalaParkInAction";
+import SupportContactCTA from "./sections/SupportContactCTA";
 
 export default function HomePage() {
   return (
@@ -29,7 +30,8 @@ export default function HomePage() {
       <ClientsPartners />
       <SmartFeatures />
       <SayGoodbye />
-      <Testimonials />
+      <SupportContactCTA />
+      {/* <Testimonials /> */}
       {/* <BlogSection /> */}
       <HalaParkInAction />
     </div>

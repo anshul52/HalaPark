@@ -1,35 +1,40 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { BadgeCheck, CreditCard, Scale, ShieldCheck } from "lucide-react";
+
+const certifications = [
+  {
+    standard: "ISO 27001",
+    focus: "Information Security Management",
+    status: "Certified",
+    issued: "2026",
+    icon: ShieldCheck,
+  },
+  {
+    standard: "ISO 9001",
+    focus: "Quality Management Systems",
+    status: "Certified",
+    issued: "2025",
+    icon: BadgeCheck,
+  },
+  {
+    standard: "PCI DSS",
+    focus: "Secure Payment Processing",
+    status: "Compliant",
+    issued: "2026",
+    icon: CreditCard,
+  },
+  {
+    standard: "UAE Data Law",
+    focus: "Data Privacy & Governance",
+    status: "Aligned",
+    issued: "2026",
+    icon: Scale,
+  },
+];
 
 export default function CertificationsSection() {
-  const certifications = [
-    {
-      standard: "ISO 27001",
-      focus: "Information Security Management",
-      status: "Certified",
-      issued: "2026",
-    },
-    {
-      standard: "ISO 9001",
-      focus: "Quality Management Systems",
-      status: "Certified",
-      issued: "2025",
-    },
-    {
-      standard: "PCI DSS",
-      focus: "Secure Payment Processing",
-      status: "Compliant",
-      issued: "2026",
-    },
-    {
-      standard: "UAE Data Law",
-      focus: "Data Privacy & Governance",
-      status: "Aligned",
-      issued: "2026",
-    },
-  ];
-
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -38,7 +43,7 @@ export default function CertificationsSection() {
     }, 2600);
 
     return () => clearInterval(interval);
-  }, [certifications.length]);
+  }, []);
 
   return (
     <section className="py-9 sm:py-11 md:py-12 bg-white">
@@ -78,20 +83,39 @@ export default function CertificationsSection() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {certifications.map((item, i) => {
                 const isActive = i === activeIndex;
+                const Icon = item.icon;
+
                 return (
                   <button
                     key={item.standard}
+                    type="button"
                     onClick={() => setActiveIndex(i)}
+                    aria-pressed={isActive}
                     className={`text-left rounded-2xl border p-4 transition-all duration-400 ${
                       isActive
                         ? "bg-white text-slate-900 border-white shadow-[0_12px_30px_rgba(15,23,42,0.35)]"
                         : "bg-white/10 border-white/15 text-white hover:bg-white/15"
                     }`}
                   >
-                    <p className={`text-xs sm:text-sm ${isActive ? "text-slate-500" : "text-slate-200"}`}>
-                      {item.status} - {item.issued}
-                    </p>
-                    <p className="mt-1 text-lg sm:text-xl font-semibold">{item.standard}</p>
+                    <div className="flex items-start gap-3">
+                      <span
+                        className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border transition-colors ${
+                          isActive
+                            ? "border-slate-900/10 bg-slate-900 text-white"
+                            : "border-white/15 bg-white/10 text-blue-100"
+                        }`}
+                      >
+                        <Icon className="h-5 w-5" aria-hidden="true" />
+                      </span>
+
+                      <div className="min-w-0 flex-1">
+                        <p className={`text-xs sm:text-sm ${isActive ? "text-slate-500" : "text-slate-200"}`}>
+                          {item.status} - {item.issued}
+                        </p>
+                        <p className="mt-1 text-lg sm:text-xl font-semibold">{item.standard}</p>
+                      </div>
+                    </div>
+
                     <p className={`mt-2 text-sm leading-relaxed ${isActive ? "text-slate-600" : "text-slate-100"}`}>
                       {item.focus}
                     </p>
