@@ -29,7 +29,7 @@ export default function HomePage() {
       <CertificationsSection />
       <ClientsPartners />
       <SmartFeatures />
-      <SayGoodbye />
+      {/* <SayGoodbye /> */}
       <SupportContactCTA />
       {/* <Testimonials /> */}
       {/* <BlogSection /> */}
