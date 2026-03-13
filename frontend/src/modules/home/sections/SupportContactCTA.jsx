@@ -39,8 +39,8 @@ export default function SupportContactCTA() {
             sizes="(min-width: 1024px) 1200px, 100vw"
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(243,247,250,0.98)_0%,rgba(243,247,250,0.94)_34%,rgba(243,247,250,0.42)_56%,rgba(15,23,42,0.22)_100%)]" />
-          <div className="absolute inset-y-0 right-0 w-1/3 bg-[radial-gradient(circle_at_center,rgba(34,197,94,0.22),transparent_68%)] blur-3xl" />
+          {/* <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(243,247,250,0.98)_0%,rgba(243,247,250,0.94)_34%,rgba(243,247,250,0.42)_56%,rgba(15,23,42,0.22)_100%)]" /> */}
+          {/* <div className="absolute inset-y-0 right-0 w-1/3 bg-[radial-gradient(circle_at_center,rgba(34,197,94,0.22),transparent_68%)] blur-3xl" /> */}
 
           <div className="relative grid min-h-[520px] gap-6 p-4 sm:p-6 lg:grid-cols-[minmax(0,560px)_1fr] lg:gap-10 lg:p-7">
             <div className="flex items-start">
