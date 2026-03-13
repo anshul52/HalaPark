@@ -6,17 +6,17 @@ import Link from "next/link";
 export default function Footer() {
   const appDownloadUrl = "https://halapark.com/app";
   const qrCodeSrc = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(
-    appDownloadUrl
+    appDownloadUrl,
   )}`;
   const quickLinks = [
     { name: "Home", href: "/" },
+    { name: "Services", href: "/service" },
     { name: "About Us", href: "/about" },
     { name: "App", href: "/app" },
     { name: "Business", href: "/business" },
     { name: "Blog", href: "/blog" },
   ];
   const quickLinks2 = [
-    { name: "Services", href: "/service" },
     { name: "About Us", href: "/about" },
     { name: "App", href: "/app" },
     { name: "Business", href: "/business" },
@@ -41,6 +41,10 @@ export default function Footer() {
             <a href="/" className="flex items-center gap-1 flex-shrink-0">
               <img src="logo-blue-11.png" alt="" className="sm:h-16 h-6" />
             </a>
+            <p className="mt-4 max-w-sm text-sm leading-6 text-black/70">
+              Smart parking technology built for drivers, properties, and cities
+              across the UAE.
+            </p>
           </div>
 
           <div className="flex flex-row flex-wrap justify-between items-start sm:w-3/5 w-full gap-6 relative sm:pb-0 pb-20">
@@ -63,7 +67,7 @@ export default function Footer() {
               </ul>
             </div>
             {/* Quick Links */}
-            <div>
+            {/* <div>
               <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
                 Quick Links
               </h4>
@@ -79,7 +83,7 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </div> */}
             {/* contact */}
             <div>
               <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">

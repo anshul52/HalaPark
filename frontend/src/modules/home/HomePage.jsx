@@ -9,6 +9,7 @@ import CertificationsSection from "./sections/CertificationsSection";
 import ClientsPartners from "./sections/ClientsPartners";
 import SmartIntegrations from "./sections/SmartIntegrations";
 import SmartFeatures from "./sections/SmartFeatures";
+import ParkingJourneyScrollSection from "./sections/ParkingJourneyScrollSection";
 import SayGoodbye from "./sections/SayGoodbye";
 import Testimonials from "./sections/Testimonials";
 import BlogSection from "./sections/BlogSection";
@@ -29,6 +30,7 @@ export default function HomePage() {
       <CertificationsSection />
       <ClientsPartners />
       <SmartFeatures />
+      <ParkingJourneyScrollSection />
       {/* <SayGoodbye /> */}
       <SupportContactCTA />
       {/* <Testimonials /> */}

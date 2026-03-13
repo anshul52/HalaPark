@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import TargetCursor from "@/components/ui/TargetCursor";
 
 const focusItems = [
   {
@@ -23,6 +25,7 @@ const focusItems = [
 
 export default function MajorFocusHighlight() {
   const sectionRef = useRef(null);
+  const gridRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -46,7 +49,6 @@ export default function MajorFocusHighlight() {
 
     return () => observer.disconnect();
   }, []);
-
   return (
     <section ref={sectionRef} className="bg-white py-10 sm:py-12 md:py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -61,9 +63,11 @@ export default function MajorFocusHighlight() {
             >
               <div className="flex w-full items-center">
                 <div className="flex w-fit items-center justify-center gap-1.5 rounded-full border border-[#cfe6ff] bg-white px-3 py-1.5 sm:gap-2 sm:px-4 sm:py-2">
-                  <img
+                  <Image
                     src="/download(1).svg"
                     alt="Major Focus Highlight"
+                    width={20}
+                    height={20}
                     className="h-4 w-4 shrink-0 sm:h-5 sm:w-5"
                   />
                   <p className="text-xs text-black sm:text-sm lg:text-[14px]">
@@ -98,11 +102,23 @@ export default function MajorFocusHighlight() {
               </div>
             </div>
 
-            <div className="grid gap-4">
+            <div
+              ref={gridRef}
+              className="relative grid gap-4"
+            >
+              <TargetCursor
+                scopeRef={gridRef}
+                targetSelector=".major-focus-cursor-target"
+                spinDuration={2}
+                hideDefaultCursor
+                parallaxOn
+                hoverDuration={0.2}
+              />
+
               {focusItems.map((item, index) => (
                 <article
                   key={item.id}
-                  className={`rounded-[1.75rem] border border-slate-200 bg-white/90 p-5 shadow-[0_12px_30px_rgba(15,23,42,0.04)] backdrop-blur transition-all duration-700 ease-out sm:p-6 ${
+                  className={`major-focus-cursor-target relative rounded-[1.75rem] border border-slate-200 bg-white/90 p-5 shadow-[0_12px_30px_rgba(15,23,42,0.04)] backdrop-blur transition-all duration-700 ease-out hover:border-[#b6dcff] hover:shadow-[0_18px_40px_rgba(0,136,255,0.08)] sm:p-6 ${
                     isVisible
                       ? "translate-y-0 opacity-100"
                       : "translate-y-8 opacity-0"
