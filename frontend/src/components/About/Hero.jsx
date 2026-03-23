@@ -16,6 +16,15 @@ export default function AboutHero() {
             />
           </div>
 
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.05 }}
+            className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#0088FF]"
+          >
+            About HalaPark
+          </motion.p>
+
           {/* Main Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -36,8 +45,7 @@ export default function AboutHero() {
               max-w-4xl
             "
           >
-            Find Parking Services in <br className="max-sm:hidden" /> UAE Fast,
-            Smart, Cashless
+            We Are Redefining How the UAE Parks
           </motion.h1>
 
           {/* Subtitle */}
@@ -54,9 +62,8 @@ export default function AboutHero() {
               max-w-xl
             "
           >
-            Discover public, private & yacht parking with seamless{" "}
-            <br className="max-sm:hidden" />
-            digital access.
+            Founded with a clear mission, to eliminate the friction of parking
+            through intelligent technology and local expertise.
           </motion.p>
 
           {/* Phone Mockup with Map Background */}

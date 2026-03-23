@@ -15,6 +15,7 @@ export default function Footer() {
     { name: "App", href: "/app" },
     { name: "Business", href: "/business" },
     { name: "Blog", href: "/blog" },
+    { name: "FAQS", href: "/faqs" },
   ];
   const quickLinks2 = [
     { name: "About Us", href: "/about" },
