@@ -10,10 +10,27 @@ export default function BusinessHero() {
         <div className="flex flex-col lg:flex-row items-center gap-12 max-md:gap-10 max-sm:gap-8">
           {/* Text Content */}
           <div className="lg:w-1/2 z-10 max-lg:text-center mt-20 sm:mt-0">
-            <motion.h1
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
+              className="
+                text-sm
+                max-sm:text-xs
+                font-semibold
+                uppercase
+                tracking-[0.2em]
+                text-blue-600
+                mb-4
+              "
+            >
+              For Business
+            </motion.p>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               className="
                 text-5xl 
                 lg:text-6xl 
@@ -25,8 +42,8 @@ export default function BusinessHero() {
                 mb-6
               "
             >
-              Park Smarter. Move Faster.{" "}
-              <span className="text-blue-600">Earn Better.</span>
+              Turn Your Parking Into a{" "}
+              <span className="text-blue-600">Profit Centre</span>
             </motion.h1>
 
             <motion.p
@@ -45,10 +62,9 @@ export default function BusinessHero() {
                 max-lg:mx-auto
               "
             >
-              In today's fast-moving world, time is everything. Searching for
-              parking shouldn't slow you down. With HalaPark, drivers, property
-              owners, and businesses connect through one powerful smart
-              platform.
+              Whether you own one bay or manage a 500-space facility, HalaPark
+              gives you the tools, technology, and team to run a smarter, more
+              profitable parking operation.
             </motion.p>
 
             <motion.div
@@ -82,7 +98,7 @@ export default function BusinessHero() {
                   transition-colors
                 "
               >
-                Let's Connect
+                Connect With Us
               </motion.button>
 
               <RatingBadge

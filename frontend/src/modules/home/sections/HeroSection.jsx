@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { VariableProximityText } from "@/components/ui";
+import { useEffect, useState } from "react";
 
 const AUTO_SLIDE_DELAY = 4500;
 
@@ -106,7 +105,6 @@ const ArrowRightIcon = () => (
 
 export default function HeroSection() {
   const [activeSlide, setActiveSlide] = useState(0);
-  const contentRef = useRef(null);
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -147,29 +145,13 @@ export default function HeroSection() {
         </div>
 
         <div className="relative flex min-h-[720px] w-full flex-col justify-center gap-10 px-4 py-12 sm:px-6 md:min-h-[760px] md:py-6 lg:flex-row lg:items-end lg:justify-between lg:px-8">
-          <div ref={contentRef} className="relative z-10 w-full max-w-xl">
+          <div className="relative z-10 w-full max-w-xl">
             <h1 className="mt-6 text-4xl font-semibold leading-[0.95] text-white sm:text-5xl md:text-6xl">
-              <VariableProximityText
-                key={`title-${currentSlide.id}`}
-                label={currentSlide.title}
-                containerRef={contentRef}
-                radius={140}
-                falloff="linear"
-                fromFontVariationSettings="'wght' 620, 'opsz' 36"
-                toFontVariationSettings="'wght' 1000, 'opsz' 96"
-              />
+              {currentSlide.title}
             </h1>
 
             <p className="mt-5 max-w-lg text-sm leading-7 text-white sm:text-base">
-              <VariableProximityText
-                key={`description-${currentSlide.id}`}
-                label={currentSlide.description}
-                containerRef={contentRef}
-                radius={110}
-                falloff="linear"
-                fromFontVariationSettings="'wght' 420, 'opsz' 12"
-                toFontVariationSettings="'wght' 760, 'opsz' 22"
-              />
+              {currentSlide.description}
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-3">

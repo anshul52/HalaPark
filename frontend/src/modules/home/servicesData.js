@@ -1,9 +1,21 @@
+export const servicesPageHero = {
+  tag: "Our Services",
+  headline: "The Complete Parking Solution — Under One Platform",
+  subtext:
+    "From public parking and private rental to EV charging and valet — HalaPark has every parking need covered.",
+};
+
 export const servicesData = [
   {
     slug: "smart-public-parking",
     name: "Smart Public Parking",
     summary:
       "Find available parking near you in real time, reserve ahead, and pay digitally in one flow.",
+    detailHeadline: "Find Available Parking. Book It. Drive In.",
+    detailBody:
+      "Real-time availability across the UAE's smartest parking network. Search by location, reserve your spot, and pay entirely through the app — no tickets, no cash, no queues.",
+    detailCtaLabel: "Learn More",
+    detailCtaHref: "/app",
     detailIntro:
       "Smart Public Parking helps drivers discover, access, and pay for parking with minimal friction across high-demand city locations.",
     detailSections: [
@@ -47,6 +59,11 @@ export const servicesData = [
     name: "Private Parking Rental",
     summary:
       "List unused parking bays, accept bookings, and earn recurring income through managed rentals.",
+    detailHeadline: "Your Empty Bay Is Worth Money.",
+    detailBody:
+      "List your unused parking space on HalaPark in minutes. We handle all bookings, payments, and support. Earn hourly, daily, or monthly — completely hands-free.",
+    detailCtaLabel: "List My Space",
+    detailCtaHref: "/contact",
     detailIntro:
       "Private Parking Rental turns underused private inventory into a bookable asset for residential, commercial, and mixed-use properties.",
     detailSections: [
@@ -90,6 +107,11 @@ export const servicesData = [
     name: "EV Charging",
     summary:
       "Combine parking and charging in one app-led journey for electric vehicle drivers.",
+    detailHeadline: "Park and Charge — Together.",
+    detailBody:
+      "Select HalaPark facilities offering integrated EV charging points. Find a spot, plug in, and manage your session through the same app you use for everything else.",
+    detailCtaLabel: "Find EV Locations",
+    detailCtaHref: "/app",
     detailIntro:
       "EV Charging extends the parking journey to support charging session discovery, activation, and usage tracking from the same platform.",
     detailSections: [
@@ -133,6 +155,11 @@ export const servicesData = [
     name: "Valet On Demand",
     summary:
       "Request, track, and retrieve valet service through a single real-time digital workflow.",
+    detailHeadline: "Professional Valet. One Tap.",
+    detailBody:
+      "Request a valet through the app. A certified professional collects your vehicle, parks it securely, and returns it exactly when you need it — with live tracking throughout.",
+    detailCtaLabel: "Book Valet",
+    detailCtaHref: "/contact",
     detailIntro:
       "Valet On Demand modernizes valet operations with app-based requests, driver visibility, and timed retrieval for premium sites.",
     detailSections: [
@@ -176,6 +203,11 @@ export const servicesData = [
     name: "Barrier-Free Parking",
     summary:
       "Use plate recognition and automated access rules to remove tickets, barriers, and manual validation.",
+    detailHeadline: "Your Plate Is Your Ticket.",
+    detailBody:
+      "Our licence plate recognition system means zero stops at barriers. Drive in, get detected, park, drive out — and payment is processed automatically.",
+    detailCtaLabel: "Learn More",
+    detailCtaHref: "/contact",
     detailIntro:
       "Barrier-Free Parking uses licence plate recognition and rules-based automation to streamline entry and exit across managed locations.",
     detailSections: [
@@ -219,6 +251,11 @@ export const servicesData = [
     name: "Parking Management",
     summary:
       "Run cameras, operators, access rules, payments, and reporting from one unified system.",
+    detailHeadline: "Full Parking Operations — Handled.",
+    detailBody:
+      "HalaPark provides end-to-end parking management for residential, commercial, and enterprise properties — including installation, maintenance, operations, and reporting.",
+    detailCtaLabel: "Talk to Our Team",
+    detailCtaHref: "/contact",
     detailIntro:
       "Parking Management is the operator-facing control layer for running end-to-end parking operations across one site or an entire portfolio.",
     detailSections: [
