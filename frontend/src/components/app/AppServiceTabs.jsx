@@ -99,6 +99,41 @@ function PhonePreview({ screen, label }) {
   );
 }
 
+function StepStatusIcon({ state, stepNumber }) {
+  if (state === "completed") {
+    return (
+      <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[#16B364] bg-[#16B364] text-white shadow-[0_10px_24px_-16px_rgba(22,179,100,0.8)]">
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 20 20"
+          className="h-5 w-5"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M5 10.5 8.25 13.75 15 7" />
+        </svg>
+      </span>
+    );
+  }
+
+  if (state === "active") {
+    return (
+      <span className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-[#0471D1] bg-white text-[#0471D1] shadow-[0_0_0_4px_rgba(4,113,209,0.14)]">
+        <span className="h-4 w-4 rounded-full bg-[#0471D1]" />
+      </span>
+    );
+  }
+
+  return (
+    <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[#D0D5DD] bg-white text-[13px] font-semibold text-[#98A2B3]">
+      {stepNumber}
+    </span>
+  );
+}
+
 export default function AppServiceTabs() {
   const [activeTab, setActiveTab] = useState(serviceFlows[0].key);
   const [activeStep, setActiveStep] = useState(serviceFlows[0].steps[0]);
@@ -109,6 +144,7 @@ export default function AppServiceTabs() {
     serviceShowcase[activeService.key] || serviceShowcase.public;
   const activeScreen =
     activeShowcase.stepScreens?.[activeStep] || activeShowcase.screen;
+  const activeStepIndex = Math.max(activeService.steps.indexOf(activeStep), 0);
 
   useEffect(() => {
     setActiveStep(activeService.steps[0]);
@@ -164,21 +200,68 @@ export default function AppServiceTabs() {
               {activeService.description}
             </p>
 
-            <div className="mt-6 flex flex-wrap justify-center gap-2 text-[15px] font-medium tracking-[0.06em] text-[#6B7280] md:justify-start">
-              {activeService.steps.map((step) => (
-                <button
-                  key={step}
-                  type="button"
-                  onClick={() => setActiveStep(step)}
-                  className={`rounded-full border px-3 py-1.5 transition-colors duration-200 ${
-                    activeStep === step
-                      ? "border-[#0471D1] bg-[#0471D1] text-white"
-                      : "border-[#E7E7E7] bg-white text-[#6B7280]"
-                  }`}
-                >
-                  {step}
-                </button>
-              ))}
+            <div className="mt-8 rounded-[28px] border border-[#E5E7EB] bg-[linear-gradient(180deg,#FFFFFF_0%,#F8FAFC_100%)] p-4  sm:p-5">
+              <div className="flex gap-3">
+                {activeService.steps.map((step, index) => {
+                  const isCompleted = index < activeStepIndex;
+                  const isActive = index === activeStepIndex;
+                  const state = isCompleted
+                    ? "completed"
+                    : isActive
+                      ? "active"
+                      : "pending";
+                  const statusLabel = isCompleted
+                    ? "Completed"
+                    : isActive
+                      ? "In Progress"
+                      : "Pending";
+                  const connectorClass = isCompleted
+                    ? "bg-[#16B364]"
+                    : isActive
+                      ? "bg-gradient-to-r from-[#0471D1] to-[#D9E2EC]"
+                      : "bg-[#E4E7EC]";
+
+                  return (
+                    <button
+                      key={step}
+                      type="button"
+                      onClick={() => setActiveStep(step)}
+                      aria-pressed={isActive}
+                      className="min-w-0 flex-1 rounded-[22px] p-2 text-left transition-transform duration-200 hover:-translate-y-0.5"
+                    >
+                      <span className="flex items-center">
+                        <StepStatusIcon state={state} stepNumber={index + 1} />
+                        {index < activeService.steps.length - 1 ? (
+                          <span
+                            aria-hidden="true"
+                            className={`ml-3 h-1.5 flex-1 rounded-full ${connectorClass}`}
+                          />
+                        ) : null}
+                      </span>
+
+                      <span className="mt-4 flex flex-col gap-1">
+                        <span className="text-[12px] font-medium uppercase tracking-[0.12em] text-[#667085]">
+                          Step {index + 1}
+                        </span>
+                        <span className="text-[19px] font-medium leading-[1.15] text-[#101828] sm:text-[22px]">
+                          {step}
+                        </span>
+                        <span
+                          className={`text-[14px] font-medium ${
+                            isCompleted
+                              ? "text-[#16B364]"
+                              : isActive
+                                ? "text-[#0471D1]"
+                                : "inline-flex rounded-full border border-[#E4E7EC] px-2.5 py-0.5 text-[#667085]"
+                          }`}
+                        >
+                          {statusLabel}
+                        </span>
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
 
