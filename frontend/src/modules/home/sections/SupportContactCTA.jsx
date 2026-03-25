@@ -1,10 +1,9 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { VariableProximityText } from "@/components/ui";
-import { ArrowRight, Mail, MessageCircleMore, PhoneCall } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
+import { ArrowRight, Mail, PhoneCall } from "lucide-react";
 
 const whatsappHref =
   "https://wa.me/97143782022?text=Hello%20HalaPark%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20parking%20solutions.";
@@ -25,9 +24,6 @@ const contactMethods = [
 ];
 
 export default function SupportContactCTA() {
-  const leftPanelRef = useRef(null);
-  const rightPanelRef = useRef(null);
-
   return (
     <section className="bg-white py-10 sm:py-12 md:py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -45,52 +41,22 @@ export default function SupportContactCTA() {
           <div className="relative grid min-h-[520px] gap-6 p-4 sm:p-6 lg:grid-cols-[minmax(0,560px)_1fr] lg:gap-10 lg:p-7">
             <div className="flex items-start">
               <div
-                ref={leftPanelRef}
                 className="w-full max-w-[560px] rounded-[1.75rem] border border-white/80 bg-white/88 p-6 shadow-[0_30px_60px_rgba(15,23,42,0.12)] backdrop-blur sm:p-8 lg:mt-10"
               >
                 <p className="inline-flex items-center rounded-full border border-sky-100 bg-sky-50 px-4 py-2 text-sm font-medium text-sky-700">
-                  <VariableProximityText
-                    label="Get In Touch"
-                    containerRef={leftPanelRef}
-                    radius={95}
-                    falloff="linear"
-                    fromFontVariationSettings="'wght' 540, 'opsz' 14"
-                    toFontVariationSettings="'wght' 900, 'opsz' 28"
-                  />
+                  Get In Touch
                 </p>
 
                 <div className="relative mt-5 max-w-3xl">
-                  <h2 className="text-3xl font-semibold cursor-pointer leading-tight tracking-tight text-slate-950 sm:text-4xl md:text-[3.1rem]">
-                    <VariableProximityText
-                      label="Ready to Transform Your"
-                      containerRef={leftPanelRef}
-                      radius={120}
-                      falloff="linear"
-                      fromFontVariationSettings="'wght' 580, 'opsz' 26"
-                      toFontVariationSettings="'wght' 980, 'opsz' 72"
-                    />{" "}
-                    <VariableProximityText
-                      label="Parking Operations?"
-                      containerRef={leftPanelRef}
-                      radius={120}
-                      falloff="linear"
-                      fromFontVariationSettings="'wght' 620, 'opsz' 26"
-                      toFontVariationSettings="'wght' 1000, 'opsz' 72"
-                      className="text-[#0088FF]"
-                      style={{ color: "#0088FF" }}
-                    />
+                  <h2 className="text-3xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-4xl md:text-[3.1rem]">
+                    Ready to Transform Your{" "}
+                    <span className="text-[#0088FF]">Parking Operations?</span>
                   </h2>
                 </div>
 
                 <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
-                  <VariableProximityText
-                    label="Whether you want to list a space, integrate our platform, or explore enterprise solutions, our team is ready to help."
-                    containerRef={leftPanelRef}
-                    radius={95}
-                    falloff="linear"
-                    fromFontVariationSettings="'wght' 420, 'opsz' 12"
-                    toFontVariationSettings="'wght' 760, 'opsz' 22"
-                  />
+                  Whether you want to list a space, integrate our platform, or
+                  explore enterprise solutions, our team is ready to help.
                 </p>
 
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -98,14 +64,7 @@ export default function SupportContactCTA() {
                     href="/contact"
                     className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#2f66f3] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#2457dc]"
                   >
-                    <VariableProximityText
-                      label="Contact Us"
-                      containerRef={leftPanelRef}
-                      radius={85}
-                      falloff="linear"
-                      fromFontVariationSettings="'wght' 600, 'opsz' 14"
-                      toFontVariationSettings="'wght' 980, 'opsz' 30"
-                    />
+                    Contact Us
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </Link>
 
@@ -115,15 +74,8 @@ export default function SupportContactCTA() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-sky-200 hover:bg-sky-50"
                   >
-                    <MessageCircleMore className="h-4 w-4" aria-hidden="true" />
-                    <VariableProximityText
-                      label="WhatsApp Us"
-                      containerRef={leftPanelRef}
-                      radius={85}
-                      falloff="linear"
-                      fromFontVariationSettings="'wght' 600, 'opsz' 14"
-                      toFontVariationSettings="'wght' 980, 'opsz' 30"
-                    />
+                    <FaWhatsapp className="h-4 w-4" aria-hidden="true" />
+                    WhatsApp Us
                   </a>
                 </div>
 
@@ -143,25 +95,10 @@ export default function SupportContactCTA() {
 
                         <span className="min-w-0">
                           <span className="block text-xs uppercase tracking-[0.22em] text-slate-400">
-                            <VariableProximityText
-                              label={item.label}
-                              containerRef={leftPanelRef}
-                              radius={80}
-                              falloff="linear"
-                              fromFontVariationSettings="'wght' 520, 'opsz' 10"
-                              toFontVariationSettings="'wght' 860, 'opsz' 20"
-                            />
+                            {item.label}
                           </span>
                           <span className="mt-1 block break-all text-base font-medium text-slate-900">
-                            <VariableProximityText
-                              label={item.value}
-                              containerRef={leftPanelRef}
-                              radius={90}
-                              falloff="linear"
-                              preserveWords={false}
-                              fromFontVariationSettings="'wght' 520, 'opsz' 12"
-                              toFontVariationSettings="'wght' 900, 'opsz' 24"
-                            />
+                            {item.value}
                           </span>
                         </span>
                       </a>
@@ -170,50 +107,20 @@ export default function SupportContactCTA() {
                 </div>
 
                 <p className="mt-6 text-sm leading-7 text-slate-500">
-                  <VariableProximityText
-                    label="Email:"
-                    containerRef={leftPanelRef}
-                    radius={80}
-                    falloff="linear"
-                    fromFontVariationSettings="'wght' 500, 'opsz' 12"
-                    toFontVariationSettings="'wght' 820, 'opsz' 22"
-                  />{" "}
+                  Email:{" "}
                   <a
                     href="mailto:info@halapark.com"
                     className="font-medium text-slate-900 transition hover:text-[#0088FF]"
                   >
-                    <VariableProximityText
-                      label="info@halapark.com"
-                      containerRef={leftPanelRef}
-                      radius={80}
-                      falloff="linear"
-                      preserveWords={false}
-                      fromFontVariationSettings="'wght' 560, 'opsz' 12"
-                      toFontVariationSettings="'wght' 940, 'opsz' 24"
-                    />
+                    info@halapark.com
                   </a>{" "}
                   <span className="px-2 text-slate-300">|</span>
-                  <VariableProximityText
-                    label="Phone:"
-                    containerRef={leftPanelRef}
-                    radius={80}
-                    falloff="linear"
-                    fromFontVariationSettings="'wght' 500, 'opsz' 12"
-                    toFontVariationSettings="'wght' 820, 'opsz' 22"
-                  />{" "}
+                  Phone:{" "}
                   <a
                     href="tel:+97143782022"
                     className="font-medium text-slate-900 transition hover:text-[#0088FF]"
                   >
-                    <VariableProximityText
-                      label="+971 4 3782022"
-                      containerRef={leftPanelRef}
-                      radius={80}
-                      falloff="linear"
-                      preserveWords={false}
-                      fromFontVariationSettings="'wght' 560, 'opsz' 12"
-                      toFontVariationSettings="'wght' 940, 'opsz' 24"
-                    />
+                    +971 4 3782022
                   </a>
                 </p>
               </div>
@@ -221,30 +128,15 @@ export default function SupportContactCTA() {
 
             <div className="flex items-end justify-end">
               <div
-                ref={rightPanelRef}
                 className="w-full max-w-sm rounded-[1.75rem] border border-white/30 bg-slate-950/55 p-5 text-white shadow-[0_24px_60px_rgba(15,23,42,0.26)] backdrop-blur-md sm:p-6 lg:mb-6"
               >
                 <div className="flex items-center justify-between gap-3">
                   <div>
                     <p className="text-xs uppercase tracking-[0.28em] text-cyan-100/80">
-                      <VariableProximityText
-                        label="Support"
-                        containerRef={rightPanelRef}
-                        radius={90}
-                        falloff="linear"
-                        fromFontVariationSettings="'wght' 520, 'opsz' 12"
-                        toFontVariationSettings="'wght' 860, 'opsz' 24"
-                      />
+                      Support
                     </p>
                     <p className="mt-2 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                      <VariableProximityText
-                        label="Talk to the team directly"
-                        containerRef={rightPanelRef}
-                        radius={105}
-                        falloff="linear"
-                        fromFontVariationSettings="'wght' 580, 'opsz' 20"
-                        toFontVariationSettings="'wght' 980, 'opsz' 48"
-                      />
+                      Talk to the team directly
                     </p>
                   </div>
 
@@ -269,25 +161,10 @@ export default function SupportContactCTA() {
 
                         <span className="min-w-0">
                           <span className="block text-xs uppercase tracking-[0.22em] text-slate-300">
-                            <VariableProximityText
-                              label={item.label}
-                              containerRef={rightPanelRef}
-                              radius={82}
-                              falloff="linear"
-                              fromFontVariationSettings="'wght' 520, 'opsz' 10"
-                              toFontVariationSettings="'wght' 860, 'opsz' 20"
-                            />
+                            {item.label}
                           </span>
                           <span className="mt-1 block break-all text-base font-medium text-white sm:text-lg">
-                            <VariableProximityText
-                              label={item.value}
-                              containerRef={rightPanelRef}
-                              radius={90}
-                              falloff="linear"
-                              preserveWords={false}
-                              fromFontVariationSettings="'wght' 560, 'opsz' 12"
-                              toFontVariationSettings="'wght' 940, 'opsz' 24"
-                            />
+                            {item.value}
                           </span>
                         </span>
                       </a>

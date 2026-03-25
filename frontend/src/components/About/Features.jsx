@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 
-export default function AboutFeatures({ pagetype = "about" }) {
+export default function AboutFeatures({ pagetype = "about", data }) {
   const features = [
     {
       image: "dollar 1.png",
@@ -34,6 +34,21 @@ export default function AboutFeatures({ pagetype = "about" }) {
       desc: "Get reliable assistance round the clock for all your parking needs.",
     },
   ];
+
+  const hasData = Array.isArray(data) && data.length > 0;
+  const normalizedFeatures = hasData
+    ? data.map((item) =>
+        typeof item === "string"
+          ? { title: item, desc: "", image: null }
+          : {
+              title: item?.title || item?.label || item?.name || "",
+              desc: item?.desc || item?.description || "",
+              image: item?.image || item?.icon || null,
+            },
+      )
+    : pagetype === "about"
+      ? features.slice(0, 3)
+      : features;
 
   return (
     <section
@@ -77,19 +92,18 @@ export default function AboutFeatures({ pagetype = "about" }) {
         </motion.div>
 
         <div className="grid md:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-6 lg:gap-8 max-sm:gap-5">
-          {(pagetype === "about" ? features.slice(0, 3) : features).map(
-            (feature, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0 }}
-                whileHover={{
-                  y: -5,
-                  boxShadow: "0 20px 40px -15px rgba(0,0,0,0.1)",
-                }}
-                className="
+          {normalizedFeatures.map((feature, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0 }}
+              whileHover={{
+                y: -5,
+                boxShadow: "0 20px 40px -15px rgba(0,0,0,0.1)",
+              }}
+              className="
                 p-6 
                 lg:p-8 
                 max-sm:p-5 
@@ -100,8 +114,9 @@ export default function AboutFeatures({ pagetype = "about" }) {
                 transition-all 
                 duration-300
               "
-              >
-                <div className="flex items-center gap-4 mb-8 max-sm:mb-5">
+            >
+              <div className="flex items-center gap-4 mb-8 max-sm:mb-5">
+                {feature.image ? (
                   <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center">
                     <img
                       src={feature.image}
@@ -109,17 +124,19 @@ export default function AboutFeatures({ pagetype = "about" }) {
                       className="w-12 h-12 object-cover"
                     />
                   </div>
-                  <h3 className="text-lg max-sm:text-base font-medium text-slate-900">
-                    {feature.title}
-                  </h3>
-                </div>
+                ) : null}
+                <h3 className="text-lg max-sm:text-base font-medium text-slate-900">
+                  {feature.title}
+                </h3>
+              </div>
 
+              {feature.desc ? (
                 <p className="text-slate-600 text-base max-sm:text-sm font-medium leading-relaxed">
                   {feature.desc}
                 </p>
-              </motion.div>
-            ),
-          )}
+              ) : null}
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

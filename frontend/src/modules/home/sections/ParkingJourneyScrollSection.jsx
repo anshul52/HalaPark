@@ -8,10 +8,11 @@ import { ArrowRight } from "lucide-react";
 
 const steps = [
   {
-    id: "discover",
+    id: "Find",
     step: "01",
     eyebrow: "Live Inventory",
-    word: "Discover.",
+    word: "Find.",
+    image: "/Find.png",
     title: "See live spaces before drivers arrive.",
     description:
       "Browse real-time bay availability, upfront pricing, and nearby property options from one clear view.",
@@ -36,10 +37,11 @@ const steps = [
     },
   },
   {
-    id: "reserve",
+    id: "Park",
     step: "02",
     eyebrow: "Instant Booking",
-    word: "Reserve.",
+    word: "Park.",
+    image: "/Park.png",
     title: "Lock the right bay in just a few taps.",
     description:
       "Hold a parking space before arrival, set your entry window, and extend the reservation when plans shift.",
@@ -64,10 +66,11 @@ const steps = [
     },
   },
   {
-    id: "access",
+    id: "Pay",
     step: "03",
     eyebrow: "Touchless Entry",
-    word: "Access.",
+    word: "Pay.",
+    image: "/Pay.png",
     title: "Move through the gate without tickets or waiting.",
     description:
       "HalaPark connects ANPR, QR, and site controls so drivers enter faster and operators reduce queue friction.",
@@ -92,10 +95,11 @@ const steps = [
     },
   },
   {
-    id: "optimise",
+    id: "Done",
     step: "04",
     eyebrow: "Operator Control",
-    word: "Optimise.",
+    word: "Done",
+    image: "/Done.png",
     title: "Track occupancy, revenue, and site performance in one flow.",
     description:
       "Property owners and enterprise operators get a live view of utilisation, earnings, and operational alerts from the same platform.",
@@ -170,118 +174,17 @@ function getWordLayout(offset) {
 }
 
 function ScreenContent({ step, compact = false }) {
-  const frameHeight = compact ? "min-h-[420px]" : "min-h-[560px]";
-  const framePadding = compact ? "p-4" : "p-5";
-  const heroPadding = compact ? "p-4" : "p-5";
-  const heroValueSize = compact ? "text-[28px]" : "text-[34px]";
-  const rowPadding = compact ? "px-4 py-3" : "px-4 py-4";
-  const dotColor = step.gradient[0];
+  const imageSizes = compact ? "286px" : "352px";
 
   return (
-    <div
-      className={`${frameHeight} ${framePadding} bg-[linear-gradient(180deg,#f8fbff_0%,#eef6ff_100%)]`}
-    >
-      <div className="flex items-center justify-between text-[11px] font-medium tracking-[0.08em] text-slate-500">
-        <span>HALAPARK</span>
-        <span>{step.screen.badge}</span>
-      </div>
-
-      <div
-        className={`mt-4 rounded-[1.75rem] ${heroPadding} text-white shadow-[0_22px_50px_rgba(59,130,246,0.22)]`}
-        style={{
-          background: `linear-gradient(135deg, ${step.gradient[0]} 0%, ${step.gradient[1]} 100%)`,
-        }}
-      >
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <p className="text-[11px] uppercase tracking-[0.28em] text-white/70">
-              Step {step.step}
-            </p>
-            <p className={`mt-4 font-semibold tracking-tight ${heroValueSize}`}>
-              {step.screen.heroValue}
-            </p>
-            <p className="mt-1 text-sm text-white/80">
-              {step.screen.heroLabel}
-            </p>
-          </div>
-
-          <div className="rounded-2xl bg-white/15 px-3 py-2 text-right backdrop-blur">
-            <p className="text-[10px] uppercase tracking-[0.22em] text-white/60">
-              Topic
-            </p>
-            <p className="mt-1 text-sm font-semibold text-white">
-              {step.word.replace(".", "")}
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-4 flex flex-wrap gap-2">
-          {step.screen.chips.map((chip) => (
-            <span
-              key={chip}
-              className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-medium text-white/90"
-            >
-              {chip}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      <div className="mt-4 space-y-3">
-        {step.screen.rows.map((row) => (
-          <div
-            key={row.label}
-            className={`rounded-[1.4rem] border border-white/90 bg-white/80 ${rowPadding} shadow-[0_12px_30px_rgba(148,163,184,0.14)] backdrop-blur`}
-          >
-            <div className="flex items-center justify-between gap-4">
-              <p className="text-sm font-medium text-slate-900">{row.label}</p>
-              <span className="text-sm font-semibold text-slate-600">
-                {row.value}
-              </span>
-            </div>
-
-            <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-200">
-              <motion.div
-                className="h-full rounded-full"
-                initial={false}
-                animate={{
-                  width: `${row.progress}%`,
-                  backgroundColor: dotColor,
-                }}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              />
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-4 rounded-[1.4rem] border border-white/90 bg-white/72 px-4 py-3 shadow-[0_12px_24px_rgba(148,163,184,0.12)]">
-        <div className="flex items-center justify-between gap-4 text-sm">
-          <div>
-            <p className="text-[11px] uppercase tracking-[0.22em] text-slate-400">
-              {step.screen.footerLabel}
-            </p>
-            <p className="mt-1 font-semibold text-slate-900">
-              {step.screen.footerValue}
-            </p>
-          </div>
-
-          <div className="flex items-center gap-2">
-            {steps.map((item) => (
-              <span
-                key={item.id}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  item.id === step.id ? "w-6" : "w-2"
-                }`}
-                style={{
-                  backgroundColor:
-                    item.id === step.id ? step.gradient[0] : "#CBD5E1",
-                }}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
+    <div className="relative h-full w-full overflow-hidden bg-[linear-gradient(180deg,#f8fbff_0%,#eef6ff_100%)]">
+      <Image
+        src={step.image}
+        alt={`${step.word.replace(".", "")} screen`}
+        fill
+        sizes={imageSizes}
+        className="object-cover object-top"
+      />
     </div>
   );
 }
@@ -391,10 +294,12 @@ export default function ParkingJourneyScrollSection() {
         {/* ======================================= */}
         <div className="text-center mb-4 sm:mb-5 md:mb-36 bg-white">
           <div className="flex items-center justify-center w-fit mx-auto gap-1.5 rounded-full px-3 py-1">
-            <img
+            <Image
               src="/download(1).svg"
               alt="Features icon"
-              className="w-4 h-4 shrink-0"
+              width={16}
+              height={16}
+              className="h-4 w-4 shrink-0"
             />
             <p className="text-xs sm:text-sm lg:text-[14px] text-black max-w-2xl mx-auto">
               Interactive Parking Journey

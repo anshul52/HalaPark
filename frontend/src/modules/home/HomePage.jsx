@@ -24,7 +24,7 @@ export default function HomePage() {
       <TechnologySection />
       <TrustedUsers />
       {/* <SmartIntegrations /> */}
-      <GettingStartedSteps />
+      {/* <GettingStartedSteps /> */}
       <MajorFocusHighlight />
       <GlobalMomentumSection />
       <CertificationsSection />

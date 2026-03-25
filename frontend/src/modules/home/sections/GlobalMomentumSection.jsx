@@ -1,5 +1,7 @@
 "use client";
-
+import DottedMap from "dotted-map";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
@@ -11,26 +13,44 @@ const DEFAULT_SPOTLIGHT_RADIUS = 400;
 const DEFAULT_GLOW_COLOR = "14, 165, 233";
 const MOBILE_BREAKPOINT = 768;
 
-const insightCards = [
-  {
-    title: "Why Now",
-    description:
-      "Urbanisation and digital-first mobility are rapidly reshaping parking demand across high-growth markets.",
-  },
-  {
-    title: "Why HalaPark",
-    description:
-      "Enterprise-grade technology built for properties and cities moving toward connected parking operations.",
-  },
-];
-
+function PingDot({ lat, lng }) {
+  const p = projectPoint(lat, lng);
+  return (
+    <g>
+      <circle cx={p.x} cy={p.y} r="2.1" fill="#0088FF" />
+      <circle cx={p.x} cy={p.y} r="2.1" fill="#0088FF" opacity="0.5">
+        <animate
+          attributeName="r"
+          from="2.1"
+          to="8.2"
+          dur="1.6s"
+          begin="0s"
+          repeatCount="indefinite"
+        />
+        <animate
+          attributeName="opacity"
+          from="0.5"
+          to="0"
+          dur="1.6s"
+          begin="0s"
+          repeatCount="indefinite"
+        />
+      </circle>
+    </g>
+  );
+}
 const stats = [
   {
     value: "24%",
+    countTo: 24,
+    suffix: "%",
     label: "Regional growth momentum",
   },
   {
     value: "$11B+",
+    countTo: 11,
+    prefix: "$",
+    suffix: "B+",
     label: "Projected global smart parking market",
   },
   {
@@ -38,6 +58,99 @@ const stats = [
     label: "Leading digital-first urban mobility adoption",
   },
 ];
+
+function formatCounterValue(value, decimals = 0) {
+  return new Intl.NumberFormat("en-US", {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  }).format(value);
+}
+
+function MomentumStatValue({
+  value,
+  countTo,
+  prefix = "",
+  suffix = "",
+  decimals = 0,
+  disableAnimations = false,
+}) {
+  const counterRef = useRef(null);
+  const [displayNumber, setDisplayNumber] = useState(0);
+
+  useEffect(() => {
+    if (countTo == null || disableAnimations) {
+      return undefined;
+    }
+
+    const element = counterRef.current;
+
+    if (!element) {
+      return undefined;
+    }
+
+    let frameId;
+    let observer;
+    let hasAnimated = false;
+
+    const animateValue = () => {
+      const duration = 1400;
+      const startTime = performance.now();
+
+      const tick = (currentTime) => {
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        const easedProgress = 1 - (1 - progress) ** 3;
+        const currentValue = countTo * easedProgress;
+        const roundedValue =
+          decimals > 0
+            ? Number(currentValue.toFixed(decimals))
+            : Math.round(currentValue);
+
+        setDisplayNumber(roundedValue);
+
+        if (progress < 1) {
+          frameId = window.requestAnimationFrame(tick);
+          return;
+        }
+
+        setDisplayNumber(countTo);
+      };
+
+      frameId = window.requestAnimationFrame(tick);
+    };
+
+    observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting || hasAnimated) {
+          return;
+        }
+
+        hasAnimated = true;
+        animateValue();
+        observer.disconnect();
+      },
+      { threshold: 0.45 },
+    );
+
+    observer.observe(element);
+
+    return () => {
+      if (observer) {
+        observer.disconnect();
+      }
+
+      if (frameId) {
+        window.cancelAnimationFrame(frameId);
+      }
+    };
+  }, [countTo, decimals, disableAnimations]);
+
+  const displayValue =
+    countTo == null || disableAnimations
+      ? value
+      : `${prefix}${formatCounterValue(displayNumber, decimals)}${suffix}`;
+
+  return <span ref={counterRef}>{displayValue}</span>;
+}
 
 function createParticleElement(x, y, glowColor = DEFAULT_GLOW_COLOR) {
   const particle = document.createElement("div");
@@ -302,131 +415,37 @@ function MomentumMagicCard({
   );
 }
 
-function GlobalMomentumSpotlight({
-  sectionRef,
-  disableAnimations = false,
-  spotlightRadius = DEFAULT_SPOTLIGHT_RADIUS,
-  glowColor = DEFAULT_GLOW_COLOR,
-}) {
-  useEffect(() => {
-    const section = sectionRef.current;
+const MAP = new DottedMap({ height: 100, grid: "diagonal" });
+const SVG_MAP = MAP.getSVG({
+  radius: 0.22,
+  color: "#0F172A33",
+  shape: "circle",
+  backgroundColor: "#ffffff",
+});
 
-    if (!section || disableAnimations) {
-      return undefined;
-    }
+const UAE_SOURCE = { lat: 25.2048, lng: 55.2708, label: "Dubai, UAE" };
 
-    const spotlight = document.createElement("div");
-    spotlight.style.cssText = `
-      position: fixed;
-      width: 820px;
-      height: 820px;
-      left: 0;
-      top: 0;
-      border-radius: 50%;
-      pointer-events: none;
-      transform: translate(-50%, -50%);
-      opacity: 0;
-      z-index: 60;
-      mix-blend-mode: screen;
-      background: radial-gradient(circle,
-        rgba(${glowColor}, 0.14) 0%,
-        rgba(${glowColor}, 0.08) 18%,
-        rgba(${glowColor}, 0.04) 32%,
-        rgba(${glowColor}, 0.015) 48%,
-        transparent 72%
-      );
-    `;
-    document.body.appendChild(spotlight);
+const ROUTES = [
+  { start: UAE_SOURCE, end: { lat: 51.5072, lng: -0.1276, label: "London" } },
+  { start: UAE_SOURCE, end: { lat: 40.7128, lng: -74.006, label: "New York" } },
+  { start: UAE_SOURCE, end: { lat: 28.6139, lng: 77.209, label: "Delhi" } },
+  {
+    start: UAE_SOURCE,
+    end: { lat: 1.3521, lng: 103.8198, label: "Singapore" },
+  },
+];
 
-    const resetCards = () => {
-      section.querySelectorAll("[data-magic-card='true']").forEach((card) => {
-        card.style.setProperty("--gm-glow-intensity", "0");
-      });
-    };
+const projectPoint = (lat, lng) => {
+  const x = (lng + 180) * (800 / 360);
+  const y = (90 - lat) * (400 / 180);
+  return { x, y };
+};
 
-    const handleMouseMove = (event) => {
-      const rect = section.getBoundingClientRect();
-      const mouseInside =
-        event.clientX >= rect.left &&
-        event.clientX <= rect.right &&
-        event.clientY >= rect.top &&
-        event.clientY <= rect.bottom;
-
-      const cards = section.querySelectorAll("[data-magic-card='true']");
-
-      if (!mouseInside) {
-        resetCards();
-        gsap.to(spotlight, {
-          opacity: 0,
-          duration: 0.35,
-          ease: "power2.out",
-          overwrite: "auto",
-        });
-        return;
-      }
-
-      let strongestGlow = 0;
-
-      cards.forEach((card) => {
-        const cardRect = card.getBoundingClientRect();
-        const distanceX = Math.max(
-          cardRect.left - event.clientX,
-          0,
-          event.clientX - cardRect.right,
-        );
-        const distanceY = Math.max(
-          cardRect.top - event.clientY,
-          0,
-          event.clientY - cardRect.bottom,
-        );
-        const distance = Math.hypot(distanceX, distanceY);
-        const intensity =
-          distance <= spotlightRadius ? 1 - distance / spotlightRadius : 0;
-
-        strongestGlow = Math.max(strongestGlow, intensity);
-        updateCardGlowProperties(
-          card,
-          event.clientX,
-          event.clientY,
-          intensity,
-          spotlightRadius,
-        );
-      });
-
-      gsap.to(spotlight, {
-        left: event.clientX,
-        top: event.clientY,
-        opacity: strongestGlow > 0 ? strongestGlow * 0.78 : 0,
-        duration: 0.16,
-        ease: "power2.out",
-        overwrite: "auto",
-      });
-    };
-
-    const handleDocumentLeave = () => {
-      resetCards();
-      gsap.to(spotlight, {
-        opacity: 0,
-        duration: 0.3,
-        ease: "power2.out",
-        overwrite: "auto",
-      });
-    };
-
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseleave", handleDocumentLeave);
-
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseleave", handleDocumentLeave);
-      resetCards();
-      spotlight.remove();
-    };
-  }, [disableAnimations, glowColor, sectionRef, spotlightRadius]);
-
-  return null;
-}
-
+const createCurvedPath = (start, end) => {
+  const midX = (start.x + end.x) / 2;
+  const midY = Math.min(start.y, end.y) - 50;
+  return `M ${start.x} ${start.y} Q ${midX} ${midY} ${end.x} ${end.y}`;
+};
 export default function GlobalMomentumSection() {
   const panelRef = useRef(null);
   const isMobile = useMobileDetection();
@@ -435,83 +454,114 @@ export default function GlobalMomentumSection() {
   return (
     <section className="bg-white py-10 sm:py-12 md:py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-4 sm:mb-6 md:mb-8 lg:mb-0">
+          <div className="flex items-center justify-center w-fit mx-auto gap-1.5 sm:gap-2 rounded-full px-3 sm:px-4 py-1.5 sm:py-2">
+            <img
+              src="/download(1).svg"
+              alt="BLOG AND INSIGHTS"
+              className="w-4 h-4 sm:w-5 sm:h-5 text-white shrink-0"
+            />
+            <p className="text-xs sm:text-sm lg:text-[14px] text-black max-w-2xl mx-auto">
+              Global Momentum
+            </p>
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[56px] font-semibold text-gray-900 mb-3 sm:mb-4 tracking-tight">
+            Smart Parking Is the Future and the UAE Is Leading It
+          </h2>
+          <p className="text-sm sm:text-base lg:text-[16px] font-medium text-[#6D6D6D] max-w-2xl mx-auto px-4 sm:px-0">
+            The global smart parking market is growing rapidly, driven by
+            urbanisation and digital-first mobility. HalaPark is at the
+            forefront, bringing enterprise-grade technology to the UAE&apos;s
+            fastest-growing properties and cities.
+          </p>
+        </div>
         <div
           ref={panelRef}
-          className="relative overflow-hidden rounded-[2rem] border border-sky-100  p-5 shadow-[0_24px_54px_rgba(148,163,184,0.16)] sm:p-7 md:p-8"
+          className="relative overflow-hidden p-5 sm:p-7 md:p-8"
         >
-          <GlobalMomentumSpotlight
-            sectionRef={panelRef}
-            disableAnimations={disableAnimations}
-          />
+          <div className="relative">
+            <div className="mx-auto mt-10 w-full max-w-6xl rounded-3xl bg-white p-3">
+              <div className="relative w-full overflow-hidden rounded-2xl">
+                <Image
+                  src={`data:image/svg+xml;utf8,${encodeURIComponent(SVG_MAP)}`}
+                  className="h-full w-full select-none [mask-image:linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)]"
+                  alt="world map"
+                  width={1056}
+                  height={495}
+                  draggable={false}
+                />
 
-          <div className="absolute -top-16 right-10 h-44 w-44 rounded-full bg-sky-200/40 blur-3xl" />
-          <div className="absolute -bottom-20 left-8 h-52 w-52 rounded-full bg-cyan-100/70 blur-3xl" />
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-300/60 to-transparent" />
+                <svg
+                  viewBox="0 0 800 400"
+                  className="pointer-events-none absolute inset-0 h-full w-full select-none"
+                >
+                  <defs>
+                    <linearGradient
+                      id="halapark-path-gradient"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="0%"
+                    >
+                      <stop offset="0%" stopColor="white" stopOpacity="0" />
+                      <stop offset="5%" stopColor="#0088FF" stopOpacity="1" />
+                      <stop offset="95%" stopColor="#0088FF" stopOpacity="1" />
+                      <stop offset="100%" stopColor="white" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
 
-          <div className="relative grid gap-8 lg:grid-cols-[0.96fr_1.04fr] lg:items-center">
-            <div>
-              <div className="inline-flex items-center gap-3 rounded-full border border-sky-200 bg-white/90 px-4 py-2 text-sm font-medium text-sky-700 shadow-[0_10px_24px_rgba(148,163,184,0.12)]">
-                <span className="inline-flex h-2.5 w-2.5 rounded-full bg-sky-500 shadow-[0_0_18px_rgba(14,165,233,0.45)]" />
-                <span>Global Momentum</span>
+                  {ROUTES.map((route, i) => {
+                    const start = projectPoint(
+                      route.start.lat,
+                      route.start.lng,
+                    );
+                    const end = projectPoint(route.end.lat, route.end.lng);
+                    return (
+                      <g key={`route-${i}`}>
+                        <motion.path
+                          d={createCurvedPath(start, end)}
+                          fill="none"
+                          stroke="#0088FF"
+                          strokeOpacity="0.2"
+                          strokeWidth="2.2"
+                          initial={{ pathLength: 0 }}
+                          whileInView={{ pathLength: 1 }}
+                          viewport={{ once: true, amount: 0.4 }}
+                          transition={{
+                            duration: 1.1,
+                            delay: 0.3 * i,
+                            ease: "easeOut",
+                          }}
+                        />
+                        <motion.path
+                          d={createCurvedPath(start, end)}
+                          fill="none"
+                          stroke="url(#halapark-path-gradient)"
+                          strokeWidth="1.3"
+                          initial={{ pathLength: 0 }}
+                          whileInView={{ pathLength: 1 }}
+                          viewport={{ once: true, amount: 0.4 }}
+                          transition={{
+                            duration: 1.1,
+                            delay: 0.3 * i,
+                            ease: "easeOut",
+                          }}
+                        />
+                      </g>
+                    );
+                  })}
+
+                  {ROUTES.map((route, i) => (
+                    <g key={`points-${i}`}>
+                      <PingDot lat={route.start.lat} lng={route.start.lng} />
+                      <PingDot lat={route.end.lat} lng={route.end.lng} />
+                    </g>
+                  ))}
+                </svg>
               </div>
-
-              <h2 className="mt-5 max-w-3xl text-3xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-4xl md:text-[3.1rem]">
-                Smart Parking Is the Future and the UAE Is Leading It
-              </h2>
-
-              <p className="mt-5 max-w-3xl text-sm leading-7 text-slate-600 sm:text-base">
-                The global smart parking market is growing rapidly, driven by
-                urbanisation and digital-first mobility. HalaPark is at the
-                forefront, bringing enterprise-grade technology to the
-                UAE&apos;s fastest-growing properties and cities.
-              </p>
-
-              <div className="mt-6 grid max-w-2xl gap-3 sm:grid-cols-2">
-                {insightCards.map((item) => (
-                  <MomentumMagicCard
-                    key={item.title}
-                    disableAnimations={disableAnimations}
-                    className="rounded-[1.5rem] border border-white bg-white/85 p-4 shadow-[0_16px_35px_rgba(148,163,184,0.12)] backdrop-blur-sm"
-                  >
-                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">
-                      {item.title}
-                    </p>
-                    <p className="mt-2 text-sm leading-6 text-slate-600">
-                      {item.description}
-                    </p>
-                  </MomentumMagicCard>
-                ))}
-              </div>
-
-              <Link
-                href="/about"
-                className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-sky-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-sky-700"
-              >
-                Learn About Our Platform
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
             </div>
 
             <div className="grid gap-4">
-              <MomentumMagicCard
-                disableAnimations={disableAnimations}
-                className="rounded-[1.75rem] border border-sky-100 bg-[radial-gradient(circle_at_50%_18%,rgba(186,230,253,0.95),rgba(255,255,255,0.96)_40%,rgba(240,249,255,0.96)_100%)] p-6 shadow-[0_20px_40px_rgba(148,163,184,0.14)]"
-              >
-                <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-                  <div className="max-w-sm">
-                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">
-                      Momentum Map
-                    </p>
-                    <p className="mt-3 text-xl font-semibold leading-8 text-slate-900">
-                      Market demand is moving toward connected, low-friction
-                      parking ecosystems.
-                    </p>
-                  </div>
-
-                  <GlobalMomentumGlobe />
-                </div>
-              </MomentumMagicCard>
-
               <div className="grid gap-4 sm:grid-cols-3">
                 {stats.map((item, index) => (
                   <MomentumMagicCard
@@ -524,7 +574,14 @@ export default function GlobalMomentumSection() {
                     }`}
                   >
                     <p className="text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
-                      {item.value}
+                      <MomentumStatValue
+                        value={item.value}
+                        countTo={item.countTo}
+                        prefix={item.prefix}
+                        suffix={item.suffix}
+                        decimals={item.decimals}
+                        disableAnimations={disableAnimations}
+                      />
                     </p>
                     <p className="mt-2 text-sm leading-7 text-slate-600 sm:text-base">
                       {item.label}
