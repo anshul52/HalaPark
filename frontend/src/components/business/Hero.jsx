@@ -5,8 +5,8 @@ import RatingBadge from "@/components/common/RatingBadge";
 
 export default function BusinessHero() {
   return (
-    <section className="relative pt-32 lg:pt-38 overflow-hidden h-screen bg-gradient-to-l from-[#9CD1FF] to-white">
-      <div className="container mx-auto sm:px-0 px-4 max-w-7xl">
+    <section className="relative pt-32 lg:pt-38 flex items-end overflow-hidden max-h-screen bg-gradient-to-l from-[#9CD1FF] to-white">
+      <div className="container mx-auto sm:px-0 px-4 max-w-7xl ">
         <div className="flex flex-col lg:flex-row items-center gap-12 max-md:gap-10 max-sm:gap-8 ">
           {/* Text Content */}
           <div className="lg:w-1/2 z-10 max-lg:text-center mt-20 sm:mt-0 ">
@@ -121,7 +121,7 @@ export default function BusinessHero() {
                 w-[72%]
                 max-w-[420px]
                 max-lg:pl-0 
-                max-md:w-[60%] 
+                max-md:w-[70%] 
                 max-sm:w-[58%] 
                 h-auto
               "
