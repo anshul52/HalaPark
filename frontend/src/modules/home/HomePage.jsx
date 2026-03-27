@@ -23,18 +23,13 @@ export default function HomePage() {
       <EnterpriseSolutions />
       <TechnologySection />
       <TrustedUsers />
-      {/* <SmartIntegrations /> */}
-      {/* <GettingStartedSteps /> */}
       <MajorFocusHighlight />
       <GlobalMomentumSection />
+      <ParkingJourneyScrollSection />
       <CertificationsSection />
       <ClientsPartners />
       <SmartFeatures />
-      <ParkingJourneyScrollSection />
-      {/* <SayGoodbye /> */}
       <SupportContactCTA />
-      {/* <Testimonials /> */}
-      {/* <BlogSection /> */}
       <HalaParkInAction />
     </div>
   );

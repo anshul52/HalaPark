@@ -7,75 +7,63 @@ const AUTO_SLIDE_DELAY = 4500;
 const slides = [
   {
     id: 1,
-    cardImg:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80",
+    cardImg: "/hf_20260327_065515_cd3808b8-d99d-4faa-817d-e3f772726da6.png",
     tag: "Smart Public Parking",
     title: "Parking That Thinks Ahead So You Don't Have To",
     subtitle: "Find it. Reserve it. Arrive stress-free.",
     description:
       "Real-time availability helps you lock in your spot before you even step out. No circling, no guessing, just smooth, predictable parking every time.",
-    image:
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80",
+    image: "/hf_20260327_061900_db12a62e-2867-44b6-83f0-ea7f1a5442ef.png",
   },
   {
     id: 2,
-    cardImg:
-      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80",
+    cardImg: "/3ca506f760b463d2f3eb686fb08621c5.jpg.jpeg",
     tag: "Private Parking Rental",
     title: "Empty Space. Untapped Income.",
     subtitle: "Turn idle parking into steady earnings.",
     description:
       "List your space in minutes and start earning effortlessly. Smart pricing and secure bookings ensure consistent returns.",
-    image:
-      "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1600&q=80",
+    image: "/hf_20260327_062407_6dca49c0-90dd-468a-96f9-b36bba13ea8b.png",
   },
   {
     id: 3,
-    cardImg:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80",
+    cardImg: "/hf_20260327_071129_800d49da-6fb8-4b7e-a1ba-b32db4c31565.png",
     tag: "EV Charging",
     title: "Park Smart. Drive Electric. Repeat.",
     subtitle: "Charging that fits your routine.",
     description:
       "Locate and reserve charging-enabled parking in one go. Power up while you go about your day, no extra stops needed.",
-    image:
-      "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1600&q=80",
+    image: "/hf_20260327_060926_cbb82448-441c-42ee-9589-785e7acd7565.png",
   },
   {
     id: 4,
-    cardImg:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80",
+    cardImg: "/valet on demand short image.png",
     tag: "Valet On Demand",
     title: "Walk In Like You Own the Place",
     subtitle: "Premium parking without the wait.",
     description:
       "Request a valet instantly and skip the hassle of finding a spot. Arrive, hand over, and move on, effortless from start to finish.",
-    image:
-      "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1600&q=80",
+    image: "/hf_20260327_061010_f3bc038b-576f-4903-8896-5d998cc78527.png",
   },
   {
     id: 5,
-    cardImg:
-      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=900&q=80",
+    cardImg: "/hf_20260327_070648_996630bc-828e-4cd7-8cb1-f42c30332d86.png",
     tag: "Barrier-Free Parking",
     title: "Blink and You're Already In",
     subtitle: "Seamless entry, zero friction.",
     description:
       "License plate recognition handles access automatically. No tickets, no delays, just drive in and out with ease.",
-    image:
-      "https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=1600&q=80",
+    image: "/hf_20260327_064457_c75923ba-dc06-4c6e-9b63-fa181e94bcfa.png",
   },
   {
     id: 6,
-    cardImg:
-      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80",
+    cardImg: "/37ea36b9e2f10ae7848280afbc3236af.jpg.jpeg",
     tag: "Parking Management",
     title: "Less Chaos. More Control. More Revenue.",
     subtitle: "Everything managed from one place.",
     description:
       "Monitor, optimize, and scale operations across all locations. Smart insights and automation keep everything running at peak efficiency.",
-    image:
-      "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1600&q=80",
+    image: "/hf_20260327_064316_9c7b1a28-dbfa-456e-b88a-0087cb567a61.png",
   },
 ];
 
@@ -152,21 +140,11 @@ export default function HeroSection() {
 
         <div className="relative flex min-h-[720px] w-full flex-col justify-center gap-10 px-4 py-12 sm:px-6 md:min-h-[760px] md:py-6 lg:flex-row lg:items-end lg:justify-between lg:px-8">
           <div className="relative z-10 w-full max-w-xl">
-            {/* <p className="text-sm font-medium uppercase tracking-[0.28em] text-white/70">
-              {currentSlide.tag}
-            </p> */}
-
             <h1 className="mt-4 text-4xl font-semibold leading-[0.95] text-white sm:text-5xl md:text-6xl">
-              {/* {currentSlide.title} */}
               {currentSlide.tag}
             </h1>
 
-            {/* <p className="mt-5 max-w-lg text-lg font-medium leading-7 text-white/90 sm:text-xl">
-              {currentSlide.subtitle}
-            </p> */}
-
             <p className="mt-4 max-w-lg text-sm leading-7 text-white sm:text-base">
-              {/* {currentSlide.description} */}
               {currentSlide.title}
             </p>
 
